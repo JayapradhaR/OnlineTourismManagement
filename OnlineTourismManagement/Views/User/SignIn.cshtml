@@ -1,0 +1,39 @@
+﻿@model OnlineTourismManagement.Entity.UserDetails
+
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/Shared/Menu.cshtml";
+}
+
+@Html.Partial("_Content")
+
+@if (TempData["Message"] != null)
+{
+    @Html.Label((string)TempData["Message"],new {@class="heading"})
+}
+@using (Html.BeginForm("SignIn", "User", FormMethod.Post))
+{
+    <table cellpadding="10" align="center">
+        <tr>
+            <td>
+                @Html.Label("Username")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.MailId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Password")
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="Submit" />
+            </td>
+        </tr>
+    </table>
+}

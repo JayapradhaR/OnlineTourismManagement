@@ -1,0 +1,106 @@
+﻿@model OnlineTourismManagement.Entity.UserDetails
+
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/Menu.cshtml";
+}
+
+
+<link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />
+@Html.Partial("_Content")
+@using (Html.BeginForm("SignUp", "User", FormMethod.Post))
+{
+
+    <table cellpadding="10" align="center">
+        <tr>
+            <td>
+                @Html.Label("First Name")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.FirstName)
+                @Html.ValidationMessageFor(Model => Model.FirstName, "", new { @class = "error" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Last Name")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.LastName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Mobile Number")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.MobileNumber)
+                @Html.ValidationMessageFor(Model => Model.MobileNumber, "", new { @class = "error" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Gender")
+            </td>
+            <td>
+                @Html.RadioButtonFor(Model => Model.Gender, "male")Male
+                @Html.RadioButtonFor(Model => Model.Gender, "female")Female &nbsp; &nbsp; &nbsp;
+                @Html.ValidationMessageFor(Model => Model.Gender, "", new { @class = "error" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model=>Model.DateOfBirth)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model=>Model.DateOfBirth)
+                @Html.ValidationMessageFor(Model=>Model.DateOfBirth,"",new { @class="error"})
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Mail ID")
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.MailId)
+                @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Password")
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.Password)
+                @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("Confirm password")
+            </td>
+            <td>
+                @Html.PasswordFor(Model => Model.ConfirmPassword)
+                @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { @class = "error" })
+            </td>
+        </tr>
+        <tr>
+
+            <td>
+
+                @Html.Label("Role")
+            </td>
+            <td>
+
+                @Html.EnumDropDownListFor(Model => Model.UserRole, "Select a role")
+                @Html.ValidationMessageFor(Model => Model.UserRole)
+            </td>
+        </tr>
+        <tr colspan="2">
+            <td>
+                <input type="Submit" />
+            </td>
+        </tr>
+    </table>
+    @Html.ValidationSummary(true)
+}

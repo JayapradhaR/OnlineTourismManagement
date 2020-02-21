@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<title>@ViewBag.Title</title>
+<style>
+    header {
+        height: 50px;
+        width: 100%;
+        background-color: yellowgreen;
+    }
+</style>
+<header style="text-align:center">
+    <h1>Online Tourism Management</h1>
+</header>
+<nav>
+    @Html.ActionLink("Sign In", "SignIn")<br /><br />
+    @Html.ActionLink("Sign Up", "SignUp")
+</nav>
+<div>
+    @RenderBody()
+</div>
+<footer style="text-align:center;background-color:yellowgreen">
+    Time To Travel
+</footer>
