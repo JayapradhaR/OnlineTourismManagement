@@ -1,16 +1,14 @@
-﻿@model OnlineTourismManagement.Entity.UserDetails
+﻿@model OnlineTourismManagement.Models.UserSignUp
 
 @{
     ViewBag.Title = "SignUp";
-    Layout = "~/Views/Shared/Menu.cshtml";
 }
-
 
 <link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />
 @Html.Partial("_Content")
 @using (Html.BeginForm("SignUp", "User", FormMethod.Post))
 {
-
+    @Html.ValidationSummary(true)
     <table cellpadding="10" align="center">
         <tr>
             <td>
@@ -50,11 +48,11 @@
         </tr>
         <tr>
             <td>
-                @Html.LabelFor(Model=>Model.DateOfBirth)
+                @Html.LabelFor(Model => Model.DateOfBirth)
             </td>
             <td>
-                @Html.TextBoxFor(Model=>Model.DateOfBirth)
-                @Html.ValidationMessageFor(Model=>Model.DateOfBirth,"",new { @class="error"})
+                @Html.TextBoxFor(Model => Model.DateOfBirth)
+                @Html.ValidationMessageFor(Model => Model.DateOfBirth, "", new { @class = "error" })
             </td>
         </tr>
         <tr>
@@ -102,5 +100,7 @@
             </td>
         </tr>
     </table>
-    @Html.ValidationSummary(true)
+
 }
+
+

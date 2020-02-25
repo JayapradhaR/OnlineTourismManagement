@@ -1,12 +1,18 @@
 ﻿using OnlineTourismManagement.Entity;
 using OnlineTourismManagement.DAL;
+using OnlineTourismManagement.BL;
+using System.Collections.Generic;
 namespace OnlineTourismManagement.BL
 {
     public class UserBL
     {
-        public static int AddUser(UserDetails user)
+        public static void AddUser(UserDetails user)
         {
-            return UserRepository.AddUser(user);
+            UserRepository.AddUser(user);
+        }
+        public static IEnumerable<UserDetails> GetUsers()
+        {
+            return UserRepository.GetUsers();
         }
     }
 }
