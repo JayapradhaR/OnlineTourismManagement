@@ -32,7 +32,7 @@ namespace OnlineTourismManagement.Controllers
                 users.Password = user.Password;
                 users.ConfirmPassword = user.ConfirmPassword;
                 users.DateOfBirth = user.DateOfBirth;
-                //users.UserRole = user.UserRole;
+                users.UserRole =(Entity.Role) user.UserRole;
                 users.Gender = user.Gender;
                 UserBL.AddUser(users);
                 TempData["Message"] = "Registration successfully completed";

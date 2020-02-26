@@ -1,6 +1,5 @@
 ﻿using OnlineTourismManagement.Entity;
 using OnlineTourismManagement.DAL;
-using OnlineTourismManagement.BL;
 using System.Collections.Generic;
 namespace OnlineTourismManagement.BL
 {
