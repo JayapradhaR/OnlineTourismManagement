@@ -11,7 +11,7 @@ namespace OnlineTourismManagement.Models
         User,
         Admin
     }
-    public class UserSignUp
+    public class SignUpViewModel
     {
         [Required(ErrorMessage = "First name is required")]
         [DataType(DataType.Text, ErrorMessage = "Accept only text")]
@@ -51,9 +51,9 @@ namespace OnlineTourismManagement.Models
         [Required(ErrorMessage = "User role required")]
         public Role UserRole { get; set; }
 
-        public UserSignUp() { }
+        public SignUpViewModel() { }
 
-        public UserSignUp(string firstName, string lastName, long mobileNumber, string gender, DateTime dateOfBirth, string mailId, string password)
+        public SignUpViewModel(string firstName, string lastName, long mobileNumber, string gender, DateTime dateOfBirth, string mailId, string password)
         {
             FirstName = firstName;
             LastName = lastName;

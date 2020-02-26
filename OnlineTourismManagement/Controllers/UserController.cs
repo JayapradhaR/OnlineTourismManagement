@@ -19,20 +19,21 @@ namespace OnlineTourismManagement.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SignUp(UserSignUp user)
+        public ActionResult SignUp(SignUpViewModel user)
         {
             UserDetails users = new UserDetails();
-            users.FirstName = user.FirstName;
-            users.LastName = user.LastName;
-            users.MobileNumber = user.MobileNumber;
-            users.MailId = user.MailId;
-            users.Password = user.Password;
-            users.ConfirmPassword = user.ConfirmPassword;
-            users.DateOfBirth = user.DateOfBirth;
-            //users.UserRole = user.UserRole;
-            users.Gender = user.Gender;
+            
             if (ModelState.IsValid)
             {
+                users.FirstName = user.FirstName;
+                users.LastName = user.LastName;
+                users.MobileNumber = user.MobileNumber;
+                users.MailId = user.MailId;
+                users.Password = user.Password;
+                users.ConfirmPassword = user.ConfirmPassword;
+                users.DateOfBirth = user.DateOfBirth;
+                //users.UserRole = user.UserRole;
+                users.Gender = user.Gender;
                 UserBL.AddUser(users);
                 TempData["Message"] = "Registration successfully completed";
                 return RedirectToAction("SignIn");
@@ -45,7 +46,7 @@ namespace OnlineTourismManagement.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SignIn(UserSignIn user)
+        public ActionResult SignIn(SignInViewModel user)
         {
             return View();
         }

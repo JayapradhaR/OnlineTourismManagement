@@ -6,7 +6,7 @@ using System.Web;
 
 namespace OnlineTourismManagement.Models
 {
-    public class UserSignIn
+    public class SignInViewModel
     {
         [Required(ErrorMessage = "Username required")]
         public string MailId { get; set; }
@@ -14,11 +14,11 @@ namespace OnlineTourismManagement.Models
         [Required(ErrorMessage = "Password required")]
         public string Password { get; set; }
 
-        public UserSignIn()
+        public SignInViewModel()
         {
 
         }
-        public UserSignIn(string username, string password)
+        public SignInViewModel(string username, string password)
         {
             MailId = username;
             Password = password;
