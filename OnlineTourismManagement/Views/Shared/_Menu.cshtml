@@ -16,13 +16,14 @@
     <header style="text-align:center">
         <h1>Online Tourism Management</h1>
     </header>
+    <div style="text-align:right">
+        @Html.ActionLink("Home", "Home","Homepage") &nbsp;&nbsp;
+        @Html.ActionLink("Sign In", "SignIn","User") &nbsp;&nbsp;
+        @Html.ActionLink("Sign Up", "SignUp","User")
+    </div>
     <div>
         @RenderBody()
     </div>
-    <nav>
-        @Html.ActionLink("Sign In", "SignIn")<br /><br />
-        @Html.ActionLink("Sign Up", "SignUp")
-    </nav>
     <footer style="text-align:center;background-color:yellowgreen">
         Time To Travel
     </footer>

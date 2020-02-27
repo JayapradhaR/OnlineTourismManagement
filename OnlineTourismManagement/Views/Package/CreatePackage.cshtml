@@ -1,0 +1,32 @@
+﻿@model OnlineTourismManagement.Models.PackageViewModel
+
+@{
+    ViewBag.Title = "CreatePackage";
+}
+
+<link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />
+@using (Html.BeginForm("CreatePackage", "Package", FormMethod.Post))
+{
+    <div style="text-align:center">
+        @Html.LabelFor(Model => Model.PackageName, new { @maxlength = "20" })
+        <div>
+            @Html.TextBoxFor(Model => Model.PackageName)
+            <div>@Html.ValidationMessageFor(Model => Model.PackageName, "", new { @class = "error" })</div>
+        </div>
+        @Html.LabelFor(Model => Model.PackageType, new { @maxlength = "20" })
+    <div>
+        @Html.TextBoxFor(Model => Model.PackageType)
+        <div>@Html.ValidationMessageFor(Model => Model.PackageType, "", new { @class = "error" })</div>
+    </div>
+        @Html.LabelFor(Model => Model.PackagePrice, new { @maxlength = "20" })
+        <div>
+            @Html.TextBoxFor(Model => Model.PackagePrice)
+            <div> @Html.ValidationMessageFor(Model => Model.PackagePrice, "", new { @class = "error" })</div>
+        </div>
+        <br /><br />
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+        <div></div>
+    </div>
+}
