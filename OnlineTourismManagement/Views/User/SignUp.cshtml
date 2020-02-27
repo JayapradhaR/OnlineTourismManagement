@@ -12,37 +12,37 @@
     <table cellpadding="10" align="center">
         <tr>
             <td>
-                @Html.Label("First Name")
+                @Html.LabelFor(Model=>Model.FirstName)
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.FirstName)
+                @Html.TextBoxFor(Model => Model.FirstName,new {@maxlength="30"})
                 @Html.ValidationMessageFor(Model => Model.FirstName, "", new { @class = "error" })
             </td>
         </tr>
         <tr>
             <td>
-                @Html.Label("Last Name")
+                @Html.LabelFor(Model=>Model.LastName)
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.LastName)
+                @Html.TextBoxFor(Model => Model.LastName,new {@maxlength="30"})
             </td>
         </tr>
         <tr>
             <td>
-                @Html.Label("Mobile Number")
+                @Html.LabelFor(Model=>Model.MobileNumber)
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.MobileNumber)
+                @Html.TextBoxFor(Model => Model.MobileNumber,new {@maxlength="10"})
                 @Html.ValidationMessageFor(Model => Model.MobileNumber, "", new { @class = "error" })
             </td>
         </tr>
         <tr>
             <td>
-                @Html.Label("Gender")
+                @Html.LabelFor(Model=>Model.Gender)
             </td>
             <td>
-                @Html.RadioButtonFor(Model => Model.Gender, "male")Male
-                @Html.RadioButtonFor(Model => Model.Gender, "female")Female &nbsp; &nbsp; &nbsp;
+                @Html.RadioButtonFor(Model => Model.Gender, "Male")Male
+                @Html.RadioButtonFor(Model => Model.Gender, "Female")Female &nbsp; &nbsp; &nbsp;
                 @Html.ValidationMessageFor(Model => Model.Gender, "", new { @class = "error" })
             </td>
         </tr>
@@ -57,41 +57,29 @@
         </tr>
         <tr>
             <td>
-                @Html.Label("Mail ID")
+                @Html.LabelFor(Model=>Model.MailId)
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.MailId)
+                @Html.TextBoxFor(Model => Model.MailId,new {@maxlength="20"})
                 @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })
             </td>
         </tr>
         <tr>
             <td>
-                @Html.Label("Password")
+                @Html.LabelFor(Model=>Model.Password)
             </td>
             <td>
-                @Html.PasswordFor(Model => Model.Password)
+                @Html.PasswordFor(Model => Model.Password,new {@maxlength="20"})
                 @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error" })
             </td>
         </tr>
         <tr>
             <td>
-                @Html.Label("Confirm password")
+                @Html.LabelFor(Model=>Model.ConfirmPassword)
             </td>
             <td>
-                @Html.PasswordFor(Model => Model.ConfirmPassword)
+                @Html.PasswordFor(Model => Model.ConfirmPassword,new {@maxlength="20"})
                 @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { @class = "error" })
-            </td>
-        </tr>
-        <tr>
-
-            <td>
-
-                @Html.Label("Role")
-            </td>
-            <td>
-
-                @Html.EnumDropDownListFor(Model => Model.UserRole, "Select a role")
-                @Html.ValidationMessageFor(Model => Model.UserRole)
             </td>
         </tr>
         <tr colspan="2">

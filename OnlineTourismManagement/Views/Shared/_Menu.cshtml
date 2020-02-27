@@ -1,25 +1,34 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿<!DOCTYPE html>
 
-<title>@ViewBag.Title</title>
-<style>
-    header {
-        height: 50px;
-        width: 100%;
-        background-color: yellowgreen;
-    }
-</style>
-<header style="text-align:center">
-    <h1>Online Tourism Management</h1>
-</header>
-<nav>
-    @Html.ActionLink("Sign In", "SignIn")<br /><br />
-    @Html.ActionLink("Sign Up", "SignUp")
-</nav>
-<div>
-    @RenderBody()
-</div>
-<footer style="text-align:center;background-color:yellowgreen">
-    Time To Travel
-</footer>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        header {
+            height: 50px;
+            width: 100%;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <header style="text-align:center">
+        <h1>Online Tourism Management</h1>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <nav>
+        @Html.ActionLink("Sign In", "SignIn")<br /><br />
+        @Html.ActionLink("Sign Up", "SignUp")
+    </nav>
+    <footer style="text-align:center;background-color:yellowgreen">
+        Time To Travel
+    </footer>
+
+</body>
+</html>
+
+
+

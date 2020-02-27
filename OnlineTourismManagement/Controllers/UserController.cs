@@ -30,9 +30,7 @@ namespace OnlineTourismManagement.Controllers
                 users.MobileNumber = user.MobileNumber;
                 users.MailId = user.MailId;
                 users.Password = user.Password;
-                users.ConfirmPassword = user.ConfirmPassword;
                 users.DateOfBirth = user.DateOfBirth;
-                users.UserRole =(Entity.Role) user.UserRole;
                 users.Gender = user.Gender;
                 UserBL.AddUser(users);
                 TempData["Message"] = "Registration successfully completed";
