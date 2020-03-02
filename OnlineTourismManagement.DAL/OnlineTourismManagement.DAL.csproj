@@ -52,6 +52,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202003011715430_InitialCreate.cs" />
+    <Compile Include="Migrations\202003011715430_InitialCreate.designer.cs">
+      <DependentUpon>202003011715430_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003011747372_UpdateColumn.cs" />
+    <Compile Include="Migrations\202003011747372_UpdateColumn.designer.cs">
+      <DependentUpon>202003011747372_UpdateColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003011749559_Update.cs" />
+    <Compile Include="Migrations\202003011749559_Update.designer.cs">
+      <DependentUpon>202003011749559_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003011751394_UpdateKey.cs" />
+    <Compile Include="Migrations\202003011751394_UpdateKey.designer.cs">
+      <DependentUpon>202003011751394_UpdateKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineTourismDBContext.cs" />
     <Compile Include="PackageRepository.cs" />
     <Compile Include="UserRepository.cs" />
@@ -70,6 +87,20 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003011715430_InitialCreate.resx">
+      <DependentUpon>202003011715430_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003011747372_UpdateColumn.resx">
+      <DependentUpon>202003011747372_UpdateColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003011749559_Update.resx">
+      <DependentUpon>202003011749559_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003011751394_UpdateKey.resx">
+      <DependentUpon>202003011751394_UpdateKey.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

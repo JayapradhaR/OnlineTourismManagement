@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "ViewPackage";
+}
+
+@Html.ActionLink("Add Package", "CreatePackage")
+<br />
+
+<table border="1" align="center">
+    <tr>
+        <td>Package Name</td>
+        <td>Package Price</td>
+        <td>Creation Date</td>
+        <td>Updation Date</td>
+    </tr>
+    @foreach (OnlineTourismManagement.Entity.PackageDetails item in ViewBag.Packages)
+    {
+        <tr>
+            <td>
+                @item.PackageName
+            </td>
+            <td>
+                @item.PackagePrice
+            </td>
+            <td>
+                @item.CreationDate
+            </td>
+            <td>
+                @item.UpdationDate
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PackageId })
+                @Html.ActionLink("Delete", "Delete", new { id = item.PackageId })
+            </td>
+        </tr>
+    }
+</table>
+

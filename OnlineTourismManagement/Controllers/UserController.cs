@@ -9,12 +9,13 @@ namespace OnlineTourismManagement.Controllers
     {
         // GET: User
         [ActionName("Registration")]
-        public ActionResult Index()
+        public ViewResult Index()
         {
+            IEnumerable<UserDetails> users = UserAccount.GetUsers();
             return View("Index");
         }
         [HttpGet]
-        public ActionResult SignUp()
+        public ViewResult SignUp()
         {
             return View();
         }
@@ -32,26 +33,35 @@ namespace OnlineTourismManagement.Controllers
                 users.Password = user.Password;
                 users.DateOfBirth = user.DateOfBirth;
                 users.Gender = user.Gender;
-                UserBL.AddUser(users);
+                UserAccount.AddUser(users);
                 TempData["Message"] = "Registration successfully completed";
                 return RedirectToAction("SignIn");
             }
             return View();
         }
         [HttpGet]
-        public ActionResult SignIn()
+        public ViewResult SignIn()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult SignIn(SignInViewModel user)
+        public ViewResult SignIn(SignInViewModel user)
         {
+            if(ModelState.IsValid)
+            {
+                bool isValid=UserAccount.ValidateLogIn(user.MailId, user.Password);
+                if (isValid)
+                    Response.Write("Login successful");
+                else
+                    Response.Write("Username or password incorrect");
+
+            }
             return View();
         }
-        public ActionResult DisplayUsers(UserDetails user)
+        public ViewResult DisplayUsers(UserDetails user)
         {
-            IEnumerable<UserDetails> users = UserBL.GetUsers();
-            return View(users);
+            
+            return View();
         }
 
     }

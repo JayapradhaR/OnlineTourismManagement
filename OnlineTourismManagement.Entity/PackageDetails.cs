@@ -1,33 +1,32 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTourismManagement.Entity
 {
+    [Table("Package")]
     public class PackageDetails
     {
         [Key]
         [Required]
-        [Display(Name="Package Id")]
         public int PackageId { get; set; }
 
         [Required]
-        [Display(Name = "Package Name")]
+        [MaxLength(30)]
+        [Index(IsUnique =true)]
         public string PackageName { get; set; }
 
         [Required]
-        [Display(Name="Package Type")]
+        [MaxLength(30)]
         public string PackageType { get; set; }
 
         [Required]
-        [Display(Name="Creation Date")]
         public DateTime CreationDate { get; set; }
 
         [Required]
-        [Display(Name="Updation Date")]
         public DateTime UpdationDate { get; set; }
 
         [Required]
-        [Display(Name="Package Price")]
         public int PackagePrice { get; set; }
            
 

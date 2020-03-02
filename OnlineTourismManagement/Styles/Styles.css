@@ -12,3 +12,29 @@
     color:darkolivegreen;
     text-align:center;
 }
+header {
+    height: 50px;
+    width: 100%;
+    background-color: yellowgreen;
+}
+
+.link{
+    text-align:right;
+}
+
+footer {
+    text-align:center;
+    background-color:yellowgreen;
+}
+
+.homeHead {
+    font-style:italic;
+    font-family:Corbel;
+    text-align:center;
+}
+
+.homeContent {
+    font-style:italic;
+    font-size:150%;
+    text-align:center;
+}

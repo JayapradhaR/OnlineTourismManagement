@@ -3,11 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineTourismManagement.Models
 {
-    public enum Role
-    {
-        User,
-        Admin
-    }
+    
     public class SignUpViewModel
     {
         [Display(Name = "First Name")]

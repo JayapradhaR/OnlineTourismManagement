@@ -4,7 +4,7 @@
     ViewBag.Title = "SignUp";
 }
 
-<link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />
+@*<link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />*@
 @Html.Partial("_Content")
 @using (Html.BeginForm("SignUp", "User", FormMethod.Post))
 {
@@ -60,7 +60,7 @@
                 @Html.LabelFor(Model=>Model.MailId)
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.MailId,new {@maxlength="20"})
+                @Html.TextBoxFor(Model => Model.MailId,new {@maxlength="64"})
                 @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })
             </td>
         </tr>

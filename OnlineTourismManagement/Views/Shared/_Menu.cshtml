@@ -4,19 +4,13 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <style>
-        header {
-            height: 50px;
-            width: 100%;
-            background-color: yellowgreen;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />
 </head>
 <body>
     <header style="text-align:center">
         <h1>Online Tourism Management</h1>
     </header>
-    <div style="text-align:right">
+    <div class="link">
         @Html.ActionLink("Home", "Home","Homepage") &nbsp;&nbsp;
         @Html.ActionLink("Sign In", "SignIn","User") &nbsp;&nbsp;
         @Html.ActionLink("Sign Up", "SignUp","User")
@@ -24,7 +18,7 @@
     <div>
         @RenderBody()
     </div>
-    <footer style="text-align:center;background-color:yellowgreen">
+    <footer>
         Time To Travel
     </footer>
 

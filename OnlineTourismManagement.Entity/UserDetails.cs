@@ -8,36 +8,35 @@ namespace OnlineTourismManagement.Entity
     public class UserDetails
     {
         [Key]
-        [Column("User Id")]
         [Required]
         public int UserId { get; set; }
 
-        [Column("First Name")]
         [Required]
+        [MaxLength(30)]
         public string FirstName { get; set; }
 
-        [Column("Last Name")]
         [Required]
+        [MaxLength(30)]
         public string LastName { get; set; }
 
-        [Column("Mobile Number")]
         [Required]
         public long MobileNumber { get; set; }
 
-        [Column("Gender")]
         [Required]
         public string Gender { get; set; }
 
-        [Column("Date of birth")]
         [Required]
         public DateTime DateOfBirth { get; set; }
 
         [Column("Username")]
         [Required]
+        [MaxLength(64)]
+        [Index(IsUnique = true)]
         public string MailId { get; set; }
 
         [Column("Password")]
         [Required]
+        [MaxLength(20)]
         public string Password { get; set; }
 
         private string role = "User";

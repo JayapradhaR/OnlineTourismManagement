@@ -154,6 +154,8 @@
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Homepage\Index.cshtml" />
     <Content Include="Views\Package\CreatePackage.cshtml" />
+    <Content Include="Views\Package\ViewPackage.cshtml" />
+    <Content Include="Views\Package\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
