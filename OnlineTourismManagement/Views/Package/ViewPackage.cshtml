@@ -3,9 +3,12 @@
     ViewBag.Title = "ViewPackage";
 }
 
-@Html.ActionLink("Add Package", "CreatePackage")
+@Html.ActionLink("Add Package", "CreatePackage",new { @style="text-align:center"})
 <br />
-
+@if (TempData["Message"] != null)
+{
+    @Html.Label((string)TempData["Message"])
+}
 <table border="1" align="center">
     <tr>
         <td>Package Name</td>

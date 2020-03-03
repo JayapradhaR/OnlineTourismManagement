@@ -3,8 +3,11 @@ using OnlineTourismManagement.Entity;
 using OnlineTourismManagement.BL;
 using OnlineTourismManagement.Models;
 using System.Collections.Generic;
+using OnlineTourismManagement.AuthData;
+
 namespace OnlineTourismManagement.Controllers
 {
+   // [Authentication]
     public class UserController : Controller
     {
         // GET: User
@@ -21,18 +24,10 @@ namespace OnlineTourismManagement.Controllers
         }
         [HttpPost]
         public ActionResult SignUp(SignUpViewModel user)
-        {
-            UserDetails users = new UserDetails();
-            
+        { 
             if (ModelState.IsValid)
             {
-                users.FirstName = user.FirstName;
-                users.LastName = user.LastName;
-                users.MobileNumber = user.MobileNumber;
-                users.MailId = user.MailId;
-                users.Password = user.Password;
-                users.DateOfBirth = user.DateOfBirth;
-                users.Gender = user.Gender;
+                UserDetails users = AutoMapper.Mapper.Map<SignUpViewModel, UserDetails>(user);
                 UserAccount.AddUser(users);
                 TempData["Message"] = "Registration successfully completed";
                 return RedirectToAction("SignIn");
@@ -45,13 +40,15 @@ namespace OnlineTourismManagement.Controllers
             return View();
         }
         [HttpPost]
-        public ViewResult SignIn(SignInViewModel user)
+        public ActionResult SignIn(SignInViewModel user)
         {
             if(ModelState.IsValid)
             {
-                bool isValid=UserAccount.ValidateLogIn(user.MailId, user.Password);
-                if (isValid)
+                string role=UserAccount.ValidateLogIn(user.MailId, user.Password);
+                if (role == "User")
                     Response.Write("Login successful");
+                else if (role == "Admin")
+                    return RedirectToAction("ViewPackage", "Package");
                 else
                     Response.Write("Username or password incorrect");
 

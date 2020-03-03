@@ -19,19 +19,19 @@ namespace OnlineTourismManagement.DAL
             context.UserDB.Add(user);
             context.SaveChanges();
         }
-        public static bool ValidateSignIn(string username,string password)
+        public static string ValidateSignIn(string username,string password)
         {
-            bool isValue=false;
+            string userRole="";
             IEnumerable<UserDetails> users = context.UserDB.ToList();
             foreach (var value in users)
             {
                 if (username == value.MailId && password == value.Password)
                 {
-                    isValue = true;
+                    userRole = value.UserRole;
                     break;
                 }
             }
-            return isValue;
+            return userRole;
         }
     }
 }

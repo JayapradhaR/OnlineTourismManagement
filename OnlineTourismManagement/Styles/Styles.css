@@ -1,6 +1,15 @@
-﻿body {
+﻿.image {
+    background-image: url('Images/menuImage.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    float:right;
+    width:70%;
 }
-
+.main{
+    float:left;
+    width:40%;
+}
 .error {
     color: red;
 }

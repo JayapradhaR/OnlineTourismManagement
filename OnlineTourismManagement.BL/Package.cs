@@ -20,11 +20,15 @@ namespace OnlineTourismManagement.BL
         }
         public static void UpdatePackage(PackageDetails package)
         {
-            PackageRepository.UpdatePackage(package);
+           PackageRepository.UpdatePackage(package);
         }
         public static PackageDetails GetPackageById(int packageId)
         {
             return PackageRepository.GetPackageById(packageId);
+        }
+        public static void DeletePackage(int id)
+        {
+            PackageRepository.DeletePackage(id);
         }
     }
 }

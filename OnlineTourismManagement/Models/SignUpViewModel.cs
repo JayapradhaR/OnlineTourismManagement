@@ -8,7 +8,7 @@ namespace OnlineTourismManagement.Models
     {
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "First name is required")]
-        [DataType(DataType.Text, ErrorMessage = "Accept only text")]
+        [DataType(DataType.Text, ErrorMessage = "Accepts only text")]
         [RegularExpression(@"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", ErrorMessage = "Enter valid name")]
         [MaxLength(30)]
         public string FirstName { get; set; }
@@ -40,7 +40,7 @@ namespace OnlineTourismManagement.Models
         [Display(Name = "Password")]
         [Required(ErrorMessage = "Password is required")]
         [DataType(DataType.Password)]
-        [RegularExpression(@"^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$", ErrorMessage = "Password must contain at least one letter, at least one number, and be longer than six charaters.")]
+        [RegularExpression(@"^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$", ErrorMessage = "Password must contain at least one letter, at least one number, and be longer than six charaters and should not contain special character")]
         public string Password { get; set; }
 
         [Display(Name = "Confirm Password")]

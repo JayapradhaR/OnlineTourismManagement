@@ -13,6 +13,7 @@ namespace OnlineTourismManagement
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            MappingConfiguration.MapUserDetails();
         }
     }
 }

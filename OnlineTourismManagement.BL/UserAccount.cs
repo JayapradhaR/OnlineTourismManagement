@@ -13,7 +13,7 @@ namespace OnlineTourismManagement.BL
         {
             return UserRepository.GetUsers();
         }
-        public static bool ValidateLogIn(string username,string password)
+        public static string ValidateLogIn(string username,string password)
         {
             return UserRepository.ValidateSignIn(username, password);
         }

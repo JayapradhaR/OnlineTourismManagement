@@ -7,21 +7,23 @@
     <link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />
 </head>
 <body>
-    <header style="text-align:center">
-        <h1>Online Tourism Management</h1>
-    </header>
-    <div class="link">
-        @Html.ActionLink("Home", "Home","Homepage") &nbsp;&nbsp;
-        @Html.ActionLink("Sign In", "SignIn","User") &nbsp;&nbsp;
-        @Html.ActionLink("Sign Up", "SignUp","User")
-    </div>
     <div>
-        @RenderBody()
+        <header>
+            <h1 style="text-align:center">TIME TO TOUR</h1>
+        </header>
+        <div class="image">
+            
+        </div>
+        <div class="link">
+            @Html.ActionLink("Home", "Home", "Homepage") &nbsp;&nbsp;
+            @Html.ActionLink("Sign In", "SignIn", "User") &nbsp;&nbsp;
+            @Html.ActionLink("Sign Up", "SignUp", "User")
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+        <footer>TRAVEL YOUR OWN WAY</footer>
     </div>
-    <footer>
-        Time To Travel
-    </footer>
-
 </body>
 </html>
 

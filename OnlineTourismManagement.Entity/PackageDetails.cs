@@ -9,6 +9,7 @@ namespace OnlineTourismManagement.Entity
     {
         [Key]
         [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PackageId { get; set; }
 
         [Required]
@@ -28,7 +29,5 @@ namespace OnlineTourismManagement.Entity
 
         [Required]
         public int PackagePrice { get; set; }
-           
-
     }
 }

@@ -9,6 +9,7 @@ namespace OnlineTourismManagement.Entity
     {
         [Key]
         [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
 
         [Required]
@@ -39,19 +40,9 @@ namespace OnlineTourismManagement.Entity
         [MaxLength(20)]
         public string Password { get; set; }
 
-        private string role = "User";
         [Column("Role")]
-        public string UserRole
-        {
-            get
-            {
-                return role;
-            }
-            set
-            {
-                value = role;
-            }
-        }
+        public string UserRole{get;set;}
+
         public UserDetails() { }
 
         public UserDetails(string firstName, string lastName, long mobileNumber, string gender,DateTime dateOfBirth, string mailId, string password)

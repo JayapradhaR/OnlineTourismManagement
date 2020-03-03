@@ -68,6 +68,14 @@
     <Compile Include="Migrations\202003011751394_UpdateKey.designer.cs">
       <DependentUpon>202003011751394_UpdateKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003021800305_validation.cs" />
+    <Compile Include="Migrations\202003021800305_validation.designer.cs">
+      <DependentUpon>202003021800305_validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003030356128_key.cs" />
+    <Compile Include="Migrations\202003030356128_key.designer.cs">
+      <DependentUpon>202003030356128_key.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineTourismDBContext.cs" />
     <Compile Include="PackageRepository.cs" />
@@ -100,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003011751394_UpdateKey.resx">
       <DependentUpon>202003011751394_UpdateKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021800305_validation.resx">
+      <DependentUpon>202003021800305_validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003030356128_key.resx">
+      <DependentUpon>202003030356128_key.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
