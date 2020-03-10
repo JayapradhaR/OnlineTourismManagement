@@ -1,0 +1,22 @@
+﻿@model OnlineTourismManagement.Models.PackageTypeViewModel
+
+@{
+    ViewBag.Title = "AddPackageType";
+}
+
+@using (Html.BeginForm("AddPackageType", "PackageType"))
+{
+    <div style="text-align:center">
+        @Html.LabelFor(Model => Model.PackageTypeName)
+        <div>
+            @Html.TextBoxFor(Model => Model.PackageTypeName, new { @maxlength = "20" })
+            <div>@Html.ValidationMessageFor(Model => Model.PackageTypeName, "", new { @class = "error" })</div>
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+        <br />
+    </div>
+
+}

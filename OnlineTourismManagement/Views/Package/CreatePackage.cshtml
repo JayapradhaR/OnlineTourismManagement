@@ -8,19 +8,24 @@
 @using (Html.BeginForm("CreatePackage", "Package", FormMethod.Post))
 {
     <div style="text-align:center">
-        @Html.LabelFor(Model => Model.PackageName, new { @maxlength = "20" })
+        @Html.LabelFor(Model => Model.PackageName)
         <div>
-            @Html.TextBoxFor(Model => Model.PackageName)
+            @Html.TextBoxFor(Model => Model.PackageName, new { @maxlength = "20" })
             <div>@Html.ValidationMessageFor(Model => Model.PackageName, "", new { @class = "error" })</div>
         </div>
-        @Html.LabelFor(Model => Model.PackageType, new { @maxlength = "20" })
-    <div>
-        @Html.TextBoxFor(Model => Model.PackageType)
-        <div>@Html.ValidationMessageFor(Model => Model.PackageType, "", new { @class = "error" })</div>
-    </div>
-        @Html.LabelFor(Model => Model.PackagePrice, new { @maxlength = "20" })
+        @Html.LabelFor(Model => Model.Duration)
         <div>
-            @Html.TextBoxFor(Model => Model.PackagePrice)
+            @Html.TextBoxFor(Model => Model.Duration , new { @maxlength = "20" })
+            <div>@Html.ValidationMessageFor(Model => Model.Duration, "", new { @class = "error" })</div>
+        </div>
+        @Html.LabelFor(Model => Model.Availability)
+        <div>
+            @Html.TextBoxFor(Model => Model.Availability , new { @maxlength = "20" })
+            <div>@Html.ValidationMessageFor(Model => Model.Availability, "", new { @class = "error" })</div>
+        </div>
+        @Html.LabelFor(Model => Model.PackagePrice)
+        <div>
+            @Html.TextBoxFor(Model => Model.PackagePrice, new { @maxlength = "20" })
             <div> @Html.ValidationMessageFor(Model => Model.PackagePrice, "", new { @class = "error" })</div>
         </div>
         <br />

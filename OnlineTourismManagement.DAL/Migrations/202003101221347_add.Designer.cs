@@ -7,13 +7,13 @@ namespace OnlineTourismManagement.DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class UpdateColumn : IMigrationMetadata
+    public sealed partial class add : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateColumn));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(add));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003011747372_UpdateColumn"; }
+            get { return "202003101221347_add"; }
         }
         
         string IMigrationMetadata.Source

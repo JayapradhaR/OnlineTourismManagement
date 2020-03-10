@@ -10,19 +10,19 @@ namespace OnlineTourismManagement.DAL
     {
         //static SqlConnection connection;
         static OnlineTourismDBContext context = new OnlineTourismDBContext();
-        public static IEnumerable<UserDetails> GetUsers()
+        public static IEnumerable<User> GetUsers()
         {
-            return context.UserDB.ToList();
+            return context.Users.ToList();
         }
-        public static void AddUser(UserDetails user)
+        public static void AddUser(User user)
         {
-            context.UserDB.Add(user);
+            context.Users.Add(user);
             context.SaveChanges();
         }
         public static string ValidateSignIn(string username,string password)
         {
             string userRole="";
-            IEnumerable<UserDetails> users = context.UserDB.ToList();
+            IEnumerable<User> users = context.Users.ToList();
             foreach (var value in users)
             {
                 if (username == value.MailId && password == value.Password)
@@ -35,3 +35,4 @@ namespace OnlineTourismManagement.DAL
         }
     }
 }
+

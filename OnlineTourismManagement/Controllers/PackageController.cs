@@ -14,9 +14,9 @@ namespace OnlineTourismManagement.Controllers
         {
             return View();
         }
-        public ActionResult ViewPackage()
+        public ViewResult ViewPackage()
         {
-            IEnumerable<PackageDetails> package = Package.GetPackages();
+            IEnumerable<Package> package = PackageBL.GetPackages();
             ViewBag.Packages = package;
             return View();
         }
@@ -30,8 +30,8 @@ namespace OnlineTourismManagement.Controllers
         {
             if (ModelState.IsValid)
             {
-                PackageDetails package=AutoMapper.Mapper.Map<PackageViewModel,PackageDetails>(packages);
-                Package.AddPackage(package);
+                Package package=AutoMapper.Mapper.Map<PackageViewModel,Package>(packages);
+                PackageBL.AddPackage(package);
                 TempData["Message"] = "Package Added";
                 return RedirectToAction("ViewPackage");
             }
@@ -42,8 +42,8 @@ namespace OnlineTourismManagement.Controllers
         {
             if (ModelState.IsValid)
             {
-                PackageDetails pack = Package.GetPackageById(id);
-                 PackageViewModel package = AutoMapper.Mapper.Map<PackageDetails, PackageViewModel>(pack);
+                Package pack = PackageBL.GetPackageById(id);
+                 PackageViewModel package = AutoMapper.Mapper.Map<Package, PackageViewModel>(pack);
                 return View(package);
             }
             return View();
@@ -51,17 +51,19 @@ namespace OnlineTourismManagement.Controllers
         [HttpPost]
         public ActionResult Update([Bind(Include = "PackageId,PackagePrice, PackageName")]PackageViewModel packageDetails)
         {
-            PackageDetails package = Package.GetPackageById(packageDetails.PackageId);
+            Package package = PackageBL.GetPackageById(packageDetails.PackageId);
             package.PackageName = packageDetails.PackageName;
             package.PackagePrice = packageDetails.PackagePrice;
+            package.Duration = packageDetails.Duration;
+            package.Availability = packageDetails.Availability;
             package.UpdationDate = DateTime.Now;
-            Package.UpdatePackage(package);
+            PackageBL.UpdatePackage(package);
             TempData["Message"] = "Package updated";
             return RedirectToAction("ViewPackage");
         }
         public ActionResult Delete(int id)
         {
-            Package.DeletePackage(id);
+            PackageBL.DeletePackage(id);
             TempData["Message"] = "Package Deleted";
             return RedirectToAction("ViewPackage");
         }

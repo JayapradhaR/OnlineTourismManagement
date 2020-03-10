@@ -1,50 +1,53 @@
 ﻿using OnlineTourismManagement.Entity;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace OnlineTourismManagement.DAL
 {
-    public class PackageRepository
+    public class PackageTypeRepository
     {
-        public static IEnumerable<Package> GetPackages()
+        public static IEnumerable<PackageType> GetPackageTypes()
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
-                return context.Packages.ToList();
+                return context.PackageTypes.ToList();
             }
         }
-        public static void AddPackage(Package package)
+        public static void AddPackageType(PackageType packageType)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
-                context.Packages.Add(package);
+                context.PackageTypes.Add(packageType);
                 context.SaveChanges();
             }
         }
-        public static Package GetPackageById(int packageId)
+        public static PackageType GetPackageTypeById(int packageTypeId)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
-                return context.Packages.ToList().Where(id => id.PackageId == packageId).SingleOrDefault();
+                return context.PackageTypes.ToList().Where(id => id.PackageTypeId == packageTypeId).SingleOrDefault();
             }
         }
-        public static void UpdatePackage(Package package)
+        public static void UpdatePackageType(PackageType packageType)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
                 //PackageDetails pack = GetPackageById(package.PackageId);
-                context.Entry(package).State = EntityState.Modified;
+                context.Entry(packageType).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
-        public static void DeletePackage(int id)
+        public static void DeletePackageType(int id)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
-                Package package = GetPackageById(id);
-                context.Packages.Attach(package);
-                context.Packages.Remove(package);
+                PackageType packageType = GetPackageTypeById(id);
+                context.PackageTypes.Attach(packageType);
+                context.PackageTypes.Remove(packageType);
                 context.SaveChanges();
             }
         }

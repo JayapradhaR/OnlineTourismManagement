@@ -14,7 +14,7 @@ namespace OnlineTourismManagement.Controllers
         [ActionName("Registration")]
         public ViewResult Index()
         {
-            IEnumerable<UserDetails> users = UserAccount.GetUsers();
+            IEnumerable<User> users = UserAccount.GetUsers();
             return View("Index");
         }
         [HttpGet]
@@ -27,7 +27,7 @@ namespace OnlineTourismManagement.Controllers
         { 
             if (ModelState.IsValid)
             {
-                UserDetails users = AutoMapper.Mapper.Map<SignUpViewModel, UserDetails>(user);
+                User users = AutoMapper.Mapper.Map<SignUpViewModel, User>(user);
                 UserAccount.AddUser(users);
                 TempData["Message"] = "Registration successfully completed";
                 return RedirectToAction("SignIn");
@@ -55,7 +55,7 @@ namespace OnlineTourismManagement.Controllers
             }
             return View();
         }
-        public ViewResult DisplayUsers(UserDetails user)
+        public ViewResult DisplayUsers(User user)
         {
             
             return View();

@@ -5,11 +5,11 @@ namespace OnlineTourismManagement.BL
 {
     public class UserAccount
     {
-        public static void AddUser(UserDetails user)
+        public static void AddUser(User user)
         {
             UserRepository.AddUser(user);
         }
-        public static IEnumerable<UserDetails> GetUsers()
+        public static IEnumerable<User> GetUsers()
         {
             return UserRepository.GetUsers();
         }

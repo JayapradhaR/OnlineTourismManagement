@@ -9,7 +9,8 @@ namespace OnlineTourismManagement.DAL
         {
 
         }
-        public DbSet<UserDetails> UserDB { get; set; }
-        public DbSet<PackageDetails> PackageDB { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Package> Packages { get; set; }
+        public DbSet<PackageType> PackageTypes { get; set; }
     }
 }

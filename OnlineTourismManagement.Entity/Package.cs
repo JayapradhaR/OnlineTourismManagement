@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OnlineTourismManagement.Entity
 {
     [Table("Package")]
-    public class PackageDetails
+    public class Package
     {
         [Key]
         [Required]
@@ -13,13 +13,20 @@ namespace OnlineTourismManagement.Entity
         public int PackageId { get; set; }
 
         [Required]
+        public int PackageTypeId { get; set; }
+
+        public PackageType PackageTypes { get; set; }
+
+        [Required]
         [MaxLength(30)]
         [Index(IsUnique =true)]
         public string PackageName { get; set; }
 
         [Required]
-        [MaxLength(30)]
-        public string PackageType { get; set; }
+        public int Duration { get; set; }
+
+        [Required]
+        public int Availability { get; set; }
 
         [Required]
         public DateTime CreationDate { get; set; }

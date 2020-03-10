@@ -15,13 +15,17 @@ namespace OnlineTourismManagement.Models
         [Display(Name = "Package Name")]
         public string PackageName { get; set; }
 
-        [Required(ErrorMessage ="Package type required")]
-        [Display(Name = "Package Type")]
-        public string PackageType { get; set; }
-
         [Required(ErrorMessage ="Package price required")]
         [Display(Name = "Package Price")]
         public int PackagePrice { get; set; }
+
+        [Required(ErrorMessage ="Duration required")]
+        [Display(Name ="Duration")]
+        public int Duration { get; set; }
+
+        [Required(ErrorMessage = "Availability count required")]
+        [Display(Name = "Availability")]
+        public int Availability { get; set; }
 
         [Display(Name ="Creation Date")]
         public DateTime CreationDate { get; set; }

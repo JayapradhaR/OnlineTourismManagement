@@ -52,33 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202003011715430_InitialCreate.cs" />
-    <Compile Include="Migrations\202003011715430_InitialCreate.designer.cs">
-      <DependentUpon>202003011715430_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003011747372_UpdateColumn.cs" />
-    <Compile Include="Migrations\202003011747372_UpdateColumn.designer.cs">
-      <DependentUpon>202003011747372_UpdateColumn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003011749559_Update.cs" />
-    <Compile Include="Migrations\202003011749559_Update.designer.cs">
-      <DependentUpon>202003011749559_Update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003011751394_UpdateKey.cs" />
-    <Compile Include="Migrations\202003011751394_UpdateKey.designer.cs">
-      <DependentUpon>202003011751394_UpdateKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003021800305_validation.cs" />
-    <Compile Include="Migrations\202003021800305_validation.designer.cs">
-      <DependentUpon>202003021800305_validation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003030356128_key.cs" />
-    <Compile Include="Migrations\202003030356128_key.designer.cs">
-      <DependentUpon>202003030356128_key.cs</DependentUpon>
+    <Compile Include="Migrations\202003101221347_add.cs" />
+    <Compile Include="Migrations\202003101221347_add.designer.cs">
+      <DependentUpon>202003101221347_add.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineTourismDBContext.cs" />
     <Compile Include="PackageRepository.cs" />
+    <Compile Include="PackageTypeRepository.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,23 +78,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003011715430_InitialCreate.resx">
-      <DependentUpon>202003011715430_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003011747372_UpdateColumn.resx">
-      <DependentUpon>202003011747372_UpdateColumn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003011749559_Update.resx">
-      <DependentUpon>202003011749559_Update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003011751394_UpdateKey.resx">
-      <DependentUpon>202003011751394_UpdateKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003021800305_validation.resx">
-      <DependentUpon>202003021800305_validation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003030356128_key.resx">
-      <DependentUpon>202003030356128_key.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003101221347_add.resx">
+      <DependentUpon>202003101221347_add.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

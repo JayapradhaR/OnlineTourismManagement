@@ -6,6 +6,12 @@
     float:right;
     width:70%;
 }
+body {
+    height: 1140px;
+    resize: both;
+    border-color: lightgray;
+    border-style: solid;
+}
 .main{
     float:left;
     width:40%;
@@ -32,8 +38,8 @@ header {
 }
 
 footer {
-    text-align:center;
-    background-color:yellowgreen;
+    text-align: center;
+    background-color: yellowgreen;
 }
 
 .homeHead {

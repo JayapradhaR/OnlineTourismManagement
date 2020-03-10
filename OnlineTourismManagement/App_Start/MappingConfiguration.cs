@@ -11,11 +11,13 @@ namespace OnlineTourismManagement
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<SignUpViewModel, UserDetails>().ForMember(dest=>dest.UserRole,opt=>opt.MapFrom(src=>"User"));
-                config.CreateMap<PackageViewModel, PackageDetails>()
+                config.CreateMap<SignUpViewModel, User>().ForMember(dest=>dest.UserRole,opt=>opt.MapFrom(src=>"User"));
+                config.CreateMap<PackageViewModel, Package>()
                 .ForMember(dest => dest.UpdationDate, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(dest=>dest.CreationDate,opt=>opt.MapFrom(src=>DateTime.Now));
-                config.CreateMap<PackageDetails, PackageViewModel>();
+                config.CreateMap<Package, PackageViewModel>();
+                config.CreateMap<PackageTypeViewModel, PackageType>();
+                config.CreateMap< PackageType, PackageTypeViewModel>();
             });
         }
     }

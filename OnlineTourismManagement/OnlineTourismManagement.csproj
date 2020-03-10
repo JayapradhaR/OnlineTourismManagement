@@ -130,11 +130,13 @@
     <Compile Include="AuthData\Authentication.cs" />
     <Compile Include="Controllers\HomepageController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
+    <Compile Include="Controllers\PackageTypeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MappingConfiguration.cs" />
+    <Compile Include="App_Start\MappingConfiguration.cs" />
+    <Compile Include="Models\PackageTypeViewModel.cs" />
     <Compile Include="Models\PackageViewModel.cs" />
     <Compile Include="Models\SignInViewModel.cs" />
     <Compile Include="Models\SignUpViewModel.cs" />
@@ -163,6 +165,7 @@
     <Content Include="Views\Package\CreatePackage.cshtml" />
     <Content Include="Views\Package\ViewPackage.cshtml" />
     <Content Include="Views\Package\Edit.cshtml" />
+    <Content Include="Views\PackageType\AddPackageType.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

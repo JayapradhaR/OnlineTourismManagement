@@ -51,8 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PackageDetails.cs" />
-    <Compile Include="UserDetails.cs" />
+    <Compile Include="Package.cs" />
+    <Compile Include="PackageType.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
