@@ -58,7 +58,7 @@
                     @Html.LabelFor(Model => Model.DateOfBirth)
                 </td>
                 <td>
-                    @Html.TextBoxFor(Model => Model.DateOfBirth)
+                    @Html.TextBoxFor(Model => Model.DateOfBirth,new { @type="date"})
                 </td>
                 <td>
                     @Html.ValidationMessageFor(Model => Model.DateOfBirth, "", new { @class = "error" })

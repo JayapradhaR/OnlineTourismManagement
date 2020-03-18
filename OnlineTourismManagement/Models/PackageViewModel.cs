@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using OnlineTourismManagement.Entity;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace OnlineTourismManagement.Models
 {
@@ -32,5 +30,10 @@ namespace OnlineTourismManagement.Models
 
         [Display(Name ="Updation Date")]
         public DateTime UpdationDate { get; set; }
+
+        [Display(Name ="Package Type Id")]
+        public int PackageTypeId { get; set; }
+
+        public PackageType PackageTypes { get; set; }
     }
 }

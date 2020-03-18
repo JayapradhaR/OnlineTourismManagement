@@ -1,9 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "ViewPackage";
+    Layout = "~/Views/Shared/AdminMenu.cshtml";
 }
-
-@Html.ActionLink("Add Package", "CreatePackage",new { @style="text-align:center"})
+<div class="alignment">
+    @Html.ActionLink("Add Package", "CreatePackage", new { @style = "text-align:center" })
+</div>
 <br />
 @if (TempData["Message"] != null)
 {
@@ -15,6 +17,10 @@
         <td>Package Price</td>
         <td>Creation Date</td>
         <td>Updation Date</td>
+        <td>Duration</td>
+        <td>Availability</td>
+        <td>Package type Id</td>
+        <td>Action</td>
     </tr>
     @foreach (OnlineTourismManagement.Entity.Package item in ViewBag.Packages)
     {
@@ -32,8 +38,18 @@
                 @item.UpdationDate
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.PackageId })
-                @Html.ActionLink("Delete", "Delete", new { id = item.PackageId })
+                @item.Duration
+            </td>
+            <td>
+                @item.Availability
+            </td>
+            <td>
+                @item.PackageTypeId
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit","Package",new { id = item.PackageId },null)
+                @Html.ActionLink("Delete", "Delete","Package", new { id = item.PackageId },null)
+                @Html.ActionLink("Add Itinerary", "AddItinerary","Itinerary", new { id = item.PackageId, duration = item.Duration },null)
             </td>
         </tr>
     }

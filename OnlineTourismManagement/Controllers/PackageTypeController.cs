@@ -16,12 +16,14 @@ namespace OnlineTourismManagement.Controllers
         {
             return View();
         }
+        //Viewing package types
         public ViewResult ViewPackageType()
         {
             IEnumerable<PackageType> packageTypes = PackageTypeBL.GetPackageTypes();
-            ViewBag.Types = packageTypes;
+            ViewBag.PackageTypes = packageTypes;
             return View();
         }
+        //Add the package type
         [HttpGet]
         public ViewResult AddPackageType()
         {
@@ -33,9 +35,9 @@ namespace OnlineTourismManagement.Controllers
             if(ModelState.IsValid)
             {
                 PackageType package = AutoMapper.Mapper.Map<PackageTypeViewModel, PackageType>(packageType);
-                PackageTypeBL.AddPackageType(package);
-                TempData["Message"] = "Package type added";
-                return RedirectToAction("ViewPackageType");
+                PackageTypeBL.AddPackageType(package); //Call function to add the package details
+                TempData["Message"] = "Package type added"; // Tempdata to print the message 
+                return RedirectToAction("ViewPackageType"); 
             }
             return View();
         }
@@ -45,25 +47,25 @@ namespace OnlineTourismManagement.Controllers
             if (ModelState.IsValid)
             {
                 PackageType pack = PackageTypeBL.GetPackageTypeById(id);
-                PackageTypeViewModel package = AutoMapper.Mapper.Map<PackageType, PackageTypeViewModel>(pack);
+                PackageTypeViewModel package = AutoMapper.Mapper.Map<PackageType, PackageTypeViewModel>(pack); //Mapping 
                 return View(package);
             }
             return View();
         }
         [HttpPost]
-        public ActionResult Update([Bind(Include = "PackageId,PackageTypeName")]PackageTypeViewModel packageDetails)
+        public ActionResult Update([Bind(Include = "PackageTypeId,PackageTypeName")]PackageTypeViewModel packageDetails)
         {
             PackageType package = PackageTypeBL.GetPackageTypeById(packageDetails.PackageTypeId);
             package.PackageTypeName = packageDetails.PackageTypeName;
             PackageTypeBL.UpdatePackageType(package);
             TempData["Message"] = "Package type updated";
-            return RedirectToAction("ViewPackage");
+            return RedirectToAction("ViewPackageType");
         }
         public ActionResult Delete(int id)
         {
             PackageTypeBL.DeletePackageType(id);
             TempData["Message"] = "Package Deleted";
-            return RedirectToAction("ViewPackage");
+            return RedirectToAction("ViewPackageType");
         }
     }
 }

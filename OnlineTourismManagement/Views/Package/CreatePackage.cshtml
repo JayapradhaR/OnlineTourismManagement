@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "CreatePackage";
+    Layout = "~/Views/Shared/AdminMenu.cshtml";
 }
 
 <link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />
@@ -27,6 +28,10 @@
         <div>
             @Html.TextBoxFor(Model => Model.PackagePrice, new { @maxlength = "20" })
             <div> @Html.ValidationMessageFor(Model => Model.PackagePrice, "", new { @class = "error" })</div>
+        </div>
+        @Html.LabelFor(Model=>Model.PackageTypes)
+        <div>
+            @Html.DropDownListFor(Model=>Model.PackageTypeId,(IEnumerable<SelectListItem>)ViewBag.PackageTypes,"Select Package Type")
         </div>
         <br />
         <div>

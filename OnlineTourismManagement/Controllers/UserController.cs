@@ -23,7 +23,7 @@ namespace OnlineTourismManagement.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SignUp(SignUpViewModel user)
+        public ActionResult SignUp(SignUpViewModel user)  // Sign up details
         { 
             if (ModelState.IsValid)
             {
@@ -40,7 +40,7 @@ namespace OnlineTourismManagement.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SignIn(SignInViewModel user)
+        public ActionResult SignIn(SignInViewModel user) //Sign in details
         {
             if(ModelState.IsValid)
             {
@@ -48,7 +48,7 @@ namespace OnlineTourismManagement.Controllers
                 if (role == "User")
                     Response.Write("Login successful");
                 else if (role == "Admin")
-                    return RedirectToAction("ViewPackage", "Package");
+                    return RedirectToAction("Index", "Package");
                 else
                     Response.Write("Username or password incorrect");
 

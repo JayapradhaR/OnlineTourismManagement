@@ -49,8 +49,6 @@ namespace OnlineTourismManagement.Models
         [Compare("Password", ErrorMessage = "Password and Confirm password must be same")]
         public string ConfirmPassword { get; set; }
 
-        
-
         public SignUpViewModel() { }
 
         public SignUpViewModel(string firstName, string lastName, long mobileNumber, string gender, DateTime dateOfBirth, string mailId, string password)

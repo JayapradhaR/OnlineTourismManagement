@@ -1,10 +1,6 @@
 ﻿using OnlineTourismManagement.DAL;
 using OnlineTourismManagement.Entity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineTourismManagement.BL
 {
@@ -30,5 +26,11 @@ namespace OnlineTourismManagement.BL
         {
             PackageRepository.DeletePackage(id);
         }
+
+        public static void AddItinerary(List<Itinerary> itineraries)
+        {
+            ItineraryRepository.AddItinerary(itineraries);
+        }
+
     }
 }

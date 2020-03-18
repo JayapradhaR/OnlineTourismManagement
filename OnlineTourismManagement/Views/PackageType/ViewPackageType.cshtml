@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "ViewPackageType";
+    Layout = "~/Views/Shared/AdminMenu.cshtml";
+}
+<div class="alignment">
+    @Html.ActionLink("Add package type", "AddPackageType", "PackageType")
+</div>
+<table align="center" border="1">
+    <tr>
+        <td>Package Type Id</td>
+        <td>Package Type</td>
+        <td>Action</td>
+    </tr>
+
+    @foreach (OnlineTourismManagement.Entity.PackageType item in ViewBag.PackageTypes)
+    {
+        <tr>
+            <td>@item.PackageTypeId</td>
+            <td>@item.PackageTypeName</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PackageTypeId })
+                @Html.ActionLink("Delete", "Delete", new { id = item.PackageTypeId })
+            </td>
+        </tr>
+    }
+
+</table>
+

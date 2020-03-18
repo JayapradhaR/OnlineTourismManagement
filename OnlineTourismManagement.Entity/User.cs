@@ -24,6 +24,7 @@ namespace OnlineTourismManagement.Entity
         public long MobileNumber { get; set; }
 
         [Required]
+        [MaxLength(5)]
         public string Gender { get; set; }
 
         [Required]
@@ -41,6 +42,7 @@ namespace OnlineTourismManagement.Entity
         public string Password { get; set; }
 
         [Column("Role")]
+        [MaxLength(10)]
         public string UserRole{get;set;}
 
         public User() { }

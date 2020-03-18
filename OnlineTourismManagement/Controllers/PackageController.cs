@@ -23,6 +23,7 @@ namespace OnlineTourismManagement.Controllers
         [HttpGet]
         public ViewResult CreatePackage()
         {
+            ViewBag.PackageTypes = new SelectList(PackageTypeBL.GetPackageTypes(), "PackageTypeId", "PackageTypeName");
             return View();
         }
         [HttpPost]
@@ -30,7 +31,7 @@ namespace OnlineTourismManagement.Controllers
         {
             if (ModelState.IsValid)
             {
-                Package package=AutoMapper.Mapper.Map<PackageViewModel,Package>(packages);
+                Package package = AutoMapper.Mapper.Map<PackageViewModel, Package>(packages);
                 PackageBL.AddPackage(package);
                 TempData["Message"] = "Package Added";
                 return RedirectToAction("ViewPackage");
@@ -40,16 +41,12 @@ namespace OnlineTourismManagement.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            if (ModelState.IsValid)
-            {
-                Package pack = PackageBL.GetPackageById(id);
-                 PackageViewModel package = AutoMapper.Mapper.Map<Package, PackageViewModel>(pack);
-                return View(package);
-            }
-            return View();
+            Package pack = PackageBL.GetPackageById(id);
+            PackageViewModel package = AutoMapper.Mapper.Map<Package, PackageViewModel>(pack);
+            return View(package);
         }
         [HttpPost]
-        public ActionResult Update([Bind(Include = "PackageId,PackagePrice, PackageName")]PackageViewModel packageDetails)
+        public ActionResult Update([Bind(Include = "PackageId,PackagePrice,PackageName,Duration,Availability")]PackageViewModel packageDetails)
         {
             Package package = PackageBL.GetPackageById(packageDetails.PackageId);
             package.PackageName = packageDetails.PackageName;

@@ -18,6 +18,7 @@ namespace OnlineTourismManagement
                 config.CreateMap<Package, PackageViewModel>();
                 config.CreateMap<PackageTypeViewModel, PackageType>();
                 config.CreateMap< PackageType, PackageTypeViewModel>();
+                config.CreateMap<ItineraryViewModels, Itinerary>();
             });
         }
     }

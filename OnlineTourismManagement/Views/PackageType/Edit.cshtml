@@ -1,0 +1,20 @@
+﻿@model OnlineTourismManagement.Models.PackageTypeViewModel
+
+@{
+    ViewBag.Title = "Edit";
+     Layout = "~/Views/Shared/AdminMenu.cshtml";
+}
+
+@using(Html.BeginForm("Update","PackageType"))
+{
+    @Html.HiddenFor(Model=>Model.PackageTypeId)
+
+    <div>
+        @Html.LabelFor(Model=>Model.PackageTypeName)
+        <div>@Html.EditorFor(Model=>Model.PackageTypeName) </div>
+
+        <div> @Html.ActionLink("Cancel", "ViewPackageType")</div>
+
+        <div><input type="submit" value="Update" /></div>
+    </div>
+}

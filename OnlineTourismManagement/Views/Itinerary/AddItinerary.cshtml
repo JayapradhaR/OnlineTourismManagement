@@ -1,0 +1,32 @@
+﻿@model OnlineTourismManagement.Models.ItineraryViewModels
+
+@{
+    ViewBag.Title = "AddItinerary";
+    Layout = "~/Views/Shared/AdminMenu.cshtml";
+}
+
+<h2>AddItinerary</h2>
+@{ 
+    int duration=0;
+}
+@if(TempData["Duration"]!=null)
+{
+   duration = (int)TempData["Duration"];
+}
+@using (Html.BeginForm("AddItinerary", "Itinerary", FormMethod.Post))
+{
+
+    for (int i = 1; i <duration; i++)
+    {
+        @*@Html.HiddenFor(Model=>Model.itineraryViewModels[i].PackageId)*@
+        <span> Day  </span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].DayName)
+        <span>&nbsp;   Hotel Name</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].HotelName)
+        <span> &nbsp; Sight Seeing</span>@Html.TextBoxFor(Model => Model.itineraryViewModels[i].SightSeeing)
+        <span>&nbsp; Meal</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].Meal)
+        <br />
+    }
+
+    <input type="submit" value="Add" style="text-align:center" />
+}
+
+

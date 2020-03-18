@@ -1,15 +1,13 @@
 ﻿using OnlineTourismManagement.Entity;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineTourismManagement.DAL
 {
     public class PackageTypeRepository
     {
+        //Getting package types from database
         public static IEnumerable<PackageType> GetPackageTypes()
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
@@ -17,6 +15,7 @@ namespace OnlineTourismManagement.DAL
                 return context.PackageTypes.ToList();
             }
         }
+        //Add the packages types
         public static void AddPackageType(PackageType packageType)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
@@ -25,6 +24,7 @@ namespace OnlineTourismManagement.DAL
                 context.SaveChanges();
             }
         }
+        //Get the package types using id
         public static PackageType GetPackageTypeById(int packageTypeId)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
@@ -32,6 +32,7 @@ namespace OnlineTourismManagement.DAL
                 return context.PackageTypes.ToList().Where(id => id.PackageTypeId == packageTypeId).SingleOrDefault();
             }
         }
+        //Update package types if required
         public static void UpdatePackageType(PackageType packageType)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
@@ -41,6 +42,7 @@ namespace OnlineTourismManagement.DAL
                 context.SaveChanges();
             }
         }
+        //Delete package types 
         public static void DeletePackageType(int id)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
