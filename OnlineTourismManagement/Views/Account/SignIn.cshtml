@@ -1,0 +1,54 @@
+﻿@model OnlineTourismManagement.Models.SignInViewModel
+
+@{
+    ViewBag.Title = "SignIn";
+}
+
+@*@Html.Partial("_Content")*@
+@using OnlineTourismManagement.Models
+@if (TempData["Message"] != null)
+{
+    @Html.Label((string)TempData["Message"], new { @class = "heading" })
+}
+@using (Html.BeginForm("SignIn", "Account", FormMethod.Post))
+{
+    <div>
+        <div class="signin">
+            <br />
+            <img src="~/Images/SignIn.jpg" alt="Image" class="signInImage" style="height:500px;width:500px;margin-left:150px;border:solid"/>
+            @*@Html.Image("~/Images/SignIn.jpg", "Sign In image", "100")*@
+        </div>
+        <div class="design">
+            <h2 class="alignment font">Sign In </h2>
+            <table cellpadding="10" align="center" class="decoration">
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.MailId, new { @maxlength = "64" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.MailId, new { placeholder = "Enter your mail id" })
+                        @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.Password, new { @maxlength = "20" })
+                    </td>
+                    <td>
+                        @Html.PasswordFor(Model => Model.Password, new { placeholder = "Enter your password" })
+                        @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error" })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="alignment font">
+                        <input type="Submit" value="Sign In" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="alignment font"> Don't have an account ? @Html.ActionLink("Sign Up", "SignUp", "Account")</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+}
+

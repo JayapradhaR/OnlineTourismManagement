@@ -2,19 +2,20 @@
 
 @{
     ViewBag.Title = "Edit";
-     Layout = "~/Views/Shared/AdminMenu.cshtml";
 }
 
-@using(Html.BeginForm("Update","PackageType"))
+@using (Html.BeginForm("Update", "PackageType"))
 {
-    @Html.HiddenFor(Model=>Model.PackageTypeId)
+    @Html.HiddenFor(Model => Model.PackageTypeId)
 
-    <div>
-        @Html.LabelFor(Model=>Model.PackageTypeName)
-        <div>@Html.EditorFor(Model=>Model.PackageTypeName) </div>
+    <div style="text-align:center">
+        @Html.LabelFor(Model => Model.PackageTypeName)
+        <div>@Html.EditorFor(Model => Model.PackageTypeName) </div>
+        <br />
+        <div>
+            @Html.ActionLink("Cancel", "ViewPackageType")
 
-        <div> @Html.ActionLink("Cancel", "ViewPackageType")</div>
-
-        <div><input type="submit" value="Update" /></div>
-    </div>
+            &nbsp; &nbsp;<input type="submit" value="Update" />
+        </div>
+        </div>
 }

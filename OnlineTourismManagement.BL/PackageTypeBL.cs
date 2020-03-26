@@ -4,27 +4,41 @@ using System.Collections.Generic;
 
 namespace OnlineTourismManagement.BL
 {
-    public class PackageTypeBL
+    //Package type interface
+    public interface IPackageTypeBL
     {
-        public static IEnumerable<PackageType> GetPackageTypes()
+        IEnumerable<PackageType> GetPackageTypes();
+        void AddPackageType(PackageType packageType);
+        PackageType GetPackageTypeById(int packageTypeId);
+        void UpdatePackageType(PackageType packageType);
+        void DeletePackageType(int id);
+    }
+    public class PackageTypeBL : IPackageTypeBL
+    {
+        IPackageType packageType;
+        public PackageTypeBL()
         {
-            return PackageTypeRepository.GetPackageTypes();
+            packageType = new PackageTypeRepository();
         }
-        public static void AddPackageType(PackageType packageType)
+        public IEnumerable<PackageType> GetPackageTypes()
         {
-            PackageTypeRepository.AddPackageType(packageType);
+            return packageType.GetPackageTypes();//Call GetPackageTypes() to view package types
         }
-        public static void UpdatePackageType(PackageType package)
+        public void AddPackageType(PackageType packageTypes)
         {
-            PackageTypeRepository.UpdatePackageType(package);
+            packageType.AddPackageType(packageTypes);//Call AddPackageType() to add package type into database
         }
-        public static PackageType GetPackageTypeById(int packageId)
+        public void UpdatePackageType(PackageType package)
         {
-            return PackageTypeRepository.GetPackageTypeById(packageId);
+            packageType.UpdatePackageType(package);//Call UpdatePackageType() to update the package types
         }
-        public static void DeletePackageType(int id)
+        public PackageType GetPackageTypeById(int packageId)
         {
-            PackageTypeRepository.DeletePackageType(id);
+            return packageType.GetPackageTypeById(packageId);//Getting package types by id
+        }
+        public void DeletePackageType(int id)
+        {
+            packageType.DeletePackageType(id);//Call DeletePackageType() to delete the package type
         }
     }
 }

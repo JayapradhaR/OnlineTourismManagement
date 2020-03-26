@@ -5,10 +5,18 @@ using System.Linq;
 
 namespace OnlineTourismManagement.DAL
 {
-    public class PackageTypeRepository
+    public interface IPackageType
+    {
+        IEnumerable<PackageType> GetPackageTypes();
+        void AddPackageType(PackageType packageType);
+        PackageType GetPackageTypeById(int packageTypeId);
+        void UpdatePackageType(PackageType packageType);
+        void DeletePackageType(int id);
+    }
+    public class PackageTypeRepository : IPackageType
     {
         //Getting package types from database
-        public static IEnumerable<PackageType> GetPackageTypes()
+        public IEnumerable<PackageType> GetPackageTypes()
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
@@ -16,7 +24,7 @@ namespace OnlineTourismManagement.DAL
             }
         }
         //Add the packages types
-        public static void AddPackageType(PackageType packageType)
+        public void AddPackageType(PackageType packageType)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
@@ -25,7 +33,7 @@ namespace OnlineTourismManagement.DAL
             }
         }
         //Get the package types using id
-        public static PackageType GetPackageTypeById(int packageTypeId)
+        public PackageType GetPackageTypeById(int packageTypeId)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
@@ -33,17 +41,16 @@ namespace OnlineTourismManagement.DAL
             }
         }
         //Update package types if required
-        public static void UpdatePackageType(PackageType packageType)
+        public void UpdatePackageType(PackageType packageType)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
-                //PackageDetails pack = GetPackageById(package.PackageId);
                 context.Entry(packageType).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
         //Delete package types 
-        public static void DeletePackageType(int id)
+        public void DeletePackageType(int id)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {

@@ -5,18 +5,24 @@ using System.Linq;
 
 namespace OnlineTourismManagement.DAL
 {
-    public class UserRepository
-    { 
+    public interface IUser
+    {
+        IEnumerable<Account> GetUsers();
+        void AddUser(Account user);
+        Account ValidateSignIn(Account userDetails);
+    }
+    public class AccountRepository : IUser
+    {
         //Getting user details from database
-        public static IEnumerable<User> GetUsers()
+        public IEnumerable<Account> GetUsers()
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
-                return context.Users.ToList();
+                return context.Users.ToList(); //User details
             }
         }
         //Adding user details into database
-        public static void AddUser(User user)
+        public void AddUser(Account user)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
@@ -32,23 +38,14 @@ namespace OnlineTourismManagement.DAL
             }
         }
         //Validate the login details
-        public static string ValidateSignIn(string username,string password)
+        public Account ValidateSignIn(Account userDetails)
         {
-            string userRole="";
-            IEnumerable<User> users;
+            Account users;
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
-                users = context.Users.ToList();
+                users = context.Users.Where(id=>userDetails.MailId==id.MailId&&userDetails.Password==id.Password).SingleOrDefault();//Check if user details are validate or not
             }
-            foreach (var value in users)
-            {
-                if (username == value.MailId && password == value.Password) //Check if the login is validate login or not
-                {
-                    userRole = value.UserRole;
-                    break;
-                }
-            }
-            return userRole;
+            return users;
         }
     }
 }

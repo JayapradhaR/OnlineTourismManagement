@@ -8,13 +8,18 @@ namespace OnlineTourismManagement.Controllers
 {
     public class ItineraryController : Controller
     {
+        IItineraryBL itinerary;
+        public ItineraryController()
+        {
+            itinerary = new ItineraryBL();
+        }
         // GET: Itinerary
-        public ActionResult Index()
+        public ViewResult Index()
         {
             return View();
         }
         [HttpGet]
-        public ActionResult AddItinerary(int id, int duration)
+        public ViewResult AddItinerary(int id, int duration)
         {
             ItineraryViewModels itineraryViewModels = new ItineraryViewModels();
             itineraryViewModels.Duration = duration;
@@ -22,12 +27,15 @@ namespace OnlineTourismManagement.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddItinerary(List<ItineraryViewModels> itinerary)
+        public ActionResult AddItinerary(ItineraryViewModels itineraryDetails)
         {
-            //TempData["Duration"] = itinerary.Duration;
-            List<Itinerary> itineraries = AutoMapper.Mapper.Map<List<ItineraryViewModels>, List<Itinerary>>(itinerary);
-            PackageBL.AddItinerary(itineraries);
-            return View("Index");
+            if (ModelState.IsValid)
+            {
+                //List<Itinerary> itineraries = AutoMapper.Mapper.Map<List<ItineraryViewModels>, List<Itinerary>>(itineraryDetails);
+                //itinerary.AddItinerary(itineraries);
+                return RedirectToAction("ViewPackage", "Package");
+            }
+            return View();
         }
     }
 }

@@ -3,14 +3,19 @@
 @{
     ViewBag.Title = "SignUp";
 }
-
-@*<link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />*@
-@Html.Partial("_Content")
-@using (Html.BeginForm("SignUp", "User", FormMethod.Post))
+@*@Html.Partial("_Content")*@
+@using OnlineTourismManagement.Models
+@using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
 {
     @Html.ValidationSummary(true)
-    <div>
-        <table cellpadding="10" align="center">
+    <div class="signin">
+        <br />
+        <img src="~/Images/SignUp.jpg" alt="Image" class="signInImage" style="height:500px;width:500px;margin-left:150px;border:solid" />
+        @*@Html.Image("Images/SignUp", "Sign up image", "100")*@
+    </div>
+    <div class="design">
+        <h2 class="alignment font">Sign Up</h2>
+        <table cellpadding="10" align="center" class="decoration">
             <tr>
                 <td>
                     @Html.LabelFor(Model => Model.FirstName)
@@ -97,10 +102,13 @@
                     @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { @class = "error" })
                 </td>
             </tr>
-            <tr colspan="2">
-                <td>
+            <tr >
+                <td colspan="2" class="alignment">
                     <input type="Submit" />
                 </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="alignment font" >Already registered user ? @Html.ActionLink("Sign In","SignIn","Account")</td>
             </tr>
         </table>
     </div>

@@ -1,16 +1,29 @@
 ﻿.image {
-    background-image: url('Images/menuImage.jpeg');
+    background-image:url(../Images/Home.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    float:right;
-    width:70%;
+    height:1000px;
+    width:1500px;
 }
-body {
-    height: 1140px;
-    resize: both;
-    border-color: lightgray;
-    border-style: solid;
+.signInImage{
+    background-image:url(../Images/SignIn.jpg);
+}
+.design {
+    float: right;
+    width: 70%;
+}
+body{
+    background-color:antiquewhite;
+    height:1140px;
+}
+.signin {
+    float: left;
+    width: 30%;
+}
+.SignInimage{
+    height:5000px;
+    width:500px;
 }
 .main{
     float:left;
@@ -30,7 +43,7 @@ body {
 header {
     height: 50px;
     width: 100%;
-    background-color: yellowgreen;
+    /*background-color: yellowgreen;*/
 }
 
 .link{
@@ -52,8 +65,18 @@ footer {
     font-style:italic;
     font-size:150%;
     text-align:center;
+    color:aqua;
 }
 
 .alignment{
     text-align:center;
+}
+
+.decoration{
+    border:solid;
+    border-color:aquamarine;
+}
+
+.font{
+    font-style:italic
 }

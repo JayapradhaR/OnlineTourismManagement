@@ -12,7 +12,7 @@ namespace OnlineTourismManagement
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "User", action = "Registration", id = UrlParameter.Optional }
+                defaults: new { controller = "HomePage", action = "Home", id = UrlParameter.Optional }
             );
         }
     }

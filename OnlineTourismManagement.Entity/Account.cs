@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OnlineTourismManagement.Entity
 {
     [Table("Customer")]
-    public class User
+    public class Account
     {
         [Key]
         [Required]
@@ -24,7 +24,7 @@ namespace OnlineTourismManagement.Entity
         public long MobileNumber { get; set; }
 
         [Required]
-        [MaxLength(5)]
+        [MaxLength(6)]
         public string Gender { get; set; }
 
         [Required]
@@ -45,9 +45,9 @@ namespace OnlineTourismManagement.Entity
         [MaxLength(10)]
         public string UserRole{get;set;}
 
-        public User() { }
+        public Account() { }
 
-        public User(string firstName, string lastName, long mobileNumber, string gender,DateTime dateOfBirth, string mailId, string password)
+        public Account(string firstName, string lastName, long mobileNumber, string gender,DateTime dateOfBirth, string mailId, string password)
         {
             FirstName = firstName;
             LastName = lastName;

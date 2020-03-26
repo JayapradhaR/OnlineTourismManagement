@@ -11,20 +11,38 @@
         <header>
             <h1 style="text-align:center">TIME TO TOUR</h1>
         </header>
-        <div class="image">
-
-        </div>
         <div class="link">
             @Html.ActionLink("Home", "Home", "Homepage") &nbsp;&nbsp;
-            @Html.ActionLink("Sign In", "SignIn", "User") &nbsp;&nbsp;
-            @Html.ActionLink("Sign Up", "SignUp", "User")
+            @Html.ActionLink("Sign Up", "SignUp", "Account") &nbsp;&nbsp;
+
+            @if (HttpContext.Current.User.IsInRole("Admin"))
+            {
+                <span> @Html.ActionLink("View Package", "ViewPackage", "Package") </span>
+
+                <span> @Html.ActionLink("View Package type", "ViewPackageType", "PackageType") </span>
+            }
+            @if (HttpContext.Current.User.IsInRole("User"))
+            {
+
+            }
+
+            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                <span> @Html.ActionLink("Logout", "LogOut", "Account") </span>
+            }
+            else
+            {
+                <span> @Html.ActionLink("SignIn", "SignIn", "Account") </span>
+            }
+
+
         </div>
         <div>
             @RenderBody()
         </div>
 
     </div>
-   
+
 </body>
 </html>
 

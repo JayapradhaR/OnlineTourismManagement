@@ -11,7 +11,8 @@ namespace OnlineTourismManagement
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<SignUpViewModel, User>().ForMember(dest=>dest.UserRole,opt=>opt.MapFrom(src=>"User"));
+                config.CreateMap<SignUpViewModel, Account>().ForMember(dest=>dest.UserRole,opt=>opt.MapFrom(src=>"User"));
+                config.CreateMap<SignInViewModel, Account>();
                 config.CreateMap<PackageViewModel, Package>()
                 .ForMember(dest => dest.UpdationDate, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(dest=>dest.CreationDate,opt=>opt.MapFrom(src=>DateTime.Now));

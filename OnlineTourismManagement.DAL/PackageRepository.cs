@@ -5,10 +5,18 @@ using System.Linq;
 
 namespace OnlineTourismManagement.DAL
 {
-    public class PackageRepository
+    public interface IPackage
+    {
+        IEnumerable<Package> GetPackages();
+        void AddPackage(Package package);
+        Package GetPackageById(int packageId);
+        void UpdatePackage(Package package);
+        void DeletePackage(int id);
+    }
+    public class PackageRepository : IPackage
     {
         //Getting package details from database
-        public static IEnumerable<Package> GetPackages()
+        public IEnumerable<Package> GetPackages()
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
@@ -16,7 +24,7 @@ namespace OnlineTourismManagement.DAL
             }
         }
         //Add package details
-        public static void AddPackage(Package package)
+        public void AddPackage(Package package)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
@@ -25,7 +33,7 @@ namespace OnlineTourismManagement.DAL
             }
         }
         //Get package using id
-        public static Package GetPackageById(int packageId)
+        public Package GetPackageById(int packageId)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
@@ -33,17 +41,16 @@ namespace OnlineTourismManagement.DAL
             }
         }
         //Update the package details
-        public static void UpdatePackage(Package package)
+        public void UpdatePackage(Package package)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
-                //PackageDetails pack = GetPackageById(package.PackageId);
                 context.Entry(package).State = EntityState.Modified;//Updating package in database
                 context.SaveChanges();
             }
         }
         //Delete package
-        public static void DeletePackage(int id)
+        public void DeletePackage(int id)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {

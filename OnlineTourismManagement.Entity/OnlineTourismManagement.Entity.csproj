@@ -54,7 +54,7 @@
     <Compile Include="Itinerary.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="PackageType.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Account.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OnlineTourismManagement.Entity
 {
-   public class PackageType
+    public class PackageType
     {
         [Key]
         [Required]

@@ -4,33 +4,40 @@ using System.Collections.Generic;
 
 namespace OnlineTourismManagement.BL
 {
-    public class PackageBL
+    public interface IPackageBL
     {
-        public static IEnumerable<Package> GetPackages()
+        IEnumerable<Package> GetPackages();
+        void AddPackage(Package package);
+        Package GetPackageById(int packageId);
+        void UpdatePackage(Package package);
+        void DeletePackage(int id);
+    }
+    public class PackageBL : IPackageBL
+    {
+        IPackage package;
+        public PackageBL()
         {
-            return PackageRepository.GetPackages();
+            package = new PackageRepository();
         }
-        public static void AddPackage(Package package)
+        public IEnumerable<Package> GetPackages()
         {
-            PackageRepository.AddPackage(package);
+            return package.GetPackages();//Call GetPackages() to view package details
         }
-        public static void UpdatePackage(Package package)
+        public void AddPackage(Package packageDetails)
         {
-           PackageRepository.UpdatePackage(package);
+            package.AddPackage(packageDetails);//Call AddPackage() to add the package details
         }
-        public static Package GetPackageById(int packageId)
+        public void UpdatePackage(Package packageDetails)
         {
-            return PackageRepository.GetPackageById(packageId);
+            package.UpdatePackage(packageDetails);//Call UpdatePackage() to update package details
         }
-        public static void DeletePackage(int id)
+        public Package GetPackageById(int packageId)
         {
-            PackageRepository.DeletePackage(id);
+            return package.GetPackageById(packageId);//Get package details by using package id
         }
-
-        public static void AddItinerary(List<Itinerary> itineraries)
+        public void DeletePackage(int id)
         {
-            ItineraryRepository.AddItinerary(itineraries);
+            package.DeletePackage(id);//Call DeletePackage() to delete package id
         }
-
     }
 }

@@ -41,9 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItineraryBL.cs" />
     <Compile Include="PackageBL.cs" />
     <Compile Include="PackageTypeBL.cs" />
-    <Compile Include="UserAccount.cs" />
+    <Compile Include="AccountBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

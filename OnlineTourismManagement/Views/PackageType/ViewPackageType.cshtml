@@ -1,11 +1,14 @@
 ﻿
 @{
     ViewBag.Title = "ViewPackageType";
-    Layout = "~/Views/Shared/AdminMenu.cshtml";
 }
 <div class="alignment">
     @Html.ActionLink("Add package type", "AddPackageType", "PackageType")
 </div>
+@if (TempData["Messages"] != null)
+{
+    @Html.Label((string)TempData["Messages"])
+}
 <table align="center" border="1">
     <tr>
         <td>Package Type Id</td>

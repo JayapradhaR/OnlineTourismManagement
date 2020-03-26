@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTourismManagement.Entity
 {
     public class Itinerary
-    {
-        public int PackageId { get; set; }
-
-        
-        public Package Package { get; set; }
-
+    { 
         [Key]
         [Required]
         public int ItineraryId { get; set; }
+
+        [Required]
+        public int PackageId { get; set; }
+
+        public Package Package { get; set; }
 
         [Required]
         public int DayName { get; set; }
