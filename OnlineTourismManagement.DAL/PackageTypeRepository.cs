@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace OnlineTourismManagement.DAL
 {
-    public interface IPackageType
+    public interface IPackageType //Interface for packagetype
     {
         IEnumerable<PackageType> GetPackageTypes();
         void AddPackageType(PackageType packageType);
@@ -13,6 +13,9 @@ namespace OnlineTourismManagement.DAL
         void UpdatePackageType(PackageType packageType);
         void DeletePackageType(int id);
     }
+    /// <summary>
+    /// This PackageTypeRepository class performs the CRUD operations for package types
+    /// </summary>
     public class PackageTypeRepository : IPackageType
     {
         //Getting package types from database

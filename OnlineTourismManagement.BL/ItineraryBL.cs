@@ -1,10 +1,6 @@
 ﻿using OnlineTourismManagement.DAL;
 using OnlineTourismManagement.Entity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineTourismManagement.BL
 {
@@ -14,32 +10,44 @@ namespace OnlineTourismManagement.BL
         void AddItinerary(List<Itinerary> itineraries);
         Itinerary GetItineraryById(int itineraryid);
         void UpdateItinerary(Itinerary itinerary);
+        IEnumerable<Itinerary> GetItineraryByPackage(int packageId);
+        void DeleteItinerary(int id);
     }
     public class ItineraryBL : IItineraryBL
     {
-        IItinerary itinerary;
+        IItinerary itineraryDAL;
         public ItineraryBL()
         {
-            itinerary = new ItineraryRepository();
+            itineraryDAL = new ItineraryRepository();
         }
         public void AddItinerary(List<Itinerary> itineraries)
         {
-            itinerary.AddItinerary(itineraries);
+            itineraryDAL.AddItinerary(itineraries); //Call AddItinerary() to add itinerary details
+        }
+
+        public void DeleteItinerary(int id)
+        {
+            itineraryDAL.DeleteItinerary(id); // Call DeleteItinerary() to delete itinerary details
         }
 
         public IEnumerable<Itinerary> GetItineraries()
         {
-            return itinerary.GetItineraries();
+            return itineraryDAL.GetItineraries(); //Getting itinerary details
         }
 
         public Itinerary GetItineraryById(int itineraryid)
         {
-            return itinerary.GetItineraryById(itineraryid);
+            return itineraryDAL.GetItineraryById(itineraryid); // Getting itinerary details by itinerary id
         }
 
-        public void UpdateItinerary(Itinerary itinerary)
+        public IEnumerable<Itinerary> GetItineraryByPackage(int packageId)
         {
-            
+            return itineraryDAL.GetItineraryByPackage(packageId); //Getting itinerary details by package id
+        }
+
+        public void UpdateItinerary(Itinerary itineraryDetails)
+        {
+            itineraryDAL.UpdateItinerary(itineraryDetails); //Update itinerary details
         }
     }
 }

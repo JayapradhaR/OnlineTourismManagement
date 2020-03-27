@@ -1,0 +1,36 @@
+﻿@model IEnumerable<OnlineTourismManagement.Entity.Itinerary>
+
+@{
+    ViewBag.Title = "ViewItinerary";
+}
+    <h2 class="alignment">Itinerary Details</h2>
+
+@if(TempData["ItineraryMessage"]!=null)
+{
+    @Html.Label((string)TempData["ItineraryMessage"])
+}
+<table border="1" align="center">
+    <tr>
+        <td>Day</td>
+        <td>Hotel Name</td>
+        <td>Hotel Location</td>
+        <td>Sight seeing</td>
+        <td>Meal</td>
+        <td>Action</td>
+    </tr>
+    @foreach(OnlineTourismManagement.Entity.Itinerary item in Model)
+    {
+        <tr>
+            <td>@item.DayName</td>
+            <td>@item.HotelName</td>
+            <td>@item.HotelLocation</td>
+            <td>@item.SightSeeing</td>
+            <td>@item.Meal</td>
+            <td>@Html.ActionLink("Edit","Edit","Itinerary",new { id=item.ItineraryId},null)</td>
+            <td>@Html.ActionLink("Delete","Delete","Itinerary",new { id=item.ItineraryId},new { onclick="return confirm('Are you sure to delete ?');"})</td>
+        </tr>
+    }
+</table>
+<div class="alignment">
+    @Html.ActionLink("Back to view", "ViewPackage", "Package")
+</div>

@@ -14,30 +14,30 @@ namespace OnlineTourismManagement.BL
     }
     public class PackageBL : IPackageBL
     {
-        IPackage package;
+        IPackage packageDAL;
         public PackageBL()
         {
-            package = new PackageRepository();
+            packageDAL = new PackageRepository();
         }
         public IEnumerable<Package> GetPackages()
         {
-            return package.GetPackages();//Call GetPackages() to view package details
+            return packageDAL.GetPackages();//Call GetPackages() to view package details
         }
         public void AddPackage(Package packageDetails)
         {
-            package.AddPackage(packageDetails);//Call AddPackage() to add the package details
+            packageDAL.AddPackage(packageDetails);//Call AddPackage() to add the package details
         }
         public void UpdatePackage(Package packageDetails)
         {
-            package.UpdatePackage(packageDetails);//Call UpdatePackage() to update package details
+            packageDAL.UpdatePackage(packageDetails);//Call UpdatePackage() to update package details
         }
         public Package GetPackageById(int packageId)
         {
-            return package.GetPackageById(packageId);//Get package details by using package id
+            return packageDAL.GetPackageById(packageId);//Get package details by using package id
         }
         public void DeletePackage(int id)
         {
-            package.DeletePackage(id);//Call DeletePackage() to delete package id
+            packageDAL.DeletePackage(id);//Call DeletePackage() to delete package id
         }
     }
 }

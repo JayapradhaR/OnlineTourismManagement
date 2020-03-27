@@ -2,31 +2,38 @@
 
 @{
     ViewBag.Title = "AddItinerary";
-    Layout = "~/Views/Shared/AdminMenu.cshtml";
 }
 
-<h2>AddItinerary</h2>
-@{
-    int duration = 0;
-}
-@if (TempData["Duration"] != null)
-{
-    duration = (int)TempData["Duration"];
-}
+<h2>Itinerary Details</h2>
+
 @using (Html.BeginForm("AddItinerary", "Itinerary", FormMethod.Post))
 {
-    for (int i = 1; i < duration; i++)
+    <br />
+    for (int i = 0; i < (int)TempData.Peek("Duration"); i++)
     {
-        <span> Day  </span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].DayName)
-        @Html.ValidationMessageFor(Mode => Model.itineraryViewModels[i].DayName)
+        <span> Day  </span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].DayName,new { Value=i+1})
+        @*@Html.ValidationMessageFor(Mode => Model.itineraryViewModels[i].DayName, "", new { @class = "error" })*@
+        <br />
         <span>&nbsp;   Hotel Name</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].HotelName)
-        @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].HotelName)
+        @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].HotelName, "", new { @class = "error" })
+
+        <span>&nbsp;   Hotel Location</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].HotelLocation)
+        @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].HotelLocation, "", new { @class = "error" })
+
         <span> &nbsp; Sight Seeing</span>@Html.TextBoxFor(Model => Model.itineraryViewModels[i].SightSeeing)
+        @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].SightSeeing, "", new { @class = "error" })
+
         <span>&nbsp; Meal</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].Meal)
+        @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].Meal, "", new { @class = "error" })
+
+        @Html.HiddenFor(Model => Model.itineraryViewModels[i].PackageId, new { Value = (int)TempData.Peek("Id") })
+        <br />
         <br />
     }
-
-    <input type="submit" value="Add" style="text-align:center" />
+    <div class="alignment">
+        <input type="submit" value="Add"/>
+        @Html.ActionLink("Cancel", "ViewPackage", "Package")
+    </div>
 }
 
 

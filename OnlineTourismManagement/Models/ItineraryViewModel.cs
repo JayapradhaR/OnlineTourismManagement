@@ -1,9 +1,6 @@
 ﻿using OnlineTourismManagement.Entity;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace OnlineTourismManagement.Models
 {
@@ -15,14 +12,19 @@ namespace OnlineTourismManagement.Models
     }
     public class ItineraryViewModel
     {
-        [Required]
         public int ItineraryId { get; set; }
 
-        [Required]
+        public int PackageId { get; set; }
+
+        public Package Packages { get; set; }
+
         public string DayName { get; set; }
 
         [Required(ErrorMessage = "Hotel name required")]
         public string HotelName { get; set; }
+
+        [Required(ErrorMessage ="Hotel location required")]
+        public string HotelLocation { get; set; }
 
         [Required(ErrorMessage = "Sight seeing details required")]
         public string SightSeeing { get; set; }

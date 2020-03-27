@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace OnlineTourismManagement.Entity
 {
@@ -13,7 +11,7 @@ namespace OnlineTourismManagement.Entity
         [Required]
         public int PackageId { get; set; }
 
-        public Package Package { get; set; }
+        public Package Packages { get; set; }
 
         [Required]
         public int DayName { get; set; }
@@ -21,6 +19,10 @@ namespace OnlineTourismManagement.Entity
         [Required]
         [MaxLength(30)]
         public string HotelName { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string HotelLocation { get; set; }
 
         [Required]
         [MaxLength(30)]

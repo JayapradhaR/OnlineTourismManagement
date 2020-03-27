@@ -11,6 +11,9 @@ namespace OnlineTourismManagement.DAL
         void AddUser(Account user);
         Account ValidateSignIn(Account userDetails);
     }
+    /// <summary>
+    /// This AccountRepository methods add the account details into database and validate the login details
+    /// </summary>
     public class AccountRepository : IUser
     {
         //Getting user details from database

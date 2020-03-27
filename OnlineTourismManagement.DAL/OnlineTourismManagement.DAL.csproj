@@ -61,6 +61,14 @@
     <Compile Include="Migrations\202003240943476_update.designer.cs">
       <DependentUpon>202003240943476_update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003261307004_ItineraryColumnUpdate.cs" />
+    <Compile Include="Migrations\202003261307004_ItineraryColumnUpdate.designer.cs">
+      <DependentUpon>202003261307004_ItineraryColumnUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003270534219_UpdateDetails.cs" />
+    <Compile Include="Migrations\202003270534219_UpdateDetails.designer.cs">
+      <DependentUpon>202003270534219_UpdateDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineTourismDBContext.cs" />
     <Compile Include="PackageRepository.cs" />
@@ -88,6 +96,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003240943476_update.resx">
       <DependentUpon>202003240943476_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003261307004_ItineraryColumnUpdate.resx">
+      <DependentUpon>202003261307004_ItineraryColumnUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003270534219_UpdateDetails.resx">
+      <DependentUpon>202003270534219_UpdateDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

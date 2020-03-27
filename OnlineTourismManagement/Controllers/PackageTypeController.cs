@@ -6,6 +6,9 @@ using OnlineTourismManagement.Models;
 
 namespace OnlineTourismManagement.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Authorize(Roles ="Admin")]
     public class PackageTypeController : Controller
     {
@@ -23,8 +26,7 @@ namespace OnlineTourismManagement.Controllers
         public ViewResult ViewPackageType()
         {
             IEnumerable<PackageType> packageType = package.GetPackageTypes();
-            ViewBag.PackageTypes = packageType;
-            return View();
+            return View(packageType);
         }
         //Add the package type
         [HttpGet]

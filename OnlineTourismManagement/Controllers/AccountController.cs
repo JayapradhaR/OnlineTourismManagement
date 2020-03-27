@@ -10,19 +10,17 @@ using System.Data.Entity.Infrastructure;
 
 namespace OnlineTourismManagement.Controllers
 {
-    // [Authentication]
     public class AccountController : Controller
     {
-        // GET: User
-        IUserBL users;
+        IUserBL userBL;
         public AccountController()
         {
-            users = new AccountBL();
+            userBL = new AccountBL();
         }
         [ActionName("Registration")]
         public ViewResult Index()
         {
-            IEnumerable<Account> user = users.GetUsers();
+            IEnumerable<Account> user = userBL.GetUsers();
             return View("Index");
         }
         //Create new account
@@ -39,7 +37,7 @@ namespace OnlineTourismManagement.Controllers
                 if (ModelState.IsValid)
                 {
                     Account userDetails = AutoMapper.Mapper.Map<SignUpViewModel, Account>(user);
-                    users.AddUser(userDetails); //Add account details into database
+                    userBL.AddUser(userDetails); //Add account details into database
                     TempData["Message"] = "Registration successfully completed";
                     return RedirectToAction("SignIn");
                 }
@@ -62,7 +60,7 @@ namespace OnlineTourismManagement.Controllers
             if (ModelState.IsValid)
             {
                 Account userDetails = AutoMapper.Mapper.Map<SignInViewModel, Account>(userDetail);
-                Account user = users.ValidateSignIn(userDetails); //Validate login details
+                Account user = userBL.ValidateSignIn(userDetails); //Validate login details
                 if (user != null)
                 {
                     FormsAuthentication.SetAuthCookie(user.MailId, false);
@@ -83,10 +81,5 @@ namespace OnlineTourismManagement.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Home", "Homepage");
         }
-        public ViewResult DisplayUsers(Account user)
-        {
-            return View();
-        }
-
     }
 }

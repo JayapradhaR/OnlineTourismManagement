@@ -179,8 +179,9 @@
     <Content Include="Views\Itinerary\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
-    <Content Include="Views\Shared\UnauthorizedPage.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Itinerary\ViewItinerary.cshtml" />
+    <Content Include="Views\Itinerary\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

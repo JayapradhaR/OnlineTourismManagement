@@ -11,22 +11,22 @@ namespace OnlineTourismManagement.BL
     }
     public class AccountBL:IUserBL
     {
-        IUser user;
+        IUser userDAL;
         public AccountBL()
         {
-            user = new AccountRepository();    
+            userDAL = new AccountRepository();    
         }
         public void AddUser(Account userDetails)
         { 
-            user.AddUser(userDetails);
+            userDAL.AddUser(userDetails); //Add account details
         }
         public IEnumerable<Account> GetUsers()
         {
-            return user.GetUsers();
+            return userDAL.GetUsers();
         }
         public Account ValidateSignIn(Account userDetails)
         {
-            return user.ValidateSignIn(userDetails);
+            return userDAL.ValidateSignIn(userDetails); //Validate signin details
         }
     }
 }

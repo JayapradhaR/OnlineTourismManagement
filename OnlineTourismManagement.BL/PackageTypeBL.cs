@@ -15,30 +15,30 @@ namespace OnlineTourismManagement.BL
     }
     public class PackageTypeBL : IPackageTypeBL
     {
-        IPackageType packageType;
+        IPackageType packageTypeDAL;
         public PackageTypeBL()
         {
-            packageType = new PackageTypeRepository();
+            packageTypeDAL = new PackageTypeRepository();
         }
         public IEnumerable<PackageType> GetPackageTypes()
         {
-            return packageType.GetPackageTypes();//Call GetPackageTypes() to view package types
+            return packageTypeDAL.GetPackageTypes();//Call GetPackageTypes() to view package types
         }
         public void AddPackageType(PackageType packageTypes)
         {
-            packageType.AddPackageType(packageTypes);//Call AddPackageType() to add package type into database
+            packageTypeDAL.AddPackageType(packageTypes);//Call AddPackageType() to add package type into database
         }
         public void UpdatePackageType(PackageType package)
         {
-            packageType.UpdatePackageType(package);//Call UpdatePackageType() to update the package types
+            packageTypeDAL.UpdatePackageType(package);//Call UpdatePackageType() to update the package types
         }
         public PackageType GetPackageTypeById(int packageId)
         {
-            return packageType.GetPackageTypeById(packageId);//Getting package types by id
+            return packageTypeDAL.GetPackageTypeById(packageId);//Getting package types by id
         }
         public void DeletePackageType(int id)
         {
-            packageType.DeletePackageType(id);//Call DeletePackageType() to delete the package type
+            packageTypeDAL.DeletePackageType(id);//Call DeletePackageType() to delete the package type
         }
     }
 }

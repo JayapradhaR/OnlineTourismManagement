@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineTourismManagement.Entity
 {
@@ -11,6 +12,7 @@ namespace OnlineTourismManagement.Entity
 
         [Required]
         [MaxLength(30)]
+        [Index(IsUnique = true)]
         public string PackageTypeName { get; set; }
 
         public ICollection<Package> packages { get; set; }

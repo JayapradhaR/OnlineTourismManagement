@@ -43,6 +43,7 @@ namespace OnlineTourismManagement.Entity
 
         [Column("Role")]
         [MaxLength(10)]
+        [Required]
         public string UserRole{get;set;}
 
         public Account() { }

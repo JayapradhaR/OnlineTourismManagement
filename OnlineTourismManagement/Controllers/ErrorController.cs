@@ -13,10 +13,6 @@ namespace OnlineTourismManagement.Controllers
         {
             return View();
         }
-        public ActionResult UnauthorizedPage()
-        {
-            return View();
-        }
         public ActionResult Error()
         {
             return View();

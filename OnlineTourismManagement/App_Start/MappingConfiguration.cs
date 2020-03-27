@@ -2,6 +2,7 @@
 using OnlineTourismManagement.Entity;
 using OnlineTourismManagement.Models;
 using System;
+using System.Collections.Generic;
 
 namespace OnlineTourismManagement
 {
@@ -19,7 +20,8 @@ namespace OnlineTourismManagement
                 config.CreateMap<Package, PackageViewModel>();
                 config.CreateMap<PackageTypeViewModel, PackageType>();
                 config.CreateMap< PackageType, PackageTypeViewModel>();
-                config.CreateMap<ItineraryViewModels, Itinerary>();
+                config.CreateMap<ItineraryViewModel,Itinerary>();
+                config.CreateMap<Itinerary, ItineraryViewModel>();
             });
         }
     }

@@ -11,6 +11,7 @@ namespace OnlineTourismManagement.Controllers
     public class PackageController : Controller
     {
         IPackageBL packages;
+        
         public PackageController()
         {
             packages = new PackageBL();
@@ -24,8 +25,7 @@ namespace OnlineTourismManagement.Controllers
         public ViewResult ViewPackage()
         {
             IEnumerable<Package> package = packages.GetPackages();
-            ViewBag.Packages = package;
-            return View();
+            return View(package);
         }
         //Add packages
         [HttpGet]

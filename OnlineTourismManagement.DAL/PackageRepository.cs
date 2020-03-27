@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace OnlineTourismManagement.DAL
 {
-    public interface IPackage
+    public interface IPackage //interface for package 
     {
         IEnumerable<Package> GetPackages();
         void AddPackage(Package package);
@@ -13,6 +13,9 @@ namespace OnlineTourismManagement.DAL
         void UpdatePackage(Package package);
         void DeletePackage(int id);
     }
+    /// <summary>
+    /// This PackageRepository performs CRUD operations for packages
+    /// </summary>
     public class PackageRepository : IPackage
     {
         //Getting package details from database
@@ -20,7 +23,7 @@ namespace OnlineTourismManagement.DAL
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
-                return context.Packages.ToList();
+                return context.Packages.Include("PackageTypes").ToList();
             }
         }
         //Add package details

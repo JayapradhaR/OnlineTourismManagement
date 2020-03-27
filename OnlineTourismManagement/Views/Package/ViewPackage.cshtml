@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<OnlineTourismManagement.Entity.Package>
 @{
     ViewBag.Title = "ViewPackage";
 }
@@ -18,10 +18,10 @@
         <td>Updation Date</td>
         <td>Duration</td>
         <td>Availability</td>
-        <td>Package type Id</td>
+        <td>Package type</td>
         <td>Action</td>
     </tr>
-    @foreach (OnlineTourismManagement.Entity.Package item in ViewBag.Packages)
+    @foreach (OnlineTourismManagement.Entity.Package item in Model)
     {
         <tr>
             <td>
@@ -43,12 +43,13 @@
                 @item.Availability
             </td>
             <td>
-                @item.PackageTypeId
+                @item.PackageTypes.PackageTypeName
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit","Package",new { id = item.PackageId },null)
-                @Html.ActionLink("Delete", "Delete","Package", new { id = item.PackageId },null)
-                @Html.ActionLink("Add Itinerary", "AddItinerary","Itinerary", new { id = item.PackageId, duration = item.Duration },null)
+                @Html.ActionLink("Delete", "Delete","Package", new { id = item.PackageId },new { onclick="return confirm('Are you sure to delete ?');"})
+                @Html.ActionLink("View Itinerary", "ViewItinerary","Itinerary",new { id = item.PackageId },null )
+                @Html.ActionLink("Add Itinerary","AddItinerary","Itinerary",new { id = item.PackageId, duration = item.Duration },null)
             </td>
         </tr>
     }
