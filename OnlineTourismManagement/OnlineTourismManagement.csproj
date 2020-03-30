@@ -107,6 +107,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\Home.jpg" />
+    <Content Include="Images\PageLogo.jpg" />
+    <Content Include="Images\Logo.png" />
     <Content Include="Images\SignIn.jpg" />
     <Content Include="Images\SignUp.jpg" />
     <Content Include="Scripts\bootstrap.js" />

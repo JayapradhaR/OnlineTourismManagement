@@ -15,33 +15,33 @@
     <div>
         <div class="signin">
             <br />
-            <img src="~/Images/SignIn.jpg" alt="Image" class="signInImage" style="height:500px;width:500px;margin-left:150px;border:solid"/>
-            @*@Html.Image("~/Images/SignIn.jpg", "Sign In image", "100")*@
+            <img src="~/Images/SignIn.jpg" alt="Image" class="signInImage" style="height:500px;width:500px;margin-left:150px;border:solid" />
         </div>
+        <br /><br />
         <div class="design">
-            <h2 class="alignment font">Sign In </h2>
-            <table cellpadding="10" align="center" class="decoration">
+            <h2 class="alignment font">Welcome..! </h2>
+            <table cellpadding="20" align="center" class="decoration">
                 <tr>
                     <td>
-                        @Html.LabelFor(Model => Model.MailId, new { @maxlength = "64" })
+                        @Html.LabelFor(Model => Model.MailId)
                     </td>
                     <td>
-                        @Html.TextBoxFor(Model => Model.MailId, new { placeholder = "Enter your mail id" })
+                        @Html.TextBoxFor(Model => Model.MailId, new { placeholder = "Enter your mail id" ,@class="form",@maxlength = "64"})
                         @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        @Html.LabelFor(Model => Model.Password, new { @maxlength = "20" })
+                        @Html.LabelFor(Model => Model.Password)
                     </td>
                     <td>
-                        @Html.PasswordFor(Model => Model.Password, new { placeholder = "Enter your password" })
+                        @Html.PasswordFor(Model => Model.Password, new { placeholder = "Enter your password",@class="form" ,@maxlength = "20"})
                         @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error" })
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="alignment font">
-                        <input type="Submit" value="Sign In" />
+                    <td colspan="2" class="alignment">
+                        <input type="Submit" value="Sign In" class="button"/>
                     </td>
                 </tr>
                 <tr>

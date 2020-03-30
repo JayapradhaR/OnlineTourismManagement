@@ -11,15 +11,17 @@
 }
 .design {
     float: right;
-    width: 70%;
+    width: 50%;
+    /*border:solid;*/
 }
 body{
     background-color:antiquewhite;
     height:1140px;
+    display:block;
 }
 .signin {
     float: left;
-    width: 30%;
+    width: 40%;
 }
 .SignInimage{
     height:5000px;
@@ -46,8 +48,10 @@ header {
     /*background-color: yellowgreen;*/
 }
 
-.link{
-    text-align:right;
+.link {
+    text-align: end;
+    background-color: #9CCC65;
+    padding: 10px;
 }
 
 footer {
@@ -73,10 +77,48 @@ footer {
 }
 
 .decoration{
-    border:solid;
-    border-color:aquamarine;
+    font-size:20px;
 }
 
-.font{
-    font-style:italic
+.font {
+    /*font-style: italic;
+    text-decoration: none;
+    margin: 4px 2px;
+    color: white;
+    background-color: #9CCC65;
+    text-align: center;
+    padding: 15px 32px;*/
+}
+
+.menu {
+    font-size:x-large;
+    text-decoration: blink;
+    padding: 10px 17px 10px 12px;
+}
+.button {
+    color: white;
+    font-weight:700;
+    padding: 15px 32px;
+    margin: 4px 2px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #9CCC65;
+}
+
+.form {
+    width:300px;
+    height:30px;
+    padding: 5px 12px;
+    font-size:1rem;
+}
+
+.signUpForm {
+    width: 200px;
+    height: 10px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+}
+
+.table{
+    width:1100px;
 }
