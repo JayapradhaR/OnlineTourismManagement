@@ -2,27 +2,36 @@
 @{
     ViewBag.Title = "ViewPackageType";
 }
-<div class="alignment">
-    @Html.ActionLink("Add package type", "AddPackageType", "PackageType")
-</div>
+<h2 class="alignment">Package Types</h2>
+@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+{
+    <div class="alignment">
+        @Html.ActionLink("Add package type", "AddPackageType", "PackageType", "", new { @class = "redirectLink" })
+    </div>
+}
 @if (TempData["Messages"] != null)
 {
     @Html.Label((string)TempData["Messages"])
 }
-<table align="center" border="1" class="table">
+<br />
+<table align="center" border="1" cellpadding="10" cellspacing="10">
     <tr>
         <td>Package Type</td>
-        <td>Action</td>
+        @if (ViewContext.HttpContext.User.IsInRole("Admin")) { <td>Action</td>}
+        
     </tr>
 
     @foreach (OnlineTourismManagement.Entity.PackageType item in Model)
     {
         <tr>
-            <td>@item.PackageTypeName</td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.PackageTypeId })
-                @Html.ActionLink("Delete", "Delete", new { id = item.PackageTypeId },new { onclick="return confirm('Are you sure to delete ?');"})
-            </td>
+            <td>@Html.ActionLink(@item.PackageTypeName, "ViewPackageByType", "Package", new { id = item.PackageTypeId },null)</td>
+            @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PackageTypeId, @class = "linkColor" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PackageTypeId, @class = "linkColor" }, new { onclick = "return confirm('Are you sure to delete ?');" })
+                </td>
+            }
         </tr>
     }
 

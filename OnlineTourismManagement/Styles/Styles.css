@@ -15,9 +15,16 @@
     /*border:solid;*/
 }
 body{
-    background-color:antiquewhite;
+    /*background-color:antiquewhite;*/
     height:1140px;
     display:block;
+}
+.phone {
+    position: absolute;
+    left: 1200px;
+    margin-top: 30px;
+    font-size: large;
+    font-family: monospace;
 }
 .signin {
     float: left;
@@ -81,8 +88,8 @@ footer {
 }
 
 .font {
-    /*font-style: italic;
-    text-decoration: none;
+    font-style: italic;
+    /*text-decoration: none;
     margin: 4px 2px;
     color: white;
     background-color: #9CCC65;
@@ -98,27 +105,123 @@ footer {
 .button {
     color: white;
     font-weight:700;
-    padding: 15px 32px;
+    padding: 10px 32px;
     margin: 4px 2px;
     text-decoration: none;
     cursor: pointer;
     background-color: #9CCC65;
 }
 
-.form {
+.text_MailId {
     width:300px;
     height:30px;
     padding: 5px 12px;
     font-size:1rem;
+    position:absolute;
+    left:950px;
 }
-
+.text_Password {
+    width: 300px;
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 1rem;
+    position: absolute;
+    left: 950px;
+    margin-top:100px;
+}
+.username {
+    position: absolute;
+    left: 1300px;
+    margin-top: 10px;
+}
+.password {
+    position: absolute;
+    left: 1300px;
+    margin-top: 110px;
+}
+.label_username {
+    font-family: Constantia;
+    position: absolute;
+    left: 800px;
+    margin-top: 10px;
+    font-size: larger;
+}
+.label_password {
+    font-family: Constantia;
+    position: absolute;
+    left: 800px;
+    margin-top: 110px;
+    font-size: larger;
+}
+#signin_button {
+    position: absolute;
+    left: 1000px;
+    margin-top: 200px;
+}
+.account {
+    position: absolute;
+    left: 950px;
+    margin-top: 300px;
+    font-style: italic;
+    font-size: larger;
+}
 .signUpForm {
     width: 200px;
     height: 10px;
-    padding: 5px 12px;
+    padding: 15px 25px;
     font-size: 0.8rem;
 }
 
 .table{
-    width:1100px;
+    width:1150px;
+}
+
+.redirectLink{
+    color:blue;
+    font-size:20px;
+}
+
+.linkColor{
+    color:blue;
+}
+
+#add_package {
+    position: absolute;
+    left: 600px;
+}
+
+#signin_table {
+    position: absolute;
+    left: 800px;
+}
+
+#signup_table {
+    position: absolute;
+    left: 800px;
+}
+
+.input {
+    border: 1px solid #ccc !important;
+    border-radius: 8px;
+    display: block;
+    
+}
+
+.textbox{
+    padding:12px 25px;
+    width:300px;
+}
+
+.label{
+    font-size:large;
+    font-family:Constantia;
+}
+
+.day {
+    background-color: #9e9e9e;
+}
+
+.add_itinerary{
+    position:absolute;
+    left:600px;
 }

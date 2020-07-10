@@ -12,7 +12,7 @@ namespace OnlineTourismManagement.DAL
         Account ValidateSignIn(Account userDetails);
     }
     /// <summary>
-    /// This AccountRepository methods add the account details into database and validate the login details
+    /// This AccountRepository consists methods that is used to add the account details in database and validate the login details
     /// </summary>
     public class AccountRepository : IUser
     {

@@ -5,7 +5,6 @@
 }
 
 @*@Html.Partial("_Content")*@
-@using OnlineTourismManagement.Models
 @if (TempData["Message"] != null)
 {
     @Html.Label((string)TempData["Message"], new { @class = "heading" })
@@ -20,34 +19,27 @@
         <br /><br />
         <div class="design">
             <h2 class="alignment font">Welcome..! </h2>
-            <table cellpadding="20" align="center" class="decoration">
-                <tr>
-                    <td>
-                        @Html.LabelFor(Model => Model.MailId)
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(Model => Model.MailId, new { placeholder = "Enter your mail id" ,@class="form",@maxlength = "64"})
-                        @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.LabelFor(Model => Model.Password)
-                    </td>
-                    <td>
-                        @Html.PasswordFor(Model => Model.Password, new { placeholder = "Enter your password",@class="form" ,@maxlength = "20"})
-                        @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error" })
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="alignment">
-                        <input type="Submit" value="Sign In" class="button"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="alignment font"> Don't have an account ? @Html.ActionLink("Sign Up", "SignUp", "Account")</td>
-                </tr>
-            </table>
+            <div>
+                @Html.LabelFor(Model => Model.MailId, new { @class = "label_username" })
+               
+                @Html.TextBoxFor(Model => Model.MailId, new { placeholder = "Enter your mail id", @class = "form input text_MailId", @maxlength = "64" })
+            
+                @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error username" })
+            </div>
+            <div>
+                @Html.LabelFor(Model => Model.Password, new { @class = "label_password" })
+
+                @Html.PasswordFor(Model => Model.Password, new { placeholder = "Enter your password", @maxlength = "20" ,@class="input text_Password"})
+
+                @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error password" })
+            </div>
+            <div>
+                <input type="Submit" value="Sign In" class="button" id="signin_button" />
+            </div>
+            <div class="account">
+                Don't have an account ? @Html.ActionLink("Sign Up", "SignUp", "Account")
+            </div>
+                
         </div>
     </div>
 }

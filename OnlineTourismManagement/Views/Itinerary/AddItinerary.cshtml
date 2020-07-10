@@ -4,35 +4,47 @@
     ViewBag.Title = "AddItinerary";
 }
 
-<h2>Itinerary Details</h2>
+<h2 class="alignment">Itinerary Details</h2>
 
 @using (Html.BeginForm("AddItinerary", "Itinerary", FormMethod.Post))
 {
     <br />
-    for (int i = 0; i < (int)TempData.Peek("Duration"); i++)
-    {
-        <span> Day  </span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].DayName,new { Value=i+1})
-        @*@Html.ValidationMessageFor(Mode => Model.itineraryViewModels[i].DayName, "", new { @class = "error" })*@
-        <br />
-        <span>&nbsp;   Hotel Name</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].HotelName)
-        @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].HotelName, "", new { @class = "error" })
-
-        <span>&nbsp;   Hotel Location</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].HotelLocation)
-        @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].HotelLocation, "", new { @class = "error" })
-
-        <span> &nbsp; Sight Seeing</span>@Html.TextBoxFor(Model => Model.itineraryViewModels[i].SightSeeing)
-        @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].SightSeeing, "", new { @class = "error" })
-
-        <span>&nbsp; Meal</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].Meal)
-        @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].Meal, "", new { @class = "error" })
-
-        @Html.HiddenFor(Model => Model.itineraryViewModels[i].PackageId, new { Value = (int)TempData.Peek("Id") })
-        <br />
-        <br />
-    }
-    <div class="alignment">
-        <input type="submit" value="Add"/>
-        @Html.ActionLink("Cancel", "ViewPackage", "Package")
+    <div class="add_itinerary">
+        @for (int i = 0; i < (int)TempData.Peek("Duration"); i++)
+        {
+            <div>
+                <span class="label">Day</span>
+                @Html.TextBoxFor(Model => Model.itineraryViewModels[i].DayName, new { Value = i + 1 , @class="textbox input day"})
+            </div>
+            <br />
+            <div>
+                <span class="label"> Hotel Name </span>@Html.TextBoxFor(Model => Model.itineraryViewModels[i].HotelName, new { @class = "textbox input" })
+            </div>
+                @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].HotelName, "", new { @class = "error" })
+            <br />
+            <div>
+                <span class="label"> Hotel Location</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].HotelLocation, new { @class = "textbox input" })
+            </div>
+                @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].HotelLocation, "", new { @class = "error" })
+            <br />
+            <div>
+                <span class="label"> Sight Seeing</span>@Html.TextBoxFor(Model => Model.itineraryViewModels[i].SightSeeing, new { @class = "textbox input" })
+            </div>
+                @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].SightSeeing, "", new { @class = "error" })
+            <br />
+            <div>
+                <span class="label"> Meal</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].Meal, new { @class = "textbox input" })
+            </div>
+                @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].Meal, "", new { @class = "error" })
+            
+            @Html.HiddenFor(Model => Model.itineraryViewModels[i].PackageId, new { Value = (int)TempData.Peek("Id") })
+            <br />
+            <br />
+        }
+        <div class="alignment">
+            <input type="submit" value="Add" class="button"/> &nbsp;
+            @Html.ActionLink("Cancel", "ViewPackage", "Package","",new { @class="button"})
+        </div>
     </div>
 }
 

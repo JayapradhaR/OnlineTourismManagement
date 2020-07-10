@@ -12,6 +12,7 @@ namespace OnlineTourismManagement.DAL
         Package GetPackageById(int packageId);
         void UpdatePackage(Package package);
         void DeletePackage(int id);
+        IEnumerable<Package> GetPackagesByTypeId(int id);
     }
     /// <summary>
     /// This PackageRepository performs CRUD operations for packages
@@ -61,6 +62,14 @@ namespace OnlineTourismManagement.DAL
                 context.Packages.Attach(package);
                 context.Packages.Remove(package); //Removing package from database
                 context.SaveChanges();
+            }
+        }
+        //View Package using package type id
+        public IEnumerable<Package> GetPackagesByTypeId(int id)
+        {
+            using (OnlineTourismDBContext context=new OnlineTourismDBContext())
+            {
+                return context.Packages.Include("PackageTypes").Where(typeId => typeId.PackageTypeId == id).ToList();
             }
         }
     }

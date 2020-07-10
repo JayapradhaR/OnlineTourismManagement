@@ -1,8 +1,31 @@
-﻿@model OnlineTourismManagement.Entity.Account
+﻿@model IEnumerable<OnlineTourismManagement.Entity.Account>
 
 @{
     ViewBag.Title = "Index";
   
 }
+<h2 class="alignment">Customer Details</h2>
+
+<table border="1" align="center" class="table" cellpadding="10" >
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Mail Id</td>
+        <td>Date of Birth</td>
+        <td>Gender</td>
+        <td>Mobile Number</td>
+    </tr>
+    @foreach(OnlineTourismManagement.Entity.Account items in Model)
+    {
+        <tr>
+            <td>@items.FirstName</td>
+            <td>@items.LastName</td>
+            <td>@items.MailId</td>
+            <td>@items.DateOfBirth</td>
+            <td>@items.Gender</td>
+            <td>@items.MobileNumber</td>
+        </tr>
+    }
+</table>
 
 

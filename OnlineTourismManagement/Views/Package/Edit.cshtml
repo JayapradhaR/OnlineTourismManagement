@@ -11,58 +11,58 @@
     <table cellpadding="10" align="center">
         <tr>
             <td>
-                @Html.LabelFor(Model => Model.PackageName)
+                @Html.LabelFor(Model => Model.PackageName,new { @class="label"})
             </td>
             <td>
-                @Html.EditorFor(Model => Model.PackageName)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.PackagePrice)
-            </td>
-            <td>
-                @Html.EditorFor(Model => Model.PackagePrice)
+                @Html.EditorFor(Model => Model.PackageName,new { @class="input textbox"})
             </td>
         </tr>
         <tr>
             <td>
-                @Html.LabelFor(Model => Model.CreationDate)
+                @Html.LabelFor(Model => Model.PackagePrice,new { @class="label"})
             </td>
             <td>
-                @Html.EditorFor(Model => Model.CreationDate)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.UpdationDate)
-            </td>
-            <td>
-                @Html.EditorFor(Model => Model.UpdationDate)
+                @Html.EditorFor(Model => Model.PackagePrice,new { @class="input textbox"})
             </td>
         </tr>
         <tr>
             <td>
-                @Html.LabelFor(Model => Model.Duration)
+                @Html.LabelFor(Model => Model.CreationDate,new { @class="label"})
             </td>
             <td>
-                @Html.EditorFor(Model => Model.Duration)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(Model => Model.Availability)
-            </td>
-            <td>
-                @Html.EditorFor(Model => Model.Availability)
+                @Html.EditorFor(Model => Model.CreationDate,new { @class="input textbox"})
             </td>
         </tr>
         <tr>
             <td>
-                @Html.ActionLink("Cancel", "ViewPackage")
+                @Html.LabelFor(Model => Model.UpdationDate,new { @class="label"})
             </td>
             <td>
-                <input type="submit" value="Update" />
+                @Html.EditorFor(Model => Model.UpdationDate,new { @class="input textbox"})
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Duration,new { @class="label"})
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.Duration,new { @class="input textbox"})
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.Availability,new { @class="label"})
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.Availability,new { @class="input textbox"})
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Cancel", "ViewPackage","Package","",new { @class="button"})
+            </td>
+            <td>
+                <input type="submit" value="Update" class="button"/>
             </td>
         </tr>
     </table>

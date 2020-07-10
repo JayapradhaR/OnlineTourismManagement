@@ -11,6 +11,7 @@ namespace OnlineTourismManagement.BL
         Package GetPackageById(int packageId);
         void UpdatePackage(Package package);
         void DeletePackage(int id);
+        IEnumerable<Package> GetPackageByTypeId(int id);
     }
     public class PackageBL : IPackageBL
     {
@@ -38,6 +39,11 @@ namespace OnlineTourismManagement.BL
         public void DeletePackage(int id)
         {
             packageDAL.DeletePackage(id);//Call DeletePackage() to delete package id
+        }
+
+        public IEnumerable<Package> GetPackageByTypeId(int id)
+        {
+            return packageDAL.GetPackagesByTypeId(id); // View package by type id
         }
     }
 }

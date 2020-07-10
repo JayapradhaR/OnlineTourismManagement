@@ -3,18 +3,21 @@
 @{
     ViewBag.Title = "AddPackageType";
 }
-
+    <h2 class="alignment">Package Types</h2>
 @using (Html.BeginForm("AddPackageType", "PackageType"))
 {
-    <div style="text-align:center">
-        @Html.LabelFor(Model => Model.PackageTypeName)
+    <div style="position:absolute;left:600px;">
         <div>
-            @Html.TextBoxFor(Model => Model.PackageTypeName, new { @maxlength = "20" })
-            <div>@Html.ValidationMessageFor(Model => Model.PackageTypeName, "", new { @class = "error" })</div>
+            @Html.LabelFor(Model => Model.PackageTypeName,new { @class="label"})
+            &nbsp;
+                @Html.TextBoxFor(Model => Model.PackageTypeName, new { @maxlength = "20", placeholder = "Enter package type",@class="input textbox"})
+               &nbsp;@Html.ValidationMessageFor(Model => Model.PackageTypeName, "", new { @class = "error" })
         </div>
         <br />
         <div>
-            <input type="submit" value="Submit" />
+            @Html.ActionLink("Cancel","ViewPackageType","PackageType","",new { @class="button"})
+            
+            &nbsp;<input type="submit" value="Add" class="button"/>
         </div>
         <br />
     </div>

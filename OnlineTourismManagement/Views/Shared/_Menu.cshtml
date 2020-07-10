@@ -10,25 +10,29 @@
     <header>
         <div>
             <img src="~/Images/Logo.png" alt="Logo" style="width:400px;height:70px;" />
+            <span class="phone">+91 8270424607</span>
         </div>
 
     </header>
     <br />  <br />
     <div class="link">
         @Html.ActionLink("Home", "Home", "Homepage", null, new { @class = "menu" })
-        @Html.ActionLink("Packages", "", "", null, new { @class = "menu" })
-        @Html.ActionLink("Giftcards", "", "", null, new { @class = "menu" })
+        
         @Html.ActionLink("Register", "SignUp", "Account", null, new { @class = "menu" })
 
         @if (HttpContext.Current.User.IsInRole("Admin"))
         {
-            <span> @Html.ActionLink("View Package", "ViewPackage", "Package", null, new { @class = "menu" }) </span>
+            <span> @Html.ActionLink("Package", "ViewPackage", "Package", null, new { @class = "menu" }) </span>
 
-            <span> @Html.ActionLink("View Package type", "ViewPackageType", "PackageType", null, new { @class = "menu" }) </span>
+            <span> @Html.ActionLink("Package type", "ViewPackageType", "PackageType", null, new { @class = "menu" }) </span>
+
+            <span> @Html.ActionLink("Customers", "Index", "Account", null, new { @class = "menu" })</span>
         }
         @if (HttpContext.Current.User.IsInRole("User"))
         {
+            <span>@Html.ActionLink("Packages", "ViewPackageType", "PackageType", null, new { @class = "menu" })</span>
 
+            <span>@Html.ActionLink("Giftcards", "", "", null, new { @class = "menu" })</span>
         }
 
         @if (HttpContext.Current.User.Identity.IsAuthenticated)

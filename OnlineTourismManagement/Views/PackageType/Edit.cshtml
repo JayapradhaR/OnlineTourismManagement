@@ -3,19 +3,21 @@
 @{
     ViewBag.Title = "Edit";
 }
-
+<h2 class="alignment">Edit type</h2>
 @using (Html.BeginForm("Update", "PackageType"))
 {
     @Html.HiddenFor(Model => Model.PackageTypeId)
 
     <div style="text-align:center">
-        @Html.LabelFor(Model => Model.PackageTypeName)
-        <div>@Html.EditorFor(Model => Model.PackageTypeName) </div>
+        <div>
+            @Html.LabelFor(Model => Model.PackageTypeName,new { @class="label"})
+            @Html.EditorFor(Model => Model.PackageTypeName,new { @class="input textbox"})
+        </div>
         <br />
         <div>
-            @Html.ActionLink("Cancel", "ViewPackageType")
+            @Html.ActionLink("Cancel", "ViewPackageType","",new { @class="button"})
 
-            &nbsp; &nbsp;<input type="submit" value="Update" />
+            &nbsp; &nbsp;<input type="submit" value="Update" class="button" />
         </div>
-        </div>
+    </div>
 }

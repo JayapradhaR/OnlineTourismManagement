@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace OnlineTourismManagement.Controllers
 {
-    [Authorize(Roles ="Admin")]
+
     public class PackageController : Controller
     {
         IPackageBL packages;
@@ -20,6 +20,12 @@ namespace OnlineTourismManagement.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        //View package by package type id
+        public ActionResult ViewPackageByType(int id)
+        {
+            IEnumerable<Package> pack = packages.GetPackageByTypeId(id);
+            return View("ViewPackage", pack);
         }
         //View package details
         public ViewResult ViewPackage()

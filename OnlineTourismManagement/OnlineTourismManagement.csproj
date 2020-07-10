@@ -106,7 +106,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\backgroundImage.jpeg" />
     <Content Include="Images\Home.jpg" />
+    <Content Include="Images\images.jpg" />
     <Content Include="Images\PageLogo.jpg" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\SignIn.jpg" />

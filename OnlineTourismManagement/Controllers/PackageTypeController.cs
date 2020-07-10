@@ -9,7 +9,7 @@ namespace OnlineTourismManagement.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [Authorize(Roles ="Admin")]
+    [Authorize]
     public class PackageTypeController : Controller
     {
         IPackageTypeBL package;

@@ -17,11 +17,10 @@ namespace OnlineTourismManagement.Controllers
         {
             userBL = new AccountBL();
         }
-        [ActionName("Registration")]
         public ViewResult Index()
         {
             IEnumerable<Account> user = userBL.GetUsers();
-            return View("Index");
+            return View(user);
         }
         //Create new account
         [HttpGet]

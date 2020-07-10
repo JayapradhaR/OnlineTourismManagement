@@ -3,41 +3,50 @@
 @{
     ViewBag.Title = "CreatePackage";
 }
-
+<h2 class="alignment">Package Details</h2>
 <link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />
 @using (Html.BeginForm("CreatePackage", "Package", FormMethod.Post))
 {
-    <div style="text-align:center">
-        @Html.LabelFor(Model => Model.PackageName)
-        <div>
-            @Html.TextBoxFor(Model => Model.PackageName, new { @maxlength = "20" })
-            <div>@Html.ValidationMessageFor(Model => Model.PackageName, "", new { @class = "error" })</div>
-        </div>
-        @Html.LabelFor(Model => Model.Duration)
-        <div>
-            @Html.TextBoxFor(Model => Model.Duration, new { @maxlength = "20" })
-            <div>@Html.ValidationMessageFor(Model => Model.Duration, "", new { @class = "error" })</div>
-        </div>
-        @Html.LabelFor(Model => Model.Availability)
-        <div>
-            @Html.TextBoxFor(Model => Model.Availability, new { @maxlength = "20" })
-            <div>@Html.ValidationMessageFor(Model => Model.Availability, "", new { @class = "error" })</div>
-        </div>
-        @Html.LabelFor(Model => Model.PackagePrice)
-        <div>
-            @Html.TextBoxFor(Model => Model.PackagePrice, new { @maxlength = "20" })
-            <div> @Html.ValidationMessageFor(Model => Model.PackagePrice, "", new { @class = "error" })</div>
-        </div>
-        @Html.LabelFor(Model => Model.PackageTypes)
-        <div>
-            @Html.DropDownListFor(Model => Model.PackageTypeId, (IEnumerable<SelectListItem>)ViewBag.PackageTypes, "Select Package Type")
-        <div>@Html.ValidationMessageFor(Model=>Model.PackageTypeId,"", new { @class = "error" })</div>
-        </div>
-        <br />
-        <div>
-            <input type="submit" value="Submit" />
-        </div>
-        <br />
-        <div></div>
-    </div>
+        <table cellpadding="10" id="add_package">
+            <tr>
+                <td>@Html.LabelFor(Model => Model.PackageName, new { @class = "label" })</td>
+                <td> @Html.TextBoxFor(Model => Model.PackageName, new { @maxlength = "20" ,placeholder="Enter package name",@class="input textbox"}) </td>
+                <td> @Html.ValidationMessageFor(Model => Model.PackageName, "", new { @class = "error" })</td>
+            </tr>
+            <tr>
+                <td> @Html.LabelFor(Model => Model.Duration, new { @class = "label" }) </td>
+                <td>  @Html.TextBoxFor(Model => Model.Duration, new { @maxlength = "20" ,placeholder="Enter duration in days",@class="input textbox" }) </td>
+                <td>  @Html.ValidationMessageFor(Model => Model.Duration, "", new { @class = "error" })</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.Availability, new { @class = "label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.Availability, new { @maxlength = "20" ,placeholder="Enter head count",@class="input textbox"})
+                </td>
+                <td>  @Html.ValidationMessageFor(Model => Model.Availability, "", new { @class = "error" })
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.PackagePrice, new { @class = "label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(Model => Model.PackagePrice, new { @maxlength = "20",placeholder="Enter price" ,@class="input textbox"})
+                </td>
+                <td>   @Html.ValidationMessageFor(Model => Model.PackagePrice, "", new { @class = "error" })
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.PackageTypes, new { @class = "label" })
+                </td>
+                <td>
+                    @Html.DropDownListFor(Model => Model.PackageTypeId, (IEnumerable<SelectListItem>)ViewBag.PackageTypes, "Select Package Type",new { @class="input textbox"}) &nbsp;
+                <td>  @Html.ValidationMessageFor(Model => Model.PackageTypeId, "", new { @class = "error" })
+            </tr>
+            <tr>
+                <td> <input type="submit" value="Submit" class="button" /></td>
+                <td>@Html.ActionLink("Cancel","ViewPackage","Package","",new { @class="button"})</td>
+            </tr>
+        </table>
 }
