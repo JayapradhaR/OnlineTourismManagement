@@ -4,14 +4,21 @@
     ViewBag.Title = "Edit";
 }
 <h2 class="alignment">Edit type</h2>
-@using (Html.BeginForm("Update", "PackageType"))
+@using (Html.BeginForm("Update", "PackageType", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
     @Html.HiddenFor(Model => Model.PackageTypeId)
 
     <div style="text-align:center">
         <div>
             @Html.LabelFor(Model => Model.PackageTypeName,new { @class="label"})
             @Html.EditorFor(Model => Model.PackageTypeName,new { @class="input textbox"})
+        </div>
+        <div>
+            <img width="300" height="200" src="@Url.Content(Model.ImageSource)" alt="@Model.PackageTypeName" />
+            <br />
+            @Html.LabelFor(Model => Model.ImageSource, new { @class = "label" })
+            <input type="file" id="image" name="ImageFile" />
         </div>
         <br />
         <div>

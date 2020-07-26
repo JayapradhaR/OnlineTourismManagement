@@ -14,54 +14,63 @@
 {
     @Html.Label((string)TempData["Message"])
 }
-<table border="1" align="center" class="table" cellpadding="10">
-    <tr>
-        <td class="alignment">Package Name</td>
-        <td class="alignment">Package Price</td>
-        <td class="alignment">Creation Date</td>
-        <td class="alignment">Updation Date</td>
-        <td class="alignment">Duration</td>
-        <td class="alignment">Availability</td>
-        <td class="alignment">Package type</td>
-        @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+<section class="package">
+    <div class="package-container">
+        @foreach (OnlineTourismManagement.Entity.Package item in Model)
         {
-            <td class="alignment">Action</td>
+        <div class="view-package">
+       
+            <div style="display:inline;">
+                <div style="display:inline;" >
+                    <div class="image-position">
+                        <a href='@Url.Action("ViewDetails","Package",new { id=item.PackageId})'>
+                            <img width="300" height="250" src="@Url.Content(item.ImageSource)" />
+                            </a>
+                    </div>
+                </div>
+            </div>
+            <div class="package-details">
+              
+                <div class="package-naming">
+                    <p class="package-name">@Html.ActionLink(item.PackageName, "ViewDetails", "Package", new { id = item.PackageId }, new { @class = "package-name" })</p>
+
+                    <p style="font-family: cursive;font-size: medium;">
+                        @{int num = item.Duration;
+                            num--;} @num Nights @item.Duration Days
+                        </p>
+                        <br />
+
+                        <p> TRAVEL YOUR OWN WAY</p>
+
+                        <p>
+                            @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                            {
+
+                                @Html.ActionLink("Edit", "Edit", "Package", new { id = item.PackageId }, new { @class = "linkColor" }) 
+                                @Html.ActionLink("Delete", "Delete", "Package", new { id = item.PackageId }, new { onclick = "return confirm('Are you sure to delete ?');", @class = "linkColor" })
+                                @Html.ActionLink("View Itinerary", "ViewItinerary", "Itinerary", new { id = item.PackageId, packageName=item.PackageName }, new { @class = "linkColor" })
+                                @Html.ActionLink("Add Itinerary", "AddItinerary", "Itinerary", new { id = item.PackageId, duration = item.Duration }, new { @class = "linkColor" })
+
+                            }
+                        </p>
+                    </div>
+                <div class="package-price">
+                    <p class="price">&#8377 @item.PackagePrice</p>
+                    <p style="height:40px;">Per person </p>
+
+                    @Html.ActionLink("View Details", "ViewDetails", "Itinerary",new { id=item.PackageId},new { @class="button"} )
+
+                   
+                </div>
+                
+      
+            </div>
+     
+        </div>
         }
-    </tr>
-    @foreach (OnlineTourismManagement.Entity.Package item in Model)
-    {
-        <tr>
-            <td>
-                @item.PackageName
-            </td>
-            <td>
-                @item.PackagePrice
-            </td>
-            <td>
-                @item.CreationDate
-            </td>
-            <td>
-                @item.UpdationDate
-            </td>
-            <td>
-                @item.Duration
-            </td>
-            <td>
-                @item.Availability
-            </td>
-            <td>
-                @item.PackageTypes.PackageTypeName
-            </td>
-            @if (ViewContext.HttpContext.User.IsInRole("Admin"))
-            {
-                <td>
-                    @Html.ActionLink("Edit", "Edit", "Package", new { id = item.PackageId }, new { @class = "linkColor" })
-                    @Html.ActionLink("Delete", "Delete", "Package", new { id = item.PackageId }, new { onclick = "return confirm('Are you sure to delete ?');", @class = "linkColor" })
-                    @Html.ActionLink("View Itinerary", "ViewItinerary", "Itinerary", new { id = item.PackageId }, new { @class = "linkColor" })
-                    @Html.ActionLink("Add Itinerary", "AddItinerary", "Itinerary", new { id = item.PackageId, duration = item.Duration }, new { @class = "linkColor" })
-                </td>
-            }
-        </tr>
-    }
-</table>
+    </div>
+</section>
+
+
+
 

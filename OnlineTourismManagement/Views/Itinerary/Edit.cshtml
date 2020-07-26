@@ -4,12 +4,17 @@
     ViewBag.Title = "Edit";
 }
 
-@using (Html.BeginForm("Update","Itinerary",FormMethod.Post))
+@using (Html.BeginForm("Update","Itinerary",FormMethod.Post,new {  enctype="multipart/form-data"}))
 {
+    @Html.AntiForgeryToken()
     @Html.HiddenFor(Model=>Model.ItineraryId)
     @Html.HiddenFor(Model=>Model.DayName)
     @Html.HiddenFor(Model=>Model.PackageId)
     <table border="1" align="center">
+        <tr>
+            <td>@Html.LabelFor(Model=>Model.Location)</td>
+            <td>@Html.EditorFor(Model=>Model.Location)</td>
+        </tr>
         <tr>
             <td>@Html.LabelFor(Model => Model.HotelName)</td>
             <td>@Html.EditorFor(Model => Model.HotelName)</td>
@@ -25,6 +30,15 @@
         <tr>
             <td>@Html.LabelFor(Model => Model.Meal)</td>
             <td>@Html.EditorFor(Model => Model.Meal)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model=>Model.ImageSource)</td>
+            <td>@Html.TextBoxFor(Model=>Model.ImageFile,new { type="file"})</td>
+            <td><img src="@Url.Content(Model.ImageSource)" width="200" height="200" /></td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model=>Model.DetailedItinerary)</td>
+            <td>@Html.EditorFor(Model=>Model.DetailedItinerary)</td>
         </tr>
         <tr>
             <td>@Html.ActionLink("Cancel", "ViewItinerary","Itinerary",new { id=Model.PackageId},null)</td>

@@ -1,6 +1,8 @@
 ﻿using OnlineTourismManagement.Entity;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace OnlineTourismManagement.Models
 {
@@ -31,10 +33,17 @@ namespace OnlineTourismManagement.Models
         [Display(Name = "Updation Date")]
         public DateTime UpdationDate { get; set; }
 
+        [Display(Name = "Image Source")]
+        public string ImageSource { get; set; }
+
+        public HttpPostedFileBase ImageFile { get; set; }
+
+       
         [Display(Name = "Package Type Id")]
-        [Required(ErrorMessage ="Package type required")]
+        [Required(ErrorMessage = "Package type required")]
         public int PackageTypeId { get; set; }
 
         public PackageType PackageTypes { get; set; }
     }
+  
 }

@@ -1,23 +1,47 @@
 ﻿.image {
-    background-image:url(../Images/Home.jpg);
+    background-image:url(..\\Images\\201612711253290.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    /*height:1000px;
+    width:1500px;*/
+    max-width:1500px;
+    /*position:relative;*/
+}
+.signIn-image {
+    background-image: url(../Images/login-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
     height:1000px;
-    width:1500px;
 }
-.signInImage{
-    background-image:url(../Images/SignIn.jpg);
+.signInImage {
+    background-image: url(../Images/SignIn.jpg);
+    height: 500px;
+    width: 500px;
+    border: solid;
+    position: relative;
+    left: 100px;
+}
+.signIn-position {
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.signIn-error{
+    margin-right:50px;
 }
 .design {
-    float: right;
+    /*float: right;
     width: 50%;
-    /*border:solid;*/
+    border:solid;*/
 }
 body{
     /*background-color:antiquewhite;*/
     height:1140px;
-    display:block;
+    /*display:block;*/
+    /*width:1500px;
+    max-width:1500px;*/
 }
 .phone {
     position: absolute;
@@ -25,14 +49,18 @@ body{
     margin-top: 30px;
     font-size: large;
     font-family: monospace;
+    
 }
 .signin {
-    float: left;
-    width: 40%;
+    /*background-image :Url(../Images/Signup.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    /*width: 40%;*/
 }
-.SignInimage{
-    height:5000px;
-    width:500px;
+.SignInimage {
+    height: 5000px;
+    width: 500px;
+    
 }
 .main{
     float:left;
@@ -40,6 +68,7 @@ body{
 }
 .error {
     color: red;
+    font-size:15px;
 }
 .content{
     color:crimson;
@@ -51,7 +80,9 @@ body{
 }
 header {
     height: 50px;
-    width: 100%;
+    /*width: auto;*/
+    /*max-width:1500px;*/
+   position:relative;
     /*background-color: yellowgreen;*/
 }
 
@@ -59,6 +90,9 @@ header {
     text-align: end;
     background-color: #9CCC65;
     padding: 10px;
+    /*width:1500px;
+    max-width:1500px;*/
+    position:relative;
 }
 
 footer {
@@ -101,6 +135,8 @@ footer {
     font-size:x-large;
     text-decoration: blink;
     padding: 10px 17px 10px 12px;
+    color:white;
+    font-weight:bolder;
 }
 .button {
     color: white;
@@ -110,15 +146,17 @@ footer {
     text-decoration: none;
     cursor: pointer;
     background-color: #9CCC65;
+    border-radius:3px;
 }
 
-.text_MailId {
-    width:300px;
-    height:30px;
+.signIn-textbox {
+    width: 300px;
+    height: 30px;
     padding: 5px 12px;
-    font-size:1rem;
-    position:absolute;
-    left:950px;
+    font-size: 1rem;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    margin-left: 50px;
 }
 .text_Password {
     width: 300px;
@@ -139,12 +177,14 @@ footer {
     left: 1300px;
     margin-top: 110px;
 }
-.label_username {
-    font-family: Constantia;
+.signIn-label {
+    /*font-family: Constantia;
     position: absolute;
     left: 800px;
     margin-top: 10px;
-    font-size: larger;
+    font-size: larger;*/
+    font-family:Constantia;
+    font-size:larger;
 }
 .label_password {
     font-family: Constantia;
@@ -159,9 +199,9 @@ footer {
     margin-top: 200px;
 }
 .account {
-    position: absolute;
-    left: 950px;
-    margin-top: 300px;
+    /*position: absolute;
+    left: 950px;*/
+    margin-top: 50px;
     font-style: italic;
     font-size: larger;
 }
@@ -181,8 +221,11 @@ footer {
     font-size:20px;
 }
 
-.linkColor{
-    color:blue;
+.linkColor {
+    color: blue;
+    margin-left: 30px;
+    font-size: larger;
+    font-family: cursive;
 }
 
 #add_package {
@@ -224,4 +267,206 @@ footer {
 .add_itinerary{
     position:absolute;
     left:600px;
+}
+
+
+.view-package {
+    width: 1075px;
+    margin: 0 auto;
+    height: 250px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.1);
+}
+.view-package:before{
+    content:" ";
+    display:table;
+}
+.view-package:after{
+    content:" ";
+    display:table;
+}
+section{
+    float:right;
+    width:90%;
+    display:block;
+}
+.package{
+    margin-bottom:20px;
+}
+.package-container{
+   max-width:990px;
+   width:100%;
+   clear:both;
+   box-sizing:border-box;
+   padding: 0 15px;
+}
+
+.image-position{
+   border-radius:5px;
+   height:250px;
+   float:left;
+   background-position:50%;
+   margin-right:30px;
+   width:300px;
+   position:relative;
+}
+
+.package-price{
+    float:left;
+    width:200px;
+    padding:20px;
+    height:85%;
+    min-height:124px;
+    border-radius:5px;
+
+}
+
+.package-details {
+    float: left;
+    position: relative;
+    width: 745px;
+    height: 100%;
+    background-color: lavenderblush;
+}
+
+.package-details:before{
+    content:" ";
+    display:table;
+}
+
+.package-details:after{
+    content:" ";
+    display:table;
+}
+
+.package-naming{
+    float:left;
+    width:475px;
+    padding:20px 0;
+    position:relative;
+    min-height:230px;
+}
+
+.package-name {
+    font-family: 'Lucida Sans Regular';
+    font-size: 20px;
+    font-weight: bold;
+    color: darkslategrey;
+    text-decoration:blink;
+}
+
+.price {
+    font-family: Rubik Regular;
+    font-weight: bold;
+    font-size: 25px;
+    box-sizing: border-box;
+    height: 10px;
+}
+
+.type-position {
+    border-radius: 5px;
+    height: 350px;
+    float: left;
+    background-position: 50%;
+    margin-right: 30px;
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.1);
+    position:relative;
+    left:100px;
+}
+
+.type-image{
+    margin-bottom:50px;
+}
+
+.details-position {
+    position: relative;
+    margin: auto;
+    /*left:50px;*/
+    max-width: 900px;
+    padding: 20px;
+    /*margin-left: 300px;*/
+    /*border: solid;*/
+    /*border-color: aquamarine;*/
+}
+
+.view-itinerary{
+    max-width:900px;
+    height:250px;
+}
+
+.itinerary-position {
+    float: left;
+    position: relative;
+    max-width:900px;
+    /*left: 30px;*/
+}
+
+.day-position {
+    float: left;
+    font-family: Constantia;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: #9e9e9e;
+    border-radius:5px;
+}
+
+.itinerary-label {
+    font-family: Constantia;
+    font-size: large;
+    font-weight: bold;
+    margin-top: 30px;
+    
+}
+
+.text-position{
+    margin-left:50px;
+    font-weight:normal;
+}
+
+.fa-angle-down{
+    font-size:0.7em;
+}
+
+.itineray {
+    position: relative;
+    /*left: 200px;*/
+    max-width: 1100px;
+    margin: 0 auto;
+    /*height: 250px;*/
+    border-radius: 5px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.1);
+   
+
+}
+
+
+.view-image {
+    width:100%;
+    height:auto;
+}
+
+.redirect-link {
+    text-decoration: blink;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: large;
+    /*/*margin-left: 50px;*/
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: whitesmoke;
+}
+.redirect-link >span{
+    margin-left:50px;
+}
+
+.viewdetails-image {
+    background-image: url(../Images/Nature.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }

@@ -1,6 +1,7 @@
 ﻿using OnlineTourismManagement.Entity;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace OnlineTourismManagement.Models
 {
@@ -20,6 +21,9 @@ namespace OnlineTourismManagement.Models
 
         public string DayName { get; set; }
 
+        [Required(ErrorMessage = "Location Required")]
+        public string Location { get; set; }
+
         [Required(ErrorMessage = "Hotel name required")]
         public string HotelName { get; set; }
 
@@ -31,5 +35,14 @@ namespace OnlineTourismManagement.Models
 
         [Required(ErrorMessage = "Meal details required")]
         public string Meal { get; set; }
+
+        [Display(Name ="Image Source")]
+        public string ImageSource { get; set; }
+
+        public HttpPostedFileBase ImageFile { get; set; }
+
+        [Required(ErrorMessage ="Itinerary details required")]
+        public string DetailedItinerary { get; set; }
+
     }
 }

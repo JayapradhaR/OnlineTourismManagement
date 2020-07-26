@@ -3,14 +3,22 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    @*<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>*@
+
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
-    <header>
-        <div>
-            <img src="~/Images/Logo.png" alt="Logo" style="width:400px;height:70px;" />
-            <span class="phone">+91 8270424607</span>
+    <header >
+        <div style="max-width:200px;">
+            <img src="~/Images/logo.jpg" alt="Logo"  class="view-image" @*width="300" height="100"*@/>
+            <br />
+            @*<span class="phone">+91 8270424607</span>*@
         </div>
 
     </header>

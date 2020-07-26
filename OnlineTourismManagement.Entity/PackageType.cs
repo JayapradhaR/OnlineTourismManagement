@@ -15,6 +15,9 @@ namespace OnlineTourismManagement.Entity
         [Index(IsUnique = true)]
         public string PackageTypeName { get; set; }
 
+        [Required]
+        public string ImageSource { get; set; }
+
         public ICollection<Package> packages { get; set; }
     }
 }

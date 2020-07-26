@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Itinerary.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="PackageType.cs" />
     <Compile Include="Account.cs" />

@@ -17,6 +17,10 @@ namespace OnlineTourismManagement.Entity
         public int DayName { get; set; }
 
         [Required]
+        [MaxLength(50)]
+        public string Location { get; set; }
+
+        [Required]
         [MaxLength(30)]
         public string HotelName { get; set; }
 
@@ -32,5 +36,11 @@ namespace OnlineTourismManagement.Entity
         [MaxLength(20)]
         public string Meal { get; set; }
 
+        [Required]
+        public string ImageSource { get; set; }
+
+        [Required]
+        [MaxLength(200)]
+        public string DetailedItinerary { get; set; }
     }
 }

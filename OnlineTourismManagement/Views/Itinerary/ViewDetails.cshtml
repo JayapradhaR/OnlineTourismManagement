@@ -1,0 +1,101 @@
+﻿@using OnlineTourismManagement.Models
+@model dynamic
+
+@{
+    ViewBag.Title = "ViewDetails";
+}
+    <div style="position:relative;">
+        <div class="itineray">
+            <div class="details-position">
+                <h1 style="margin-top:30px;">@Model.package.PackageName</h1>
+                
+                    <h2 style="text-align:end;"><span style="background-color:orangered;border-radius:10px;padding:10px;">&#8377 @Model.package.PackagePrice</span></h2>
+              
+                <h4 >
+                    @{int num = @Model.package.Duration;
+                        num--;} 
+                    <span style="background-color:cadetblue;border-radius:10px;padding:10px;">@num Nights @Model.package.Duration Days </span>
+                    </h4>
+                <div class="redirect-link">
+                    <span ><a href="#Itinerary">Itinerary Details</a></span>
+                    <span ><a href="#Inclusions">Inclusions</a></span>
+                    <span ><a href="#Exclusions">Exclusions</a></span>
+                    <span ><a href="#DetailedItinerary">Detailed Itinerary</a></span>
+                </div>
+                <br />
+                <br />
+                <div style="max-width:900px;">
+                    <img src="@Url.Content(@Model.package.ImageSource)"  class="view-image" width="900" height="500" />
+                </div>
+                    <hr />
+                    <h2 style="font-family:Lato bold" id="Itinerary">Itinerary Details</h2>
+
+                    @foreach (OnlineTourismManagement.Entity.Itinerary item in Model.itinerary)
+                    {
+                        <div class="view-itinerary">
+                            <div>
+                                <div class="day-position">
+                                    <span>Day</span>
+                                    @item.DayName
+                                </div>
+                            </div>
+                            <div class="itinerary-position">
+                                <div class="itinerary-label">
+                                    Sight Seeing &nbsp;
+                                    <i class="fas fa-archway"></i>
+                                    <span class="text-position"> @item.SightSeeing</span>
+                                </div>
+                                <div class="itinerary-label">
+                                    Hotel Name &nbsp;
+                                    <i class="fas fa-hotel"></i>
+                                    <span class="text-position"> @item.HotelName </span>
+                                </div>
+                                <div class="itinerary-label">
+                                    Hotel Location &nbsp;
+                                    <i class="fa fa-map-marker"></i>
+                                    <span class="text-position"> @item.HotelLocation </span>
+                                </div>
+                                <div class="itinerary-label">
+                                    Meal &nbsp;
+                                    <i class="fas fa-pizza-slice"></i>
+                                    <span class="text-position"> @item.Meal</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <hr />
+
+                    @*<div style="float:left">*@
+                        <h2 id="Inclusions">Inclusions</h2>
+                        <ul style="list-style-type:disc;font-size:large;">
+                            <li>Welcome Non-alcoholic drink on arrival. </li>
+                            <li style="padding-top:10px;">Complimentary unlimited Wi-Fi access during the stay.</li>
+                            <li style="padding-top:10px;"> 01 Mineral water bottle per person per day basis.</li>
+                            <li style="padding-top:10px;">Assistance on Arrival</li>
+                        </ul>
+
+                    @*</div>
+                    <div style="float:left">*@
+                        <h2 id="Exclusions">Exclusions</h2>
+                        <ul style="list-style-type:disc;font-size:large;">
+                            <li >Personal expenses such as laundry, telephone calls,tips and gratuity,mineral water,soft and hard drinks,Porterage.</li>
+                            <li style="padding-top:10px;">Still camera/video camera charger.</li>
+                            <li style="padding-top:10px;">5% GST & all Government Taxes.</li>
+                        </ul>
+                    @*</div>*@
+                <hr />
+                <h2 id="DetailedItinerary">Detailed day wise itinerary</h2>
+                <div>
+                    @foreach (OnlineTourismManagement.Entity.Itinerary item in Model.itinerary)
+                    {
+                    <div style="clear:left;padding:20px;background-color:#a9a9a938;border-radius:3px;">
+                        <img style="float:left;margin-right:20px;margin-top:20px;border-radius:10px;" src="@Url.Content(item.ImageSource)" width="150" height="100" />
+                        <h3 style="font-size:x-large;font-weight:bold;padding:10px;"> Day @item.DayName - @item.Location </h3>
+                        <p style="font-size:large;">@item.DetailedItinerary</p>
+                    </div>
+                    }
+                </div>
+                <hr />
+                </div>
+            </div>
+     </div>

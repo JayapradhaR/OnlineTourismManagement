@@ -29,6 +29,7 @@ namespace OnlineTourismManagement.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SignUp(SignUpViewModel user)  // Sign up details
         {
             try
@@ -54,6 +55,7 @@ namespace OnlineTourismManagement.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SignIn(SignInViewModel userDetail) //Sign in details
         {
             if (ModelState.IsValid)
@@ -70,7 +72,8 @@ namespace OnlineTourismManagement.Controllers
                     return RedirectToAction("Home", "Homepage");
                 }
                 else
-                    Response.Write("Username or password incorrect");
+                    //Response.Write("Incorrect");
+                   Response.Write("<script language='javascript'>alert('Username or password incorrect');</script");
             }
             return View();
         }

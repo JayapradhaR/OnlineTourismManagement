@@ -9,6 +9,8 @@
 {
     @Html.Label((string)TempData["ItineraryMessage"])
 }
+<h1>  Package Name : @ViewBag.Package </h1>
+
 <table border="1" align="center" class="table">
     <tr>
         <td>Day</td>
@@ -21,11 +23,14 @@
     @foreach(OnlineTourismManagement.Entity.Itinerary item in Model)
     {
         <tr>
+            <td>@item.Location</td>
             <td>@item.DayName</td>
             <td>@item.HotelName</td>
             <td>@item.HotelLocation</td>
             <td>@item.SightSeeing</td>
             <td>@item.Meal</td>
+            <td>@item.DetailedItinerary</td>
+            <td><img width="200" height="200" src="@Url.Content(item.ImageSource)" /></td>
             <td>@Html.ActionLink("Edit","Edit","Itinerary",new { id=item.ItineraryId},null)</td>
             <td>@Html.ActionLink("Delete","Delete","Itinerary",new { id=item.ItineraryId},new { onclick="return confirm('Are you sure to delete ?');"})</td>
         </tr>

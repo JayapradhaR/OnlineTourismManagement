@@ -106,13 +106,22 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\201612711253290.jpg" />
     <Content Include="Images\backgroundImage.jpeg" />
     <Content Include="Images\Home.jpg" />
     <Content Include="Images\images.jpg" />
+    <Content Include="Images\login-background.jpg" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\Nature.jpg" />
     <Content Include="Images\PageLogo.jpg" />
-    <Content Include="Images\Logo.png" />
+    <Content Include="Images\Logo1.png" />
     <Content Include="Images\SignIn.jpg" />
-    <Content Include="Images\SignUp.jpg" />
+    <Content Include="Images\SignIn.png" />
+    <Content Include="Images\Signup.jpg" />
+    <Content Include="Images\SignUpImg.jpg" />
+    <Content Include="Images\W-Image.jpg" />
+    <Content Include="Images\Wallpaper image.jpg" />
+    <Content Include="Images\Wallpaper.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -137,6 +146,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomepageController.cs" />
     <Compile Include="Controllers\ItineraryController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PackageController.cs" />
     <Compile Include="Controllers\PackageTypeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -146,6 +156,7 @@
     <Compile Include="App_Start\MappingConfiguration.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\ItineraryViewModel.cs" />
+    <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\PackageTypeViewModel.cs" />
     <Compile Include="Models\PackageViewModel.cs" />
     <Compile Include="Models\SignInViewModel.cs" />
@@ -186,6 +197,8 @@
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Itinerary\ViewItinerary.cshtml" />
     <Content Include="Views\Itinerary\Edit.cshtml" />
+    <Content Include="Views\Package\ViewDetails.cshtml" />
+    <Content Include="Views\Itinerary\ViewDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,6 +208,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\ItineraryImages\" />
+    <Folder Include="Images\PackageImages\" />
+    <Folder Include="Images\PackageTypeImages\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineTourismManagement.BL\OnlineTourismManagement.BL.csproj">

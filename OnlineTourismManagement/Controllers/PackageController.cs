@@ -4,6 +4,7 @@ using OnlineTourismManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System.IO;
 
 namespace OnlineTourismManagement.Controllers
 {
@@ -42,6 +43,7 @@ namespace OnlineTourismManagement.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CreatePackage(PackageViewModel packageDetails)
         {
             try
@@ -50,7 +52,13 @@ namespace OnlineTourismManagement.Controllers
                 ViewBag.PackageTypes = new SelectList(packageType.GetPackageTypes(), "PackageTypeId", "PackageTypeName");
                 if (ModelState.IsValid)
                 {
+                    string fileName = Path.GetFileNameWithoutExtension(packageDetails.ImageFile.FileName);
+                    string extension = Path.GetExtension(packageDetails.ImageFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    packageDetails.ImageSource ="~/Images/PackageImages/"+fileName;
                     Package package = AutoMapper.Mapper.Map<PackageViewModel, Package>(packageDetails);
+                    fileName = Path.Combine(Server.MapPath("~/Images/PackageImages/"), fileName);
+                    packageDetails.ImageFile.SaveAs(fileName);
                     packages.AddPackage(package);
                     TempData["Message"] = "Package Added";
                     return RedirectToAction("ViewPackage");
@@ -71,14 +79,22 @@ namespace OnlineTourismManagement.Controllers
             return View(package);
         }
         [HttpPost]
-        public ActionResult Update([Bind(Include = "PackageId,PackagePrice,PackageName,Duration,Availability")]PackageViewModel packageDetails)
+        [ValidateAntiForgeryToken]
+        public ActionResult Update([Bind(Include = "PackageId,PackagePrice,PackageName,Duration,Availability,ImageSource,ImageFile")]PackageViewModel packageDetails)
         {
+            string fileName = Path.GetFileNameWithoutExtension(packageDetails.ImageFile.FileName);
+            string extension = Path.GetExtension(packageDetails.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            packageDetails.ImageSource = "~/Images/PackageImages/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/Images/PackageImages/"), fileName);
+            packageDetails.ImageFile.SaveAs(fileName);
             Package package = packages.GetPackageById(packageDetails.PackageId);
             package.PackageName = packageDetails.PackageName;
             package.PackagePrice = packageDetails.PackagePrice;
             package.Duration = packageDetails.Duration;
             package.Availability = packageDetails.Availability;
             package.UpdationDate = DateTime.Now;
+            package.ImageSource = packageDetails.ImageSource;
             packages.UpdatePackage(package);
             TempData["Message"] = "Package updated";
             return RedirectToAction("ViewPackage");
@@ -89,6 +105,11 @@ namespace OnlineTourismManagement.Controllers
             packages.DeletePackage(id);
             TempData["Message"] = "Package Deleted";
             return RedirectToAction("ViewPackage");
+        }
+        public ActionResult ViewDetails(int id)
+        {
+            IEnumerable<Package> package = packages.GetPackages();
+            return View(package);
         }
     }
 }

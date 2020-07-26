@@ -18,7 +18,7 @@ namespace OnlineTourismManagement.Entity
         public PackageType PackageTypes { get; set; }
 
         [Required]
-        [MaxLength(30)]
+        [MaxLength(100)]
         [Index(IsUnique =true)]
         public string PackageName { get; set; }
 
@@ -33,6 +33,9 @@ namespace OnlineTourismManagement.Entity
 
         [Required]
         public DateTime UpdationDate { get; set; }
+
+        [Required]
+        public string ImageSource { get; set; }
 
         [Required]
         public int PackagePrice { get; set; }

@@ -69,6 +69,26 @@
     <Compile Include="Migrations\202003270534219_UpdateDetails.designer.cs">
       <DependentUpon>202003270534219_UpdateDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007150204042_ImagePath.cs" />
+    <Compile Include="Migrations\202007150204042_ImagePath.designer.cs">
+      <DependentUpon>202007150204042_ImagePath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007150217478_change.cs" />
+    <Compile Include="Migrations\202007150217478_change.designer.cs">
+      <DependentUpon>202007150217478_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007190340038_type.cs" />
+    <Compile Include="Migrations\202007190340038_type.designer.cs">
+      <DependentUpon>202007190340038_type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007210234047_itinerary.cs" />
+    <Compile Include="Migrations\202007210234047_itinerary.designer.cs">
+      <DependentUpon>202007210234047_itinerary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007250341529_Changes.cs" />
+    <Compile Include="Migrations\202007250341529_Changes.designer.cs">
+      <DependentUpon>202007250341529_Changes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineTourismDBContext.cs" />
     <Compile Include="PackageRepository.cs" />
@@ -102,6 +122,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003270534219_UpdateDetails.resx">
       <DependentUpon>202003270534219_UpdateDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007150204042_ImagePath.resx">
+      <DependentUpon>202007150204042_ImagePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007150217478_change.resx">
+      <DependentUpon>202007150217478_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007190340038_type.resx">
+      <DependentUpon>202007190340038_type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007210234047_itinerary.resx">
+      <DependentUpon>202007210234047_itinerary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007250341529_Changes.resx">
+      <DependentUpon>202007250341529_Changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

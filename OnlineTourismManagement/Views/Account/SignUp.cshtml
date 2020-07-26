@@ -7,6 +7,7 @@
 @using OnlineTourismManagement.Models
 @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     <div class="signin">
         <br />
@@ -21,7 +22,7 @@
                     @Html.LabelFor(Model => Model.FirstName)
                 </td>
                 <td>
-                    @Html.TextBoxFor(Model => Model.FirstName, new { @maxlength = "30" ,placeholder="Enter first name" ,@class="signUpForm input"})
+                    @Html.TextBoxFor(Model => Model.FirstName, new { @maxlength = "30", placeholder = "Enter first name", @class = "signUpForm input" })
                 </td>
                 <td>
                     @Html.ValidationMessageFor(Model => Model.FirstName, "", new { @class = "error" })
@@ -32,7 +33,7 @@
                     @Html.LabelFor(Model => Model.LastName)
                 </td>
                 <td>
-                    @Html.TextBoxFor(Model => Model.LastName, new { @maxlength = "30",placeholder="Enter last name" ,@class="signUpForm input"})
+                    @Html.TextBoxFor(Model => Model.LastName, new { @maxlength = "30", placeholder = "Enter last name", @class = "signUpForm input" })
                 </td>
             </tr>
             <tr>
@@ -40,7 +41,7 @@
                     @Html.LabelFor(Model => Model.MobileNumber)
                 </td>
                 <td>
-                    @Html.TextBoxFor(Model => Model.MobileNumber, new { @maxlength = "10",placeholder="Mobile number" ,@class="signUpForm input"})
+                    @Html.TextBoxFor(Model => Model.MobileNumber, new { @maxlength = "10", placeholder = "Mobile number", @class = "signUpForm input" })
                 </td>
                 <td>
                     @Html.ValidationMessageFor(Model => Model.MobileNumber, "", new { @class = "error" })
@@ -63,7 +64,7 @@
                     @Html.LabelFor(Model => Model.DateOfBirth)
                 </td>
                 <td>
-                    @Html.TextBoxFor(Model => Model.DateOfBirth,new { @type="date",@class="signUpForm input"})
+                    @Html.TextBoxFor(Model => Model.DateOfBirth, new { @type = "date", @class = "signUpForm input" })
                 </td>
                 <td>
                     @Html.ValidationMessageFor(Model => Model.DateOfBirth, "", new { @class = "error" })
@@ -74,7 +75,7 @@
                     @Html.LabelFor(Model => Model.MailId)
                 </td>
                 <td>
-                    @Html.TextBoxFor(Model => Model.MailId, new { @maxlength = "64",placeholder="Email address",@class="signUpForm input" })
+                    @Html.TextBoxFor(Model => Model.MailId, new { @maxlength = "64", placeholder = "Email address", @class = "signUpForm input" })
                 </td>
                 <td>
                     @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })
@@ -85,7 +86,7 @@
                     @Html.LabelFor(Model => Model.Password)
                 </td>
                 <td>
-                    @Html.PasswordFor(Model => Model.Password, new { @maxlength = "20",placeholder="Password" ,@class="signUpForm input"})
+                    @Html.PasswordFor(Model => Model.Password, new { @maxlength = "20", placeholder = "Password", @class = "signUpForm input" })
                 </td>
                 <td>
                     @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error" })
@@ -96,21 +97,22 @@
                     @Html.LabelFor(Model => Model.ConfirmPassword)
                 </td>
                 <td>
-                    @Html.PasswordFor(Model => Model.ConfirmPassword, new { @maxlength = "20",placeholder="Confirm password",@class="signUpForm input" })
+                    @Html.PasswordFor(Model => Model.ConfirmPassword, new { @maxlength = "20", placeholder = "Confirm password", @class = "signUpForm input" })
                 </td>
                 <td>
                     @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { @class = "error" })
                 </td>
             </tr>
-            <tr >
+            <tr>
                 <td colspan="2" class="alignment">
-                    <input type="Submit" value="Register" class="button"/>
+                    <input type="Submit" value="Register" class="button" />
                 </td>
             </tr>
             <tr>
-                <td colspan="2" class="alignment font" >Already registered user ? @Html.ActionLink("Sign In","SignIn","Account")</td>
+                <td colspan="2" class="alignment font">Already registered user ? @Html.ActionLink("Sign In", "SignIn", "Account")</td>
             </tr>
         </table>
+
     </div>
 }
 

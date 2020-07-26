@@ -6,44 +6,62 @@
 
 <h2 class="alignment">Itinerary Details</h2>
 
-@using (Html.BeginForm("AddItinerary", "Itinerary", FormMethod.Post))
+@using (Html.BeginForm("AddItinerary", "Itinerary",FormMethod.Post,new {enctype="multipart/form-data" }))
 {
+    @Html.AntiForgeryToken()
     <br />
     <div class="add_itinerary">
         @for (int i = 0; i < (int)TempData.Peek("Duration"); i++)
         {
             <div>
                 <span class="label">Day</span>
-                @Html.TextBoxFor(Model => Model.itineraryViewModels[i].DayName, new { Value = i + 1 , @class="textbox input day"})
+                @Html.TextBoxFor(Model => Model.itineraryViewModels[i].DayName, new { Value = i + 1, @class = "textbox input day" })
             </div>
+            <br />
+            <div>
+                <span class="label">Location</span>
+                @Html.TextBoxFor(Model=>Model.itineraryViewModels[i].Location,new { @class="textbox input"})
+            </div>
+                @Html.ValidationMessageFor(Model=>Model.itineraryViewModels[i].Location,"",new { @class="error"})
             <br />
             <div>
                 <span class="label"> Hotel Name </span>@Html.TextBoxFor(Model => Model.itineraryViewModels[i].HotelName, new { @class = "textbox input" })
             </div>
-                @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].HotelName, "", new { @class = "error" })
+            @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].HotelName, "", new { @class = "error" })
             <br />
             <div>
                 <span class="label"> Hotel Location</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].HotelLocation, new { @class = "textbox input" })
             </div>
-                @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].HotelLocation, "", new { @class = "error" })
+            @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].HotelLocation, "", new { @class = "error" })
             <br />
             <div>
                 <span class="label"> Sight Seeing</span>@Html.TextBoxFor(Model => Model.itineraryViewModels[i].SightSeeing, new { @class = "textbox input" })
             </div>
-                @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].SightSeeing, "", new { @class = "error" })
+            @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].SightSeeing, "", new { @class = "error" })
             <br />
             <div>
                 <span class="label"> Meal</span> @Html.TextBoxFor(Model => Model.itineraryViewModels[i].Meal, new { @class = "textbox input" })
             </div>
-                @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].Meal, "", new { @class = "error" })
-            
+            @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].Meal, "", new { @class = "error" })
+            <br />
+            <div>
+                <span class="label"> Image Source</span> 
+                @Html.TextBoxFor(Model => Model.itineraryViewModels[i].ImageFile, new { type="file", @class="textbox input"})
+                @*<input type="file" id="image" name="ImageFile" class="textbox input" />*@
+            </div>
+            @Html.ValidationMessageFor(Model => Model.itineraryViewModels[i].ImageSource, "", new { @class = "error" })
+
             @Html.HiddenFor(Model => Model.itineraryViewModels[i].PackageId, new { Value = (int)TempData.Peek("Id") })
             <br />
-            <br />
+            <div>
+                <span class="label">Detailed Itinerary</span>
+                @Html.TextAreaFor(Model=>Model.itineraryViewModels[i].DetailedItinerary,new { @class="textbox input"})
+            </div>
+            @Html.ValidationMessageFor(Model=>Model.itineraryViewModels[i].DetailedItinerary,"",new { @class="error"})
         }
         <div class="alignment">
-            <input type="submit" value="Add" class="button"/> &nbsp;
-            @Html.ActionLink("Cancel", "ViewPackage", "Package","",new { @class="button"})
+            <input type="submit" value="Add" class="button" /> &nbsp;
+            @Html.ActionLink("Cancel", "ViewPackage", "Package", "", new { @class = "button" })
         </div>
     </div>
 }

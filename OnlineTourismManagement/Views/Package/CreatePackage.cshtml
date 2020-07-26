@@ -5,12 +5,13 @@
 }
 <h2 class="alignment">Package Details</h2>
 <link rel="stylesheet" type="text/css" href="~/styles/Styles.css" />
-@using (Html.BeginForm("CreatePackage", "Package", FormMethod.Post))
+@using (Html.BeginForm("CreatePackage", "Package", FormMethod.Post,new { enctype="multipart/form-data"}))
 {
+    @Html.AntiForgeryToken()
         <table cellpadding="10" id="add_package">
             <tr>
                 <td>@Html.LabelFor(Model => Model.PackageName, new { @class = "label" })</td>
-                <td> @Html.TextBoxFor(Model => Model.PackageName, new { @maxlength = "20" ,placeholder="Enter package name",@class="input textbox"}) </td>
+                <td> @Html.TextBoxFor(Model => Model.PackageName, new { @maxlength = "100" ,placeholder="Enter package name",@class="input textbox"}) </td>
                 <td> @Html.ValidationMessageFor(Model => Model.PackageName, "", new { @class = "error" })</td>
             </tr>
             <tr>
@@ -44,6 +45,16 @@
                     @Html.DropDownListFor(Model => Model.PackageTypeId, (IEnumerable<SelectListItem>)ViewBag.PackageTypes, "Select Package Type",new { @class="input textbox"}) &nbsp;
                 <td>  @Html.ValidationMessageFor(Model => Model.PackageTypeId, "", new { @class = "error" })
             </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(Model => Model.ImageSource, new { @class="label"})
+                </td>
+                <td>
+                    <input type="file" id="image" name="ImageFile" required class="input textbox"/>
+                </td>
+                @Html.ValidationMessageFor(Model=>Model.ImageSource,"",new { @class="error"})
+            </tr>
+       
             <tr>
                 <td> <input type="submit" value="Submit" class="button" /></td>
                 <td>@Html.ActionLink("Cancel","ViewPackage","Package","",new { @class="button"})</td>

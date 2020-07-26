@@ -9,38 +9,62 @@
 {
     @Html.Label((string)TempData["Message"], new { @class = "heading" })
 }
-@using (Html.BeginForm("SignIn", "Account", FormMethod.Post))
-{
-    <div>
-        <div class="signin">
+    <div class="signIn-image">
+        @using (Html.BeginForm("SignIn", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <br /><br />
+                  <div class="signIn-position">
+                      <h1>Sign In</h1>
+                      <div>
+                          @Html.LabelFor(Model => Model.MailId, new { @class = "signIn-label" })
+
+                          @Html.TextBoxFor(Model => Model.MailId, new { placeholder = "Enter your mail id", @maxlength = "64", @class = "signIn-textbox" })
+                          
+                          @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })
+                         
+                      </div>
+                      <div>
+                          @Html.LabelFor(Model => Model.Password, new { @class = "signIn-label" })
+
+                          @Html.PasswordFor(Model => Model.Password, new { placeholder = "Enter your password", @maxlength = "20", @class = "signIn-textbox" })
+
+                          @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error" })
+                      </div>
+                      <div>
+                          <input type="Submit" value="Sign In" class="button" />
+                      </div>
+                      <div class="account">
+                          Don't have an account ? @Html.ActionLink("Sign Up", "SignUp", "Account")
+                      </div>
+                      @*<div class="signin">
             <br />
-            <img src="~/Images/SignIn.jpg" alt="Image" class="signInImage" style="height:500px;width:500px;margin-left:150px;border:solid" />
+            <img src="~/Images/SignIn.jpg" alt="Image" class="signInImage" />
         </div>
-        <br /><br />
-        <div class="design">
-            <h2 class="alignment font">Welcome..! </h2>
-            <div>
-                @Html.LabelFor(Model => Model.MailId, new { @class = "label_username" })
-               
-                @Html.TextBoxFor(Model => Model.MailId, new { placeholder = "Enter your mail id", @class = "form input text_MailId", @maxlength = "64" })
-            
-                @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error username" })
-            </div>
-            <div>
-                @Html.LabelFor(Model => Model.Password, new { @class = "label_password" })
+            <br /><br />*@
+                      @*<div class="design">
+                <div>
+                    @Html.LabelFor(Model => Model.MailId, new { @class = "label_username" })
 
-                @Html.PasswordFor(Model => Model.Password, new { placeholder = "Enter your password", @maxlength = "20" ,@class="input text_Password"})
+                    @Html.TextBoxFor(Model => Model.MailId, new { placeholder = "Enter your mail id", @class = "form input text_MailId", @maxlength = "64" })
 
-                @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error password" })
-            </div>
-            <div>
-                <input type="Submit" value="Sign In" class="button" id="signin_button" />
-            </div>
-            <div class="account">
-                Don't have an account ? @Html.ActionLink("Sign Up", "SignUp", "Account")
-            </div>
-                
-        </div>
+                    @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error username" })
+                </div>
+                <div>
+                    @Html.LabelFor(Model => Model.Password, new { @class = "label_password" })
+
+                    @Html.PasswordFor(Model => Model.Password, new { placeholder = "Enter your password", @maxlength = "20", @class = "input text_Password" })
+
+                    @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error password" })
+                </div>
+                <div>
+                    <input type="Submit" value="Sign In" class="button" id="signin_button" />
+                </div>
+                <div class="account">
+                    Don't have an account ? @Html.ActionLink("Sign Up", "SignUp", "Account")
+                </div>
+        </div>*@
+                  </div>
+        }
     </div>
-}
 
