@@ -1,0 +1,23 @@
+﻿@model OnlineTourismManagement.Models.GiftCardTypeViewModel
+
+@{
+    ViewBag.Title = "AddGiftCardType";
+}
+
+<h2>AddGiftCardType</h2>
+
+@using (Html.BeginForm("AddGiftCardType", "GiftCardType", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.LabelFor(Model => Model.GiftCardTypeName)
+    </div>
+    @Html.TextBoxFor(Model => Model.GiftCardTypeName)
+    @Html.ValidationMessageFor(Model => Model.GiftCardTypeName, "", new { @class = "error" })
+    <div>@Html.LabelFor(Model => Model.ImageSource)</div>
+    <input type="file" id="image" name="ImageFile" />
+    @Html.ValidationMessageFor(Model => Model.ImageSource, "", new { @class = "error" })
+
+    <input type="submit" name="submit" value="Submit" />
+}
+

@@ -8,7 +8,6 @@ using System.IO;
 
 namespace OnlineTourismManagement.Controllers
 {
-
     public class PackageController : Controller
     {
         IPackageBL packages;

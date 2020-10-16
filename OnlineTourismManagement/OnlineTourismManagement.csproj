@@ -53,6 +53,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
@@ -144,6 +150,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\GiftCardTypeController.cs" />
     <Compile Include="Controllers\HomepageController.cs" />
     <Compile Include="Controllers\ItineraryController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -154,6 +161,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="App_Start\MappingConfiguration.cs" />
+    <Compile Include="Models\GiftCardTypeViewModel.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\ItineraryViewModel.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
@@ -199,6 +207,11 @@
     <Content Include="Views\Itinerary\Edit.cshtml" />
     <Content Include="Views\Package\ViewDetails.cshtml" />
     <Content Include="Views\Itinerary\ViewDetails.cshtml" />
+    <Content Include="Views\Order\OrderPackage.cshtml" />
+    <Content Include="Views\Order\ViewSummary.cshtml" />
+    <Content Include="Views\GiftCardType\AddGiftCardType.cshtml" />
+    <Content Include="Views\GiftCardType\Edit.cshtml" />
+    <Content Include="Views\GiftCardType\ViewGiftCardTypes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -208,10 +221,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\GiftCardTypeImages\" />
     <Folder Include="Images\ItineraryImages\" />
     <Folder Include="Images\PackageImages\" />
     <Folder Include="Images\PackageTypeImages\" />
-    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineTourismManagement.BL\OnlineTourismManagement.BL.csproj">

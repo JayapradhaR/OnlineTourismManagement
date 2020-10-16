@@ -1,0 +1,31 @@
+﻿@model OnlineTourismManagement.Models.GiftCardTypeViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm("Update", "GiftCardType", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div style="text-align:center">
+        @Html.HiddenFor(Model => Model.GiftCardTypeId)
+        <div>
+            @Html.LabelFor(Model => Model.GiftCardTypeName)
+            @Html.EditorFor(Model => Model.GiftCardTypeName)
+        </div>
+        <div>
+            <img width="300" height="200" src="@Url.Content(Model.ImageSource)" alt="@Model.GiftCardTypeName" />
+            <br />
+            @Html.LabelFor(Model => Model.ImageSource, new { @class = "label" })
+            <input type="file" id="image" name="ImageFile" />
+        </div>
+        <div>
+            @Html.ActionLink("Cancel", "ViewGiftCardTypes", "", new { @class = "button" })
+
+            &nbsp; &nbsp;<input type="submit" value="Update" class="button" />
+        </div>
+        <br />
+    </div>
+}
+

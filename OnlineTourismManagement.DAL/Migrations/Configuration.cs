@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "OnlineTourismManagement.DAL.OnlineTourismDBContext";
         }
 
         protected override void Seed(OnlineTourismManagement.DAL.OnlineTourismDBContext context)

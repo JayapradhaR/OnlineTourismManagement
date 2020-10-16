@@ -1,0 +1,54 @@
+﻿@model OnlineTourismManagement.Models.OrderViewModel
+@*@model dynamic*@
+@{
+    ViewBag.Title = "OrderPackage";
+}
+
+    <div class="center">
+        <h2>OrderPackage</h2>
+
+        @using (Html.BeginForm("OrderPackage", "Order", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken();
+            <div style="align-content:center;">
+                <div>
+                    <div>@Html.LabelFor(Model => Model.Name, new { @class = "label" })</div>
+
+                    @Html.TextBoxFor(Model => Model.Name, new { @maxlength = "100", placeholder = "Enter your name", @class = "input textbox" })
+                    @Html.ValidationMessageFor(Model => Model.Name, "", new { @class = "error" })
+                    <br />
+                    <div>@Html.LabelFor(Model => Model.UserMailId, new { @class = "label" })</div>
+                    @Html.TextBoxFor(Model => Model.UserMailId, new { @maxlength = "100", placeholder = "Enter your registered mail id", @class = "input textbox" })
+                    @Html.ValidationMessageFor(Model => Model.UserMailId, "", new { @class = "error" })
+                    <br />
+                    <div>@Html.LabelFor(Model => Model.MobileNumber, new { @class = "label" })</div>
+                    @Html.TextBoxFor(Model => Model.MobileNumber, new { @maxlength = "10", placeholder = "Enter your mobile number", @class = "input textbox" })
+                    @Html.ValidationMessageFor(Model => Model.MobileNumber, "", new { @class = "error" })
+                    <br />
+                    <div>@Html.LabelFor(Model => Model.FromDate, new { @class = "label" })</div>
+                    @Html.TextBoxFor(Model => Model.FromDate, new { @type = "date", placeholder = "Enter departure date", @class = "input textbox" })
+                    @Html.ValidationMessageFor(Model => Model.FromDate, "", new { @class = "error" })
+                    <br />
+                    @*<div>@Html.LabelFor(Model => Model.ToDate)</div>
+                    @Html.TextBoxFor(Model => Model.ToDate, new { @type = "date" })
+                    @Html.ValidationMessageFor(Model => Model.ToDate, "", new { @class = "error" })*@
+                    <div>@Html.LabelFor(Model => Model.AdultsCount, new { @class = "label" })</div>
+                    @Html.TextBoxFor(Model => Model.AdultsCount, new { placeholder = "Enter Adults count (+12)", @class = "input textbox" })
+                    @Html.ValidationMessageFor(Model => Model.AdultsCount, "", new { @class = "error" })
+                    <br />
+                    <div>@Html.LabelFor(Model => Model.ChildrensCount, new { @class = "label" })</div>
+                    @Html.TextBoxFor(Model => Model.ChildrensCount, new { placeholder = "Enter Childrens count (-12)", @class = "input textbox" })
+                    @Html.ValidationMessageFor(Model => Model.ChildrensCount, "", new { @class = "error" })
+
+                    @Html.HiddenFor(Model => Model.PackageId, new { Value = (int)TempData.Peek("PackageId") })
+
+                    @Html.HiddenFor(Model => Model.PackagePrice, new { Value = (int)TempData.Peek("PackagePrice") })
+
+                    @*@Html.HiddenFor(Model => Model.PackagePrice, new { Value = (int)TempData.Peek("UserId") })*@
+                    <br />
+                    <div><input type="submit" name="Submit" class="button" /></div>
+                    @*<div>@Html.ActionLink("OrderPackage","Order",new { id=@ViewBag.Package.PackageId,type="button"})</div>*@
+                </div>
+            </div>
+        }
+    </div>

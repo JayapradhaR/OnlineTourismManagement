@@ -14,10 +14,12 @@ namespace OnlineTourismManagement.Controllers
     {
         IItineraryBL itineraryBL;
         PackageBL packageBL;
+        IUserBL customer;
         public ItineraryController()
         {
             itineraryBL = new ItineraryBL();
             packageBL = new PackageBL();
+            customer = new AccountBL();
         }
         // GET: Itinerary
         public ViewResult Index()

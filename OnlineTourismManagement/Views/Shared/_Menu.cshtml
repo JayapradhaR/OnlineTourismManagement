@@ -40,7 +40,7 @@
         {
             <span>@Html.ActionLink("Packages", "ViewPackageType", "PackageType", null, new { @class = "menu" })</span>
 
-            <span>@Html.ActionLink("Giftcards", "", "", null, new { @class = "menu" })</span>
+            <span>@Html.ActionLink("Giftcards", "ViewGiftCardTypes", "GiftCardType", null, new { @class = "menu" })</span>
         }
 
         @if (HttpContext.Current.User.Identity.IsAuthenticated)

@@ -27,14 +27,19 @@
     position: relative;
     margin-top: 100px;
     margin-bottom: 100px;
+    
 }
 .signIn-error{
     margin-right:50px;
 }
 .design {
     /*float: right;
-    width: 50%;
-    border:solid;*/
+    width: 50%;*/
+    /*border:solid;*/
+}
+.center {
+    margin: auto;
+    width: 20%;
 }
 body{
     /*background-color:antiquewhite;*/
@@ -150,7 +155,7 @@ footer {
 }
 
 .signIn-textbox {
-    width: 300px;
+    max-width: 600px;
     height: 30px;
     padding: 5px 12px;
     font-size: 1rem;
@@ -240,7 +245,7 @@ footer {
 
 #signup_table {
     position: absolute;
-    left: 800px;
+    left: 500px;
 }
 
 .input {
@@ -370,7 +375,7 @@ section{
     float: left;
     background-position: 50%;
     margin-right: 30px;
-    width: 300px;
+    max-width: 300px;
     margin-top: 10px;
     margin-bottom: 50px;
     box-sizing: border-box;
@@ -401,7 +406,7 @@ section{
 
 .itinerary-position {
     float: left;
-    position: relative;
+    /*position: relative;*/
     max-width:900px;
     /*left: 30px;*/
 }
@@ -469,4 +474,7 @@ section{
     background-image: url(../Images/Nature.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+#Itinerary{
+    padding:0;
 }

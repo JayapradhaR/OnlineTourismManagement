@@ -59,13 +59,9 @@ namespace OnlineTourismManagement.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            if (ModelState.IsValid)
-            {
-                PackageType pack = package.GetPackageTypeById(id);
-                PackageTypeViewModel packages = AutoMapper.Mapper.Map<PackageType, PackageTypeViewModel>(pack); //Mapping 
-                return View(packages);
-            }
-            return View();
+            PackageType pack = package.GetPackageTypeById(id);
+            PackageTypeViewModel packages = AutoMapper.Mapper.Map<PackageType, PackageTypeViewModel>(pack); //Mapping 
+            return View(packages);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

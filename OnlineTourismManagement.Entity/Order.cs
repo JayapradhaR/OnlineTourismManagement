@@ -16,10 +16,14 @@ namespace OnlineTourismManagement.Entity
         public string UserMailId { get; set; }
 
         [Required]
-        public DateTime FromDate { get; set; }
+        [MaxLength(120)]
+        public string Name { get; set; }
 
         [Required]
-        public DateTime ToDate { get; set; }
+        public DateTime FromDate { get; set; }
+
+        //[Required]
+        //public DateTime ToDate { get; set; }
 
         [Required]
         public DateTime RegistrationDate { get; set; }
@@ -31,14 +35,21 @@ namespace OnlineTourismManagement.Entity
         public int ChildrensCount { get; set; }
 
         [Required]
-        public int MobileNumber { get; set; }
+        public long MobileNumber { get; set; }
 
         [Required]
         public int PackageId { get; set; }
 
         [Required]
         public int PackagePrice { get; set; }
+       
+        [ForeignKey("PackageId")]
+        public virtual Package Packages { get; set; }
 
-        public Package Packages { get; set; }
+        [Required]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual Customer Customer { get; set; }
     }
 }

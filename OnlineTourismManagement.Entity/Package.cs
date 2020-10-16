@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -39,5 +40,9 @@ namespace OnlineTourismManagement.Entity
 
         [Required]
         public int PackagePrice { get; set; }
+
+
+
+        //public Order Orders { get; set; }
     }
 }

@@ -12,8 +12,8 @@ namespace OnlineTourismManagement
         {
             Mapper.Initialize(config =>
             {
-                config.CreateMap<SignUpViewModel, Account>().ForMember(dest=>dest.UserRole,opt=>opt.MapFrom(src=>"User"));
-                config.CreateMap<SignInViewModel, Account>();
+                config.CreateMap<SignUpViewModel, Customer>().ForMember(dest=>dest.UserRole,opt=>opt.MapFrom(src=>"User"));
+                config.CreateMap<SignInViewModel, Customer>();
                 config.CreateMap<PackageViewModel, Package>()
                 .ForMember(dest => dest.UpdationDate, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(dest=>dest.CreationDate,opt=>opt.MapFrom(src=>DateTime.Now));
@@ -22,6 +22,9 @@ namespace OnlineTourismManagement
                 config.CreateMap< PackageType, PackageTypeViewModel>();
                 config.CreateMap<ItineraryViewModel,Itinerary>();
                 config.CreateMap<Itinerary, ItineraryViewModel>();
+                config.CreateMap<OrderViewModel, Order>().ForMember(dest => dest.RegistrationDate, opt => opt.MapFrom(src => DateTime.Now));
+                config.CreateMap<GiftCardTypeViewModel, GiftCardType>();
+                config.CreateMap<GiftCardType, GiftCardTypeViewModel>();
             });
         }
     }

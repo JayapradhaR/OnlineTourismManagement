@@ -7,20 +7,25 @@
     <div style="position:relative;">
         <div class="itineray">
             <div class="details-position">
-                <h1 style="margin-top:30px;">@Model.package.PackageName</h1>
-                
-                    <h2 style="text-align:end;"><span style="background-color:orangered;border-radius:10px;padding:10px;">&#8377 @Model.package.PackagePrice</span></h2>
-              
-                <h4 >
-                    @{int num = @Model.package.Duration;
-                        num--;} 
-                    <span style="background-color:cadetblue;border-radius:10px;padding:10px;">@num Nights @Model.package.Duration Days </span>
+                <div style="position:sticky;top:0;background-color:white;clear:both;">
+                    <h1 style="margin-top:30px;">@Model.package.PackageName</h1>
+
+                    <h2 style="text-align:end;"><span style="background-color:aliceblue; border-radius:10px;padding:10px;">&#8377 @Model.package.PackagePrice</span> &nbsp;
+                    <a style="background-color:orangered;border-radius:10px;padding:10px;text-align:end;text-decoration:none;" href="@Url.Action("OrderPackage","Order",new {PackageId=@Model.package.PackageId})">Book Now</a></h2>
+                    
+                    <h4>
+                        @{int num = @Model.package.Duration;
+                            num--;}
+                        <span style="background-color:cadetblue;border-radius:10px;padding:10px;">@num Nights @Model.package.Duration Days </span>
+
+
                     </h4>
-                <div class="redirect-link">
-                    <span ><a href="#Itinerary">Itinerary Details</a></span>
-                    <span ><a href="#Inclusions">Inclusions</a></span>
-                    <span ><a href="#Exclusions">Exclusions</a></span>
-                    <span ><a href="#DetailedItinerary">Detailed Itinerary</a></span>
+                    <div class="redirect-link">
+                        <span><a href="#Itinerary">Itinerary Details</a></span>
+                        <span><a href="#Inclusions">Inclusions</a></span>
+                        <span><a href="#Exclusions">Exclusions</a></span>
+                        <span><a href="#DetailedItinerary">Detailed Itinerary</a></span>
+                    </div>
                 </div>
                 <br />
                 <br />

@@ -52,45 +52,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GiftCardTypeRepository.cs" />
     <Compile Include="ItineraryRepository.cs" />
-    <Compile Include="Migrations\202003240940138_InitialCreate.cs" />
-    <Compile Include="Migrations\202003240940138_InitialCreate.designer.cs">
-      <DependentUpon>202003240940138_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202010030813223_Update.cs" />
+    <Compile Include="Migrations\202010030813223_Update.designer.cs">
+      <DependentUpon>202010030813223_Update.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003240943476_update.cs" />
-    <Compile Include="Migrations\202003240943476_update.designer.cs">
-      <DependentUpon>202003240943476_update.cs</DependentUpon>
+    <Compile Include="Migrations\202010030856577_Update1.cs" />
+    <Compile Include="Migrations\202010030856577_Update1.designer.cs">
+      <DependentUpon>202010030856577_Update1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003261307004_ItineraryColumnUpdate.cs" />
-    <Compile Include="Migrations\202003261307004_ItineraryColumnUpdate.designer.cs">
-      <DependentUpon>202003261307004_ItineraryColumnUpdate.cs</DependentUpon>
+    <Compile Include="Migrations\202010040956185_UpdateKey.cs" />
+    <Compile Include="Migrations\202010040956185_UpdateKey.designer.cs">
+      <DependentUpon>202010040956185_UpdateKey.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003270534219_UpdateDetails.cs" />
-    <Compile Include="Migrations\202003270534219_UpdateDetails.designer.cs">
-      <DependentUpon>202003270534219_UpdateDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007150204042_ImagePath.cs" />
-    <Compile Include="Migrations\202007150204042_ImagePath.designer.cs">
-      <DependentUpon>202007150204042_ImagePath.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007150217478_change.cs" />
-    <Compile Include="Migrations\202007150217478_change.designer.cs">
-      <DependentUpon>202007150217478_change.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007190340038_type.cs" />
-    <Compile Include="Migrations\202007190340038_type.designer.cs">
-      <DependentUpon>202007190340038_type.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007210234047_itinerary.cs" />
-    <Compile Include="Migrations\202007210234047_itinerary.designer.cs">
-      <DependentUpon>202007210234047_itinerary.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007250341529_Changes.cs" />
-    <Compile Include="Migrations\202007250341529_Changes.designer.cs">
-      <DependentUpon>202007250341529_Changes.cs</DependentUpon>
+    <Compile Include="Migrations\202010040958140_Key.cs" />
+    <Compile Include="Migrations\202010040958140_Key.designer.cs">
+      <DependentUpon>202010040958140_Key.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineTourismDBContext.cs" />
+    <Compile Include="OrderRepository.cs" />
     <Compile Include="PackageRepository.cs" />
     <Compile Include="PackageTypeRepository.cs" />
     <Compile Include="AccountRepository.cs" />
@@ -111,32 +93,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003240940138_InitialCreate.resx">
-      <DependentUpon>202003240940138_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010030813223_Update.resx">
+      <DependentUpon>202010030813223_Update.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003240943476_update.resx">
-      <DependentUpon>202003240943476_update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010030856577_Update1.resx">
+      <DependentUpon>202010030856577_Update1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003261307004_ItineraryColumnUpdate.resx">
-      <DependentUpon>202003261307004_ItineraryColumnUpdate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010040956185_UpdateKey.resx">
+      <DependentUpon>202010040956185_UpdateKey.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003270534219_UpdateDetails.resx">
-      <DependentUpon>202003270534219_UpdateDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007150204042_ImagePath.resx">
-      <DependentUpon>202007150204042_ImagePath.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007150217478_change.resx">
-      <DependentUpon>202007150217478_change.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007190340038_type.resx">
-      <DependentUpon>202007190340038_type.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007210234047_itinerary.resx">
-      <DependentUpon>202007210234047_itinerary.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007250341529_Changes.resx">
-      <DependentUpon>202007250341529_Changes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010040958140_Key.resx">
+      <DependentUpon>202010040958140_Key.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

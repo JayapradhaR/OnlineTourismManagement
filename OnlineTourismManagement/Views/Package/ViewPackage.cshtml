@@ -23,7 +23,7 @@
             <div style="display:inline;">
                 <div style="display:inline;" >
                     <div class="image-position">
-                        <a href='@Url.Action("ViewDetails","Package",new { id=item.PackageId})'>
+                        <a href='@Url.Action("ViewDetails","Itinerary",new { id=item.PackageId})'>
                             <img width="300" height="250" src="@Url.Content(item.ImageSource)" />
                             </a>
                     </div>
@@ -32,7 +32,7 @@
             <div class="package-details">
               
                 <div class="package-naming">
-                    <p class="package-name">@Html.ActionLink(item.PackageName, "ViewDetails", "Package", new { id = item.PackageId }, new { @class = "package-name" })</p>
+                    <p class="package-name">@Html.ActionLink(item.PackageName, "ViewDetails", "Itinerary", new { id = item.PackageId }, new { @class = "package-name" })</p>
 
                     <p style="font-family: cursive;font-size: medium;">
                         @{int num = item.Duration;
@@ -60,7 +60,6 @@
 
                     @Html.ActionLink("View Details", "ViewDetails", "Itinerary",new { id=item.PackageId},new { @class="button"} )
 
-                   
                 </div>
                 
       

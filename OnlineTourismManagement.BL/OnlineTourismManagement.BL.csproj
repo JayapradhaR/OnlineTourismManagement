@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GiftCardTypeBL.cs" />
     <Compile Include="ItineraryBL.cs" />
+    <Compile Include="OrderBL.cs" />
     <Compile Include="PackageBL.cs" />
     <Compile Include="PackageTypeBL.cs" />
     <Compile Include="AccountBL.cs" />

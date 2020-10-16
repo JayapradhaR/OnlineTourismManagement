@@ -19,7 +19,7 @@ namespace OnlineTourismManagement.Controllers
         }
         public ViewResult Index()
         {
-            IEnumerable<Account> user = userBL.GetUsers();
+            IEnumerable<Customer> user = userBL.GetUsers();
             return View(user);
         }
         //Create new account
@@ -36,7 +36,7 @@ namespace OnlineTourismManagement.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Account userDetails = AutoMapper.Mapper.Map<SignUpViewModel, Account>(user);
+                    Customer userDetails = AutoMapper.Mapper.Map<SignUpViewModel, Customer>(user);
                     userBL.AddUser(userDetails); //Add account details into database
                     TempData["Message"] = "Registration successfully completed";
                     return RedirectToAction("SignIn");
@@ -60,8 +60,8 @@ namespace OnlineTourismManagement.Controllers
         {
             if (ModelState.IsValid)
             {
-                Account userDetails = AutoMapper.Mapper.Map<SignInViewModel, Account>(userDetail);
-                Account user = userBL.ValidateSignIn(userDetails); //Validate login details
+                Customer userDetails = AutoMapper.Mapper.Map<SignInViewModel, Customer>(userDetail);
+                Customer user = userBL.ValidateSignIn(userDetails); //Validate login details
                 if (user != null)
                 {
                     FormsAuthentication.SetAuthCookie(user.MailId, false);
@@ -73,9 +73,11 @@ namespace OnlineTourismManagement.Controllers
                 }
                 else
                     //Response.Write("Incorrect");
-                   Response.Write("<script language='javascript'>alert('Username or password incorrect');</script");
+                    TempData["Message"] = "Username or password incorrect";
+                   //Response.Write("<script language='javascript'>alert('Username or password incorrect');</script");
+
             }
-            return View();
+            return RedirectToAction("SignIn", "Account");
         }
         //Logout the account
         public ActionResult LogOut()

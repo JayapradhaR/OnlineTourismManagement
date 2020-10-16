@@ -7,9 +7,10 @@ namespace OnlineTourismManagement.DAL
 {
     public interface IUser
     {
-        IEnumerable<Account> GetUsers();
-        void AddUser(Account user);
-        Account ValidateSignIn(Account userDetails);
+        IEnumerable<Customer> GetUsers();
+        void AddUser(Customer user);
+        Customer ValidateSignIn(Customer userDetails);
+        Customer GetUsersByUserName(string UserName);
     }
     /// <summary>
     /// This AccountRepository consists methods that is used to add the account details in database and validate the login details
@@ -17,7 +18,7 @@ namespace OnlineTourismManagement.DAL
     public class AccountRepository : IUser
     {
         //Getting user details from database
-        public IEnumerable<Account> GetUsers()
+        public IEnumerable<Customer> GetUsers()
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
@@ -25,7 +26,7 @@ namespace OnlineTourismManagement.DAL
             }
         }
         //Adding user details into database
-        public void AddUser(Account user)
+        public void AddUser(Customer user)
         {
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
@@ -41,12 +42,21 @@ namespace OnlineTourismManagement.DAL
             }
         }
         //Validate the login details
-        public Account ValidateSignIn(Account userDetails)
+        public Customer ValidateSignIn(Customer userDetails)
         {
-            Account users;
+            Customer users;
             using (OnlineTourismDBContext context = new OnlineTourismDBContext())
             {
                 users = context.Users.Where(id=>userDetails.MailId==id.MailId&&userDetails.Password==id.Password).SingleOrDefault();//Check if user details are validate or not
+            }
+            return users;
+        }
+        public Customer GetUsersByUserName(string UserName)
+        {
+            Customer users;
+            using(OnlineTourismDBContext context=new OnlineTourismDBContext())
+            {
+                users = context.Users.Where(id => UserName == id.MailId).SingleOrDefault();
             }
             return users;
         }

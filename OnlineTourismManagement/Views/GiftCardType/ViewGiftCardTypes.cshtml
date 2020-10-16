@@ -1,0 +1,40 @@
+﻿@model IEnumerable<OnlineTourismManagement.Entity.GiftCardType>
+
+@{
+    ViewBag.Title = "ViewGiftCardTypes";
+}
+
+<h2>ViewGiftCardTypes</h2>
+
+<h2 class="alignment">GiftCard Types</h2>
+@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+{
+    <div class="alignment">
+        @Html.ActionLink("Add GiftCard type", "AddGiftCardType", "GiftCardType", "", new { @class = "redirectLink" })
+    </div>
+}
+
+@foreach (OnlineTourismManagement.Entity.GiftCardType item in Model)
+{
+
+    <div class="type-position">
+        <div class="type-image">
+            <a href='@Url.Action("ViewGiftCardByType","Package",new { id=item.GiftCardTypeId})'>
+                <img width="300" height="250" src="@Url.Content(item.ImageSource)" alt="@item.GiftCardTypeName" />
+            </a>
+            <div style="margin-top:30px;">
+                @Html.ActionLink(@item.GiftCardTypeName, "ViewGiftCardByType", "Package", new { id = item.GiftCardTypeId }, new { @class = "package-name" })
+                <div>
+                    @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                    {
+
+                        @Html.ActionLink("Edit", "Edit", new { id = item.GiftCardTypeId }, new { @class = "linkColor" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.GiftCardTypeId }, new { onclick = "return confirm('Are you sure to delete ?');", @class = "linkColor" })
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
