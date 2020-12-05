@@ -81,22 +81,26 @@ namespace OnlineTourismManagement.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Update([Bind(Include = "PackageId,PackagePrice,PackageName,Duration,Availability,ImageSource,ImageFile")]PackageViewModel packageDetails)
         {
-            string fileName = Path.GetFileNameWithoutExtension(packageDetails.ImageFile.FileName);
-            string extension = Path.GetExtension(packageDetails.ImageFile.FileName);
-            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-            packageDetails.ImageSource = "~/Images/PackageImages/" + fileName;
-            fileName = Path.Combine(Server.MapPath("~/Images/PackageImages/"), fileName);
-            packageDetails.ImageFile.SaveAs(fileName);
-            Package package = packages.GetPackageById(packageDetails.PackageId);
-            package.PackageName = packageDetails.PackageName;
-            package.PackagePrice = packageDetails.PackagePrice;
-            package.Duration = packageDetails.Duration;
-            package.Availability = packageDetails.Availability;
-            package.UpdationDate = DateTime.Now;
-            package.ImageSource = packageDetails.ImageSource;
-            packages.UpdatePackage(package);
-            TempData["Message"] = "Package updated";
-            return RedirectToAction("ViewPackage");
+            if (ModelState.IsValid)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(packageDetails.ImageFile.FileName);
+                string extension = Path.GetExtension(packageDetails.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                packageDetails.ImageSource = "~/Images/PackageImages/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Images/PackageImages/"), fileName);
+                packageDetails.ImageFile.SaveAs(fileName);
+                Package package = packages.GetPackageById(packageDetails.PackageId);
+                package.PackageName = packageDetails.PackageName;
+                package.PackagePrice = packageDetails.PackagePrice;
+                package.Duration = packageDetails.Duration;
+                package.Availability = packageDetails.Availability;
+                package.UpdationDate = DateTime.Now;
+                package.ImageSource = packageDetails.ImageSource;
+                packages.UpdatePackage(package);
+                TempData["Message"] = "Package updated";
+                return RedirectToAction("ViewPackage");
+            }
+            return View();
         }
         //Delete packages
         public ActionResult Delete(int id)

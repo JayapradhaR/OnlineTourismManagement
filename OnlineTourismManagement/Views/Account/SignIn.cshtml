@@ -6,10 +6,11 @@
 
 @*@Html.Partial("_Content")*@
 
-    <div class="signIn-image">
+<div class="signIn-image">
         @using (Html.BeginForm("SignIn", "Account", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
             <br /><br />
                   <div class="signIn-position">
                       <h1>Sign In</h1>
@@ -18,9 +19,9 @@
 
                           @Html.TextBoxFor(Model => Model.MailId, new { placeholder = "Enter your mail id", @maxlength = "64", @class = "signIn-textbox" })
 
-                          @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })
-
+                          @Html.ValidationMessageFor(Model => Model.MailId, "",new { @class = "error" })
                       </div>
+                     
                       <div>
                           @Html.LabelFor(Model => Model.Password, new { @class = "signIn-label" })
 
@@ -30,10 +31,16 @@
                       </div>
                       <div>
                           <input type="Submit" value="Sign In" class="button" />
+                          <input type="reset" name="Reset" value="Reset" class="button" />
                       </div>
+
                       @if (TempData["Message"] != null)
                       {
-                          @Html.Label((string)TempData["Message"], new { @class = "heading" })
+                          <script type="text/javascript">
+                   window.onload = function () {
+                        alert("@TempData["Message"]");
+                   };
+                          </script>
                       }
                       <div class="account">
                           Don't have an account ? @Html.ActionLink("Sign Up", "SignUp", "Account")
@@ -42,4 +49,10 @@
                   </div>
         }
     </div>
+
+
+
+
+
+
 

@@ -23,6 +23,13 @@
     position: relative;
     left: 100px;
 }
+.signUpImage {
+    background-image: url(../Images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    height: 1000px;
+}
 .signIn-position {
     position: relative;
     margin-top: 100px;
@@ -93,11 +100,11 @@ header {
 
 .link {
     text-align: end;
-    background-color: #9CCC65;
+    background-color: #0dc7e5;
     padding: 10px;
     /*width:1500px;
     max-width:1500px;*/
-    position:relative;
+    position: relative;
 }
 
 footer {
@@ -128,6 +135,7 @@ footer {
 
 .font {
     font-style: italic;
+    
     /*text-decoration: none;
     margin: 4px 2px;
     color: white;
@@ -190,6 +198,11 @@ footer {
     font-size: larger;*/
     font-family:Constantia;
     font-size:larger;
+}
+.label {
+    font-family: Constantia;
+    font-size:20px;
+    /*color:white;*/
 }
 .label_password {
     font-family: Constantia;
@@ -260,10 +273,10 @@ footer {
     width:300px;
 }
 
-.label{
+/*.label{
     font-size:large;
     font-family:Constantia;
-}
+}*/
 
 .day {
     background-color: #9e9e9e;
@@ -478,3 +491,12 @@ section{
 #Itinerary{
     padding:0;
 }
+
+@media screen and (min-width:1028px) {
+    .signup_table {
+        position:relative;
+        left:450px;
+        
+    }}
+
+

@@ -3,11 +3,15 @@
 @{
     ViewBag.Title = "ViewItinerary";
 }
-    <h2 class="alignment">Itinerary Details</h2>
+<h2 class="alignment">Itinerary Details</h2>
 
-@if(TempData["ItineraryMessage"]!=null)
+@if (TempData["ItineraryMessage"] != null)
 {
-    @Html.Label((string)TempData["ItineraryMessage"])
+    <script type="text/javascript">
+                   window.onload = function () {
+                        alert("@TempData["Message"]");
+                   };
+    </script>
 }
 <h1>  Package Name : @ViewBag.Package </h1>
 
@@ -20,7 +24,7 @@
         <td>Meal</td>
         <td>Action</td>
     </tr>
-    @foreach(OnlineTourismManagement.Entity.Itinerary item in Model)
+    @foreach (OnlineTourismManagement.Entity.Itinerary item in Model)
     {
         <tr>
             <td>@item.Location</td>
@@ -31,8 +35,8 @@
             <td>@item.Meal</td>
             <td>@item.DetailedItinerary</td>
             <td><img width="200" height="200" src="@Url.Content(item.ImageSource)" /></td>
-            <td>@Html.ActionLink("Edit","Edit","Itinerary",new { id=item.ItineraryId},null)</td>
-            <td>@Html.ActionLink("Delete","Delete","Itinerary",new { id=item.ItineraryId},new { onclick="return confirm('Are you sure to delete ?');"})</td>
+            <td>@Html.ActionLink("Edit", "Edit", "Itinerary", new { id = item.ItineraryId }, null)</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Itinerary", new { id = item.ItineraryId }, new { onclick = "return confirm('Are you sure to delete ?');" })</td>
         </tr>
     }
 </table>

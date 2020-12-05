@@ -50,7 +50,7 @@ namespace OnlineTourismManagement.Controllers
                 fileName = Path.Combine(Server.MapPath("~/Images/PackageTypeImages/"), fileName);
                 packageType.ImageFile.SaveAs(fileName);
                 package.AddPackageType(packages); //Call function to add the package details
-                TempData["Messages"] = "Package type added"; // Tempdata to print the message 
+                TempData["Message"] = "Package type added"; // Tempdata to print the message 
                 return RedirectToAction("ViewPackageType");
             }
             return View();
@@ -77,14 +77,14 @@ namespace OnlineTourismManagement.Controllers
             packages.PackageTypeName = packageDetails.PackageTypeName;
             packages.ImageSource = packageDetails.ImageSource;
             package.UpdatePackageType(packages);
-            TempData["Messages"] = "Package type updated";
+            TempData["Message"] = "Package type updated";
             return RedirectToAction("ViewPackageType");
         }
         //Delete package type
         public ActionResult Delete(int id)
         {
             package.DeletePackageType(id);
-            TempData["Messages"] = "Package Deleted";
+            TempData["Message"] = "Package Deleted";
             return RedirectToAction("ViewPackageType");
         }
     }

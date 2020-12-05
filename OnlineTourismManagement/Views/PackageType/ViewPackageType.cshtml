@@ -9,33 +9,37 @@
         @Html.ActionLink("Add package type", "AddPackageType", "PackageType", "", new { @class = "redirectLink" })
     </div>
 }
-@if (TempData["Messages"] != null)
+@if (TempData["Message"] != null)
 {
-    @Html.Label((string)TempData["Messages"])
+    <script type="text/javascript">
+                   window.onload = function () {
+                        alert("@TempData["Message"]");
+                   };
+    </script>
 }
-    @foreach (OnlineTourismManagement.Entity.PackageType item in Model)
-    {
-            
-<div class="type-position">
-    <div class="type-image">
-        <a href='@Url.Action("ViewPackageByType","Package",new { id=item.PackageTypeId})'>
-            <img width="300" height="250" src="@Url.Content(item.ImageSource)" alt="@item.PackageTypeName" />
-        </a>
-        <div style="margin-top:30px;">
-            @Html.ActionLink(@item.PackageTypeName, "ViewPackageByType", "Package", new { id = item.PackageTypeId }, new { @class = "package-name" })
-            <div>
-                @if (ViewContext.HttpContext.User.IsInRole("Admin"))
-                {
+@foreach (OnlineTourismManagement.Entity.PackageType item in Model)
+{
 
-                    @Html.ActionLink("Edit", "Edit",new { id = item.PackageTypeId},new {@class = "linkColor" })
-                    @Html.ActionLink("Delete", "Delete",new { id = item.PackageTypeId }, new { onclick = "return confirm('Are you sure to delete ?');", @class = "linkColor" })
+    <div class="type-position">
+        <div class="type-image">
+            <a href='@Url.Action("ViewPackageByType","Package",new { id=item.PackageTypeId})'>
+                <img width="300" height="250" src="@Url.Content(item.ImageSource)" alt="@item.PackageTypeName" />
+            </a>
+            <div style="margin-top:30px;">
+                @Html.ActionLink(@item.PackageTypeName, "ViewPackageByType", "Package", new { id = item.PackageTypeId }, new { @class = "package-name" })
+                <div>
+                    @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                    {
 
-                }
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PackageTypeId }, new { @class = "linkColor" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PackageTypeId }, new { onclick = "return confirm('Are you sure to delete ?');", @class = "linkColor" })
+
+                    }
+                </div>
             </div>
         </div>
     </div>
-</div>
-    }
+}
 
 
 

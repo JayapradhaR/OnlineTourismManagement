@@ -10,108 +10,124 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     @*<div class="signin">
+            <br />
+            <img src="~/Images/SignUpImg.jpg" alt="Image" class="signInImage" style="height:500px;width:500px;margin-left:150px;border:solid" />
+        </div>*@
+    <div @*class="signUpImage"*@>
+        @*<h2 class="alignment font">Welcome..!</h2>*@
         <br />
-        <img src="~/Images/SignUpImg.jpg" alt="Image" class="signInImage" style="height:500px;width:500px;margin-left:150px;border:solid" />
-    </div>*@
-    <div class="design">
-        <h2 class="alignment font">Welcome..!</h2>
-        <table cellpadding="10" id="signup_table" class="decoration">
-            <tr>
-                <td>
-                    @Html.LabelFor(Model => Model.FirstName)
-                </td>
-                <td>
-                    @Html.TextBoxFor(Model => Model.FirstName, new { @maxlength = "30", placeholder = "Enter first name", @class = "signUpForm input" })
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(Model => Model.FirstName, "", new { @class = "error" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(Model => Model.LastName)
-                </td>
-                <td>
-                    @Html.TextBoxFor(Model => Model.LastName, new { @maxlength = "30", placeholder = "Enter last name", @class = "signUpForm input" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(Model => Model.MobileNumber)
-                </td>
-                <td>
-                    @Html.TextBoxFor(Model => Model.MobileNumber, new { @maxlength = "10", placeholder = "Mobile number", @class = "signUpForm input" })
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(Model => Model.MobileNumber, "", new { @class = "error" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(Model => Model.Gender)
-                </td>
-                <td>
-                    @Html.RadioButtonFor(Model => Model.Gender, "Male")Male
-                    @Html.RadioButtonFor(Model => Model.Gender, "Female")Female &nbsp; &nbsp; &nbsp;
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(Model => Model.Gender, "", new { @class = "error" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(Model => Model.DateOfBirth)
-                </td>
-                <td>
-                    @Html.TextBoxFor(Model => Model.DateOfBirth, new { @type = "date", @class = "signUpForm input" })
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(Model => Model.DateOfBirth, "", new { @class = "error" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(Model => Model.MailId)
-                </td>
-                <td>
-                    @Html.TextBoxFor(Model => Model.MailId, new { @maxlength = "64", placeholder = "Email address", @class = "signUpForm input" })
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(Model => Model.Password)
-                </td>
-                <td>
-                    @Html.PasswordFor(Model => Model.Password, new { @maxlength = "20", placeholder = "Password", @class = "signUpForm input" })
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(Model => Model.ConfirmPassword)
-                </td>
-                <td>
-                    @Html.PasswordFor(Model => Model.ConfirmPassword, new { @maxlength = "20", placeholder = "Confirm password", @class = "signUpForm input" })
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { @class = "error" })
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="alignment">
-                    <input type="Submit" value="Register" class="button" />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="alignment font">Already registered user ? @Html.ActionLink("Sign In", "SignIn", "Account")</td>
-            </tr>
-        </table>
+        <div @*style="position:relative;margin-right:500px;";*@>
+            <table cellpadding="20" @*style="border-radius:10px;box-shadow:0 2px 6px 0 rgba(0,0,0,.1);background-color:white;text-align:justify;"*@ class="signup_table">
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.FirstName, new { @class = "label" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.FirstName, new { @maxlength = "30", placeholder = "Enter first name", @class = "signUpForm input" })
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(Model => Model.FirstName, "", new { @class = "error" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.LastName, new { @class = "label" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.LastName, new { @maxlength = "30", placeholder = "Enter last name", @class = "signUpForm input" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.MobileNumber, new { @class = "label" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.MobileNumber, new { @maxlength = "10", placeholder = "Mobile number", @class = "signUpForm input" })
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(Model => Model.MobileNumber, "", new { @class = "error" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.Gender, new { @class = "label" })
+                    </td>
+                    <td>
+                        @Html.RadioButtonFor(Model => Model.Gender, "Male")Male
+                        @Html.RadioButtonFor(Model => Model.Gender, "Female")Female &nbsp; &nbsp; &nbsp;
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(Model => Model.Gender, "", new { @class = "error" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.DateOfBirth, new { @class = "label" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.DateOfBirth, new { @type = "date", @class = "signUpForm input" })
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(Model => Model.DateOfBirth, "", new { @class = "error" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.MailId, new { @class = "label" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(Model => Model.MailId, new { @maxlength = "64", placeholder = "Email address", @class = "signUpForm input" })
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.Password, new { @class = "label" })
+                    </td>
+                    <td>
+                        @Html.PasswordFor(Model => Model.Password, new { @maxlength = "20", placeholder = "Password", @class = "signUpForm input" })
+                    
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error" })
+                    </td>
 
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2" class="alignment">
+                        <ul style="font-size:15px;text-align:justify;">
+                            <li> Your password should have more than 6 characters.</li>
+                            <li> Atleast one capital and small letter.</li>
+                            <li> Atleast one number.</li>
+                            <li> Atleast one special character.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(Model => Model.ConfirmPassword, new { @class = "label" })
+                    </td>
+                    <td>
+                        @Html.PasswordFor(Model => Model.ConfirmPassword, new { @maxlength = "20", placeholder = "Confirm password", @class = "signUpForm input" })
+                        
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { @class = "error" })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="alignment">
+                        <input type="Submit" value="Register" class="button" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="alignment font">Already registered user ? @Html.ActionLink("Sign In", "SignIn", "Account")</td>
+                </tr>
+            </table>
+        </div>
     </div>
 }
 

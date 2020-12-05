@@ -71,6 +71,7 @@ namespace OnlineTourismManagement.Controllers
                     itineraryList.Add(itineraryDetail);
                 }
                 itineraryBL.AddItinerary(itineraryList);
+                TempData["Message"] = "Itinerary Added";
                 return RedirectToAction("ViewPackage", "Package");
             }
             return View();
@@ -100,7 +101,8 @@ namespace OnlineTourismManagement.Controllers
         public ActionResult Delete(int id)
         {
             itineraryBL.DeleteItinerary(id);
-            return View();
+            TempData["Message"] = "Itinerary Deleted";
+            return RedirectToAction("ViewPackage","Package");
         }
     }
 }

@@ -17,6 +17,7 @@ namespace OnlineTourismManagement.Controllers
         {
             userBL = new AccountBL();
         }
+       
         public ViewResult Index()
         {
             IEnumerable<Customer> user = userBL.GetUsers();

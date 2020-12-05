@@ -12,10 +12,10 @@
     <table cellpadding="10" style="position:relative; left:500px;">
         <tr>
             <td>
-                @Html.LabelFor(Model => Model.PackageName,new { @class="label"})
+                @Html.LabelFor(Model => Model.PackageName,new { @class="label"} )
             </td>
             <td>
-                @Html.EditorFor(Model => Model.PackageName,new { @class="input textbox"})
+                @Html.EditorFor(Model => Model.PackageName,new { htmlAttributes = new { @maxlength="10"} } @*new { @class="input textbox", @maxlength="10"}*@)
             </td>
         </tr>
         <tr>

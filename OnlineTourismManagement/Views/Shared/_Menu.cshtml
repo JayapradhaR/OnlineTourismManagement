@@ -27,7 +27,7 @@
         @Html.ActionLink("Home", "Home", "Homepage", null, new { @class = "menu" })
         
         @Html.ActionLink("Register", "SignUp", "Account", null, new { @class = "menu" })
-
+        
         @if (HttpContext.Current.User.IsInRole("Admin"))
         {
             <span> @Html.ActionLink("Package", "ViewPackage", "Package", null, new { @class = "menu" }) </span>

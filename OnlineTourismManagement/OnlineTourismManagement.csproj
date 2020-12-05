@@ -114,6 +114,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\201612711253290.jpg" />
     <Content Include="Images\backgroundImage.jpeg" />
+    <Content Include="Images\background.jpg" />
     <Content Include="Images\Home.jpg" />
     <Content Include="Images\images.jpg" />
     <Content Include="Images\login-background.jpg" />
@@ -123,7 +124,8 @@
     <Content Include="Images\Logo1.png" />
     <Content Include="Images\SignIn.jpg" />
     <Content Include="Images\SignIn.png" />
-    <Content Include="Images\Signup.jpg" />
+    <Content Include="Images\SignUp.jpg" />
+    <Content Include="Images\Signupp.jpg" />
     <Content Include="Images\SignUpImg.jpg" />
     <Content Include="Images\W-Image.jpg" />
     <Content Include="Images\Wallpaper image.jpg" />
