@@ -12,6 +12,7 @@ namespace OnlineTourismManagement.DAL
         Package GetPackageById(int packageId);
         void UpdatePackage(Package package);
         void DeletePackage(int id);
+        IEnumerable<Package> SearchPackageByName(string search,string searchBy);
         IEnumerable<Package> GetPackagesByTypeId(int id);
     }
     /// <summary>
@@ -70,6 +71,17 @@ namespace OnlineTourismManagement.DAL
             using (OnlineTourismDBContext context=new OnlineTourismDBContext())
             {
                 return context.Packages.Include("PackageTypes").Where(typeId => typeId.PackageTypeId == id).ToList();
+            }
+        }
+        //Search package by package name
+        public IEnumerable<Package> SearchPackageByName(string search,string searchBy)
+        {
+            using(OnlineTourismDBContext context=new OnlineTourismDBContext())
+            {
+                if (searchBy == "PackageName")
+                    return context.Packages.Where(name => name.PackageName.Contains(search)).ToList();
+                else
+                    return context.Packages.Include("PackageTypes").Where(type => type.PackageTypes.PackageTypeName.Contains(search)).ToList();
             }
         }
     }

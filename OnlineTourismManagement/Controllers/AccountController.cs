@@ -39,7 +39,7 @@ namespace OnlineTourismManagement.Controllers
                 {
                     Customer userDetails = AutoMapper.Mapper.Map<SignUpViewModel, Customer>(user);
                     userBL.AddUser(userDetails); //Add account details into database
-                    TempData["Message"] = "Registration successfully completed";
+                    TempData["Message"] = "Registration successfully completed.Login to continue..!";
                     return RedirectToAction("SignIn");
                 }
                 return View();
@@ -48,6 +48,19 @@ namespace OnlineTourismManagement.Controllers
             {
                 return RedirectToAction("Error", "Error");
             }
+        }
+        [HttpPost]
+        public JsonResult IsAlreadyRegistered(string MailId)
+        {
+            bool value;
+            Customer users = userBL.GetUsersByUserName(MailId);
+            if (users != null)
+                //Already Exists
+                value =false;
+            else
+                //Available to use
+                value = true;
+            return Json(value, JsonRequestBehavior.AllowGet);
         }
         //Login 
         [HttpGet]
@@ -78,7 +91,8 @@ namespace OnlineTourismManagement.Controllers
                    //Response.Write("<script language='javascript'>alert('Username or password incorrect');</script");
 
             }
-            return RedirectToAction("SignIn", "Account");
+            // return RedirectToAction("SignIn", "Account");
+            return View();
         }
         //Logout the account
         public ActionResult LogOut()
@@ -86,5 +100,12 @@ namespace OnlineTourismManagement.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Home", "Homepage");
         }
+
+        //public ActionResult Delete(int id)
+        //{
+        //    packages.DeletePackage(id);
+        //    TempData["Message"] = "Package Deleted";
+        //    return RedirectToAction("ViewPackage");
+        //}
     }
 }

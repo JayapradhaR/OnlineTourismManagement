@@ -8,27 +8,225 @@
     max-width:1500px;
     /*position:relative;*/
 }
+.position-signin {
+    top: 100px;
+    position:relative;
+}
+.position-signin div{
+    height:80px;
+}
+.error-position{
+    margin-left:140px;
+}
+.account {
+    font-style: italic;
+    font-size: larger;
+}
+.link-decoration {
+    text-decoration: none;
+    color: blue;
+}
+.signIn-label {
+    font-family: Constantia;
+    font-size: larger;
+    width: 170px;
+    display: inline-block;
+}
+.signIn-textbox {
+    max-width: 200px;
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-left: 50px;  
+}
+.image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: lightblue;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+.position-signup{
+    background-color:aliceblue;
+}
+@media screen and (min-width:1090px) {
+    .position-signup {
+        margin-top: 20px;
+        position: relative;
+        left: 425px;
+        width: 650px;
+        border-radius: 10px;
+        background-color: aliceblue;
+        float: left;
+    }
+    .password-position {
+        position: relative;
+        left: 200px;
+    }
+    .radio {
+        margin-left: 50px;
+    }
+}
+.form-position {
+    position:relative;
+    left:40px;
+}
+.div-size{
+    height:80px;
+}
+.message{
+    height:150px;
+}
+.error-position-signup {
+    margin-left: 230px;
+}
+.alignment {
+    text-align: center;
+}
+
+    .password-position ul {
+        font-size:15px;
+        text-align:justify;
+    }
+@media screen and (min-width:375px) {
+    .signUpForm {
+        width: 200px;
+        height: 10px;
+        padding: 15px 25px;
+        font-size: 1rem;
+        margin-left: 50px;
+        border: 1px solid #ccc !important;
+        border-radius: 8px;
+        text-align: center;
+    }
+}
+.button {
+    color:black;
+    font-weight: 700;
+    padding: 10px 32px;
+    margin: 4px 2px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #0dc7e58f;
+    border-radius: 3px;
+}
+    .button:hover {
+        background-color: #0dc7e5e0;
+    }
+
+.link {
+    text-align: end;
+    background-color: #0dc7e5;
+    padding: 10px;
+    position: relative;
+}
+.menu {
+    font-size: x-large;
+    text-decoration: blink;
+    padding: 10px 17px 10px 12px;
+    color: black;
+    font-weight: bolder;
+}
+.menu:hover{
+    color:white;
+}
+.searchBox {
+    max-width: 300px;
+    height: 8px;
+    padding: 15px 25px;
+    font-size: 1rem;
+    margin-left: 50px;
+    border: 1px solid #b03333 !important;
+    border-radius: 30px;
+    text-align: center;
+}
+.searchButton {
+    background-color: #0ae69f;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100px;
+    color: black;
+    font-weight: bold;
+}
+    .searchButton:hover {
+        background-color: #03c989;
+    }
+.searchBy{
+    font-family:Constantia;
+    font-size:larger;
+}
+@media screen and (min-width:1090px) {
+    .packageType-Position {
+        position: relative;
+        left: 600px;
+        width: 600px;
+    }
+}
+.packageType-Position div{
+    height:80px;
+}
+.textbox {
+    padding: 12px 25px;
+    border-radius: 5px;
+    border: 1px solid #ccc !important;
+}
+@media screen and (min-width:1090px) {
+    .position-order {
+        margin-top: 20px;
+        position: relative;
+        left: 500px;
+        width: 650px;
+        border-radius: 10px;
+    }
+}
+.psoition-order div{
+    height:80px;
+}
+
+
+
+
+
 .signIn-image {
     background-image: url(../Images/login-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    height:1000px;
+    height: 1000px;
 }
+
 .signInImage {
-    background-image: url(../Images/SignIn.jpg);
+    /*background-image: url(../Images/SignIn.jpg);*/
     height: 500px;
     width: 500px;
     border: solid;
     position: relative;
     left: 100px;
 }
+
 .signUpImage {
-    background-image: url(../Images/background.jpg);
+    /*background-image: url(../Images/signup-sample.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
-    height: 1000px;
+    background-size: cover;*/
+    /*text-align: center;*/
+    opacity: 1;
+    transform: translateY(0px) scaleY(1);
+    height: 300px;
+    z-index: 2;
+    border-radius:20px;
+    /*width: 800px;*/
+    /*float:right;
+    margin-right:150px;
+    margin-top:100px;*/
+    /*left: 400px;
+    position: relative;
+    border-radius: 20px;*/
 }
 .signIn-position {
     position: relative;
@@ -91,21 +289,14 @@ body{
     text-align:center;
 }
 header {
-    height: 50px;
+    /*height: 100px;*/
     /*width: auto;*/
     /*max-width:1500px;*/
    position:relative;
     /*background-color: yellowgreen;*/
 }
 
-.link {
-    text-align: end;
-    background-color: #0dc7e5;
-    padding: 10px;
-    /*width:1500px;
-    max-width:1500px;*/
-    position: relative;
-}
+
 
 footer {
     text-align: center;
@@ -125,9 +316,7 @@ footer {
     color:aqua;
 }
 
-.alignment{
-    text-align:center;
-}
+
 
 .decoration{
     font-size:20px;
@@ -144,33 +333,10 @@ footer {
     padding: 15px 32px;*/
 }
 
-.menu {
-    font-size:x-large;
-    text-decoration: blink;
-    padding: 10px 17px 10px 12px;
-    color:white;
-    font-weight:bolder;
-}
-.button {
-    color: white;
-    font-weight:700;
-    padding: 10px 32px;
-    margin: 4px 2px;
-    text-decoration: none;
-    cursor: pointer;
-    background-color: #9CCC65;
-    border-radius:3px;
-}
 
-.signIn-textbox {
-    max-width: 600px;
-    height: 30px;
-    padding: 5px 12px;
-    font-size: 1rem;
-    margin-bottom: 50px;
-    border-radius: 5px;
-    margin-left: 50px;
-}
+
+
+
 .text_Password {
     width: 300px;
     height: 30px;
@@ -190,15 +356,7 @@ footer {
     left: 1300px;
     margin-top: 110px;
 }
-.signIn-label {
-    /*font-family: Constantia;
-    position: absolute;
-    left: 800px;
-    margin-top: 10px;
-    font-size: larger;*/
-    font-family:Constantia;
-    font-size:larger;
-}
+
 .label {
     font-family: Constantia;
     font-size:20px;
@@ -216,19 +374,8 @@ footer {
     left: 1000px;
     margin-top: 200px;
 }
-.account {
-    /*position: absolute;
-    left: 950px;*/
-    margin-top: 50px;
-    font-style: italic;
-    font-size: larger;
-}
-.signUpForm {
-    width: 200px;
-    height: 10px;
-    padding: 15px 25px;
-    font-size: 0.8rem;
-}
+
+
 
 .table{
     width:1150px;
@@ -262,16 +409,12 @@ footer {
 }
 
 .input {
-    border: 1px solid #ccc !important;
-    border-radius: 8px;
+    
     display: block;
     
 }
 
-.textbox{
-    padding:12px 25px;
-    width:300px;
-}
+
 
 /*.label{
     font-size:large;

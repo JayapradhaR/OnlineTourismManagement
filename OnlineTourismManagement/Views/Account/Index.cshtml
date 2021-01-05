@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineTourismManagement.Entity.Account>
+﻿@model IEnumerable<OnlineTourismManagement.Entity.Customer>
 
 @{
     ViewBag.Title = "Index";
@@ -15,9 +15,10 @@
             <th>Date of Birth</th>
             <th>Gender</th>
             <th>Mobile Number</th>
+            
         </tr>
     </thead>
-    @foreach(OnlineTourismManagement.Entity.Account items in Model)
+    @foreach(OnlineTourismManagement.Entity.Customer items in Model)
     {
         <tr>
             <td>@items.FirstName</td>
@@ -26,6 +27,7 @@
             <td>@items.DateOfBirth</td>
             <td>@items.Gender</td>
             <td>@items.MobileNumber</td>
+           
         </tr>
     }
 </table>

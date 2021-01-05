@@ -14,48 +14,51 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
-    <header >
+    <header>
         <div style="max-width:200px;">
-            <img src="~/Images/logo.jpg" alt="Logo"  class="view-image" @*width="300" height="100"*@/>
+            <img src="~/Images/logo.jpg" alt="Logo" class="view-image" @*width="300" height="100"*@ />
             <br />
             @*<span class="phone">+91 8270424607</span>*@
         </div>
-
     </header>
-    <br />  <br />
-    <div class="link">
-        @Html.ActionLink("Home", "Home", "Homepage", null, new { @class = "menu" })
-        
-        @Html.ActionLink("Register", "SignUp", "Account", null, new { @class = "menu" })
-        
-        @if (HttpContext.Current.User.IsInRole("Admin"))
-        {
-            <span> @Html.ActionLink("Package", "ViewPackage", "Package", null, new { @class = "menu" }) </span>
+    @*<br />  <br />*@
+<div class="link">
+    @Html.ActionLink("Home", "Home", "Homepage", null, new { @class = "menu" })
 
-            <span> @Html.ActionLink("Package type", "ViewPackageType", "PackageType", null, new { @class = "menu" }) </span>
+    <span>@Html.ActionLink("Packages", "ViewPackageType", "PackageType", null, new { @class = "menu" })</span>
 
-            <span> @Html.ActionLink("Customers", "Index", "Account", null, new { @class = "menu" })</span>
-        }
-        @if (HttpContext.Current.User.IsInRole("User"))
-        {
-            <span>@Html.ActionLink("Packages", "ViewPackageType", "PackageType", null, new { @class = "menu" })</span>
 
-            <span>@Html.ActionLink("Giftcards", "ViewGiftCardTypes", "GiftCardType", null, new { @class = "menu" })</span>
-        }
+    @if (HttpContext.Current.User.IsInRole("Admin"))
+    {
+        <span> @Html.ActionLink("Package", "ViewPackage", "Package", null, new { @class = "menu" }) </span>
 
-        @if (HttpContext.Current.User.Identity.IsAuthenticated)
-        {
-            <span> @Html.ActionLink("Logout", "LogOut", "Account", null, new { @class = "menu" }) </span>
-        }
-        else
-        {
-            <span> @Html.ActionLink("SignIn", "SignIn", "Account", null, new { @class = "menu" }) </span>
-        }
-    </div>
-    <br /><br />
-    <div>
-        @RenderBody()
-    </div>
+        <span> @Html.ActionLink("Package type", "ViewPackageType", "PackageType", null, new { @class = "menu" }) </span>
+
+        <span> @Html.ActionLink("Customers", "Index", "Account", null, new { @class = "menu" })</span>
+    }
+    @if (HttpContext.Current.User.IsInRole("User"))
+    {
+        //<span>@Html.ActionLink("Packages", "ViewPackageType", "PackageType", null, new { @class = "menu" })</span>
+
+        <span>@Html.ActionLink("Giftcards", "ViewGiftCardTypes", "GiftCardType", null, new { @class = "menu" })</span>
+    }
+
+    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+    {
+        <span> @Html.ActionLink("Logout", "LogOut", "Account", null, new { @class = "menu" }) </span>
+    }
+    else
+    {
+        <span> @Html.ActionLink("Register", "SignUp", "Account", null, new { @class = "menu" })</span>
+        <span> @Html.ActionLink("SignIn", "SignIn", "Account", null, new { @class = "menu" }) </span>
+    }
+
+</div>
+    @*<br /><br />*@
+    
+<div>
+    @RenderBody()
+</div>
 </body>
 </html>
 

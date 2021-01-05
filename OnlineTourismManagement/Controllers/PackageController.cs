@@ -27,6 +27,14 @@ namespace OnlineTourismManagement.Controllers
             IEnumerable<Package> pack = packages.GetPackageByTypeId(id);
             return View("ViewPackage", pack);
         }
+        public ActionResult SearchResults(string Search,string searchBy)
+        {
+            IEnumerable<Package> package = packages.SearchPackageByName(Search,searchBy);
+            //if (searchBy == "PackageName")
+                return View("ViewPackage", package);
+            //else
+            //    return View("ViewPackageType", "PackageType", package);
+        }
         //View package details
         public ViewResult ViewPackage()
         {
@@ -82,20 +90,23 @@ namespace OnlineTourismManagement.Controllers
         public ActionResult Update([Bind(Include = "PackageId,PackagePrice,PackageName,Duration,Availability,ImageSource,ImageFile")]PackageViewModel packageDetails)
         {
             if (ModelState.IsValid)
-            {
-                string fileName = Path.GetFileNameWithoutExtension(packageDetails.ImageFile.FileName);
-                string extension = Path.GetExtension(packageDetails.ImageFile.FileName);
-                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                packageDetails.ImageSource = "~/Images/PackageImages/" + fileName;
-                fileName = Path.Combine(Server.MapPath("~/Images/PackageImages/"), fileName);
-                packageDetails.ImageFile.SaveAs(fileName);
+            { 
                 Package package = packages.GetPackageById(packageDetails.PackageId);
                 package.PackageName = packageDetails.PackageName;
                 package.PackagePrice = packageDetails.PackagePrice;
                 package.Duration = packageDetails.Duration;
                 package.Availability = packageDetails.Availability;
                 package.UpdationDate = DateTime.Now;
-                package.ImageSource = packageDetails.ImageSource;
+                if (packageDetails.ImageFile != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(packageDetails.ImageFile.FileName);
+                    string extension = Path.GetExtension(packageDetails.ImageFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    packageDetails.ImageSource = "~/Images/PackageImages/" + fileName;
+                    fileName = Path.Combine(Server.MapPath("~/Images/PackageImages/"), fileName);
+                    packageDetails.ImageFile.SaveAs(fileName);
+                    package.ImageSource = packageDetails.ImageSource;
+                }
                 packages.UpdatePackage(package);
                 TempData["Message"] = "Package updated";
                 return RedirectToAction("ViewPackage");

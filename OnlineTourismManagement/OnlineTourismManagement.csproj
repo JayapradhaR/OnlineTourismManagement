@@ -113,6 +113,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Images\201612711253290.jpg" />
+    <Content Include="Images\background.jpeg" />
     <Content Include="Images\backgroundImage.jpeg" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\Home.jpg" />
@@ -122,8 +123,10 @@
     <Content Include="Images\Nature.jpg" />
     <Content Include="Images\PageLogo.jpg" />
     <Content Include="Images\Logo1.png" />
+    <Content Include="Images\register.jpeg" />
     <Content Include="Images\SignIn.jpg" />
     <Content Include="Images\SignIn.png" />
+    <Content Include="Images\signup-sample.jpg" />
     <Content Include="Images\SignUp.jpg" />
     <Content Include="Images\Signupp.jpg" />
     <Content Include="Images\SignUpImg.jpg" />
@@ -133,6 +136,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\custom-validators.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -232,6 +236,10 @@
     <ProjectReference Include="..\OnlineTourismManagement.BL\OnlineTourismManagement.BL.csproj">
       <Project>{e5d69768-b6a7-49df-984b-b2c17bf4c876}</Project>
       <Name>OnlineTourismManagement.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineTourismManagement.Common\OnlineTourismManagement.Common.csproj">
+      <Project>{84c02f1c-d91c-448c-a28a-4ec3c693c1a8}</Project>
+      <Name>OnlineTourismManagement.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\OnlineTourismManagement.Entity\OnlineTourismManagement.Entity.csproj">
       <Project>{c11ad651-aaad-47ba-931f-cdd408f1cc2b}</Project>

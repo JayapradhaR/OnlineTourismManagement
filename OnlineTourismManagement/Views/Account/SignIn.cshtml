@@ -1,54 +1,49 @@
 ﻿@model OnlineTourismManagement.Models.SignInViewModel
-
 @{
     ViewBag.Title = "SignIn";
 }
-
-@*@Html.Partial("_Content")*@
-
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <div class="signIn-image">
-        @using (Html.BeginForm("SignIn", "Account", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
-            <br /><br />
-                  <div class="signIn-position">
-                      <h1>Sign In</h1>
-                      <div>
-                          @Html.LabelFor(Model => Model.MailId, new { @class = "signIn-label" })
+    @using (Html.BeginForm("SignIn", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="position-signin">
+            <h1>Sign In</h1>
+            <div>
+                @Html.LabelFor(Model => Model.MailId, new { @class = "signIn-label" })
 
-                          @Html.TextBoxFor(Model => Model.MailId, new { placeholder = "Enter your mail id", @maxlength = "64", @class = "signIn-textbox" })
+                @Html.TextBoxFor(Model => Model.MailId, new { placeholder = "Enter your email", @maxlength = "64", @class ="signIn-textbox" })
 
-                          @Html.ValidationMessageFor(Model => Model.MailId, "",new { @class = "error" })
-                      </div>
-                     
-                      <div>
-                          @Html.LabelFor(Model => Model.Password, new { @class = "signIn-label" })
+                <div class="error-position">@Html.ValidationMessageFor(Model => Model.MailId, "", new { @class = "error" })</div>
+            </div>
+            <div>
+                @Html.LabelFor(Model => Model.Password, new { @class = "signIn-label" })
 
-                          @Html.PasswordFor(Model => Model.Password, new { placeholder = "Enter your password", @maxlength = "20", @class = "signIn-textbox" })
+                @Html.PasswordFor(Model => Model.Password, new { placeholder = "Enter your password", @maxlength = "20", @class = "signIn-textbox" })
 
-                          @Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error" })
-                      </div>
-                      <div>
-                          <input type="Submit" value="Sign In" class="button" />
-                          <input type="reset" name="Reset" value="Reset" class="button" />
-                      </div>
-
-                      @if (TempData["Message"] != null)
-                      {
-                          <script type="text/javascript">
+                <div class="error-position">@Html.ValidationMessageFor(Model => Model.Password, "", new { @class = "error" })</div>
+            </div>
+            <div>
+                <input type="Submit" value="Sign In" class="button" />
+                <input type="reset" name="Reset" value="Reset" class="button" />
+            </div>
+            @if (TempData["Message"] != null)
+            {
+                <script type="text/javascript">
                    window.onload = function () {
                         alert("@TempData["Message"]");
                    };
-                          </script>
-                      }
-                      <div class="account">
-                          Don't have an account ? @Html.ActionLink("Sign Up", "SignUp", "Account")
-                      </div>
-
-                  </div>
-        }
-    </div>
+                </script>
+            }
+            <div class="account">
+                Don't have an account ? @Html.ActionLink("Sign Up", "SignUp", "Account",new { @class="link-decoration"})
+            </div>
+        </div>
+    }
+</div>
 
 
 

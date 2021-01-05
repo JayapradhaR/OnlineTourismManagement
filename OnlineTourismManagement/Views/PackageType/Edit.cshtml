@@ -9,19 +9,18 @@
     @Html.AntiForgeryToken()
     @Html.HiddenFor(Model => Model.PackageTypeId)
 
-    <div style="text-align:center">
+    <div class="packageType-Position">
         <div>
             @Html.LabelFor(Model => Model.PackageTypeName,new { @class="label"})
-            @Html.EditorFor(Model => Model.PackageTypeName,new { @class="input textbox"})
+            @Html.EditorFor(Model => Model.PackageTypeName,new { htmlAttributes=new { @class = "textbox" } })
         </div>
-        <div>
-            <img width="300" height="200" src="@Url.Content(Model.ImageSource)" alt="@Model.PackageTypeName" />
+        <div style="height:300px;">
+            <img width="300" height="200" src="@Url.Content(Model.ImageSource)" alt="@Model.PackageTypeName" style="border-radius: 8px;" />
             <br />
             @Html.LabelFor(Model => Model.ImageSource, new { @class = "label" })
-            <input type="file" id="image" name="ImageFile" />
+            <input type="file" id="image" name="ImageFile" class="textbox"/>
         </div>
-        <br />
-        <div>
+        <div style="margin-left:60px;">
             @Html.ActionLink("Cancel", "ViewPackageType","",new { @class="button"})
 
             &nbsp; &nbsp;<input type="submit" value="Update" class="button" />

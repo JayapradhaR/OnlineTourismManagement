@@ -11,7 +11,7 @@ namespace OnlineTourismManagement.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [Authorize]
+    //[Authorize]
     public class PackageTypeController : Controller
     {
         IPackageTypeBL package;
@@ -30,6 +30,13 @@ namespace OnlineTourismManagement.Controllers
             IEnumerable<PackageType> packageType = package.GetPackageTypes();
             return View(packageType);
         }
+        //Search Package type
+        public ActionResult SearchResults(string search)
+        {
+            IEnumerable<PackageType> packageTypes = package.SearchResults(search);
+            return View("ViewPackageType",packageTypes);
+        }
+
         //Add the package type
         [HttpGet]
         public ViewResult AddPackageType()
@@ -67,15 +74,18 @@ namespace OnlineTourismManagement.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Update([Bind(Include = "PackageTypeId,PackageTypeName,ImageSource,ImageFile")]PackageTypeViewModel packageDetails)
         {
-            string fileName = Path.GetFileNameWithoutExtension(packageDetails.ImageFile.FileName);
-            string extension = Path.GetExtension(packageDetails.ImageFile.FileName);
-            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-            packageDetails.ImageSource = "~/Images/PackageTypeImages/" + fileName;
-            fileName = Path.Combine(Server.MapPath("~/Images/PackageTypeImages/"), fileName);
-            packageDetails.ImageFile.SaveAs(fileName);
             PackageType packages = package.GetPackageTypeById(packageDetails.PackageTypeId);
             packages.PackageTypeName = packageDetails.PackageTypeName;
-            packages.ImageSource = packageDetails.ImageSource;
+            if (packageDetails.ImageFile != null)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(packageDetails.ImageFile.FileName);
+                string extension = Path.GetExtension(packageDetails.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                packageDetails.ImageSource = "~/Images/PackageTypeImages/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/Images/PackageTypeImages/"), fileName);
+                packageDetails.ImageFile.SaveAs(fileName);
+                packages.ImageSource = packageDetails.ImageSource;
+            }
             package.UpdatePackageType(packages);
             TempData["Message"] = "Package type updated";
             return RedirectToAction("ViewPackageType");

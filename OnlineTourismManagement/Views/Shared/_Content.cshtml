@@ -1,5 +1,16 @@
-﻿@model OnlineTourismManagement.Entity.Package
+﻿@model IEnumerable<OnlineTourismManagement.Entity.Package>
 
 <link rel="stylesheet" type="text/css" href="~/Styles/Styles.css" />
-<h2 class="content">Welcome to TIME TO TOUR</h2>
 
+<div style="text-align:center;margin-bottom:20px;margin-top:20px;">
+    @using (Html.BeginForm("SearchResults", "Package", FormMethod.Get))
+    {
+        <p class="searchBy">
+            Search by :
+            @Html.RadioButton("searchBy", "PackageName", true)<text>Package Name</text>
+            @Html.RadioButton("searchBy", "PackageType")<text>Package Type</text>
+        </p>
+        @Html.TextBox("Search", "", new { placeholder = "Search packages..!", @class = "searchBox" });
+        <input type="submit" value="Search" class="searchButton" />
+    }
+</div>
